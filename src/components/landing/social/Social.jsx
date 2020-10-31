@@ -1,5 +1,6 @@
 import React from 'react';
 import videos from './video/videos';
+import './Social.css';
 
 function Social() {
 
@@ -22,7 +23,6 @@ function Social() {
                                         </iframe>
                                     </div>
                                 </div>
-                                
                             )
                         } else if (video.type === streamingVideo) {
                             return (

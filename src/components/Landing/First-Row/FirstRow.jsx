@@ -1,4 +1,5 @@
 import React from 'react';
+import './FirstRow.css';
 
 function FirstRow() {
 	return (
