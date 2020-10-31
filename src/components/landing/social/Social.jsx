@@ -5,8 +5,13 @@ function Social() {
 
     const youtubeVideo = 'youtube-video';
     const streamingVideo ='streaming';
-    const videoWidth = 200;
+    const videoWidth = 300;
     const videoHeight = 164.29;
+
+    const screenWidth = window.innerWidth;
+
+    const videoWidthMediaQuery = 200;
+    const videoHeightMediaQuery = 164.29;
 
     return (
             <div className="landing__container__social">
@@ -17,7 +22,7 @@ function Social() {
                                 <div class="landing__container__social__streaming-block">
                                     <span class="landing__container__social__video__title">{video.title}</span>
                                     <div className="landing__container__social__video social__block-element" id={video.title}>
-                                        <iframe width={videoWidth} height={videoHeight} src={video.url} 
+                                        <iframe width={`${videoWidth}px`} height={videoHeight} src={video.url} 
                                         frameborder="0"  title={video.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen">
                                         </iframe>
                                     </div>
@@ -40,7 +45,7 @@ function Social() {
                     })
                 }
             </div>
-    )
+        )
 }
 
 export default Social;
