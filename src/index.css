@@ -11,8 +11,52 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
+}
+
+.landing__header--first-row {
+	width: 100vw;
+	height: 500px;
+	overflow: hidden;
+	position: relative;
+}
+
+.landing__header--bg-image {
+	position: absolute;
+	background-image: url('https://assets.pokemon.com/assets//cms2-es-es/img/trading-card-game/_tiles/tcgo/generic/tcgo-playmat-action-169-es.png');
+	height: 500px;
+	width: 100vw;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	filter: blur(5px);
+	-webkit-filter: blur(5px);
+	transform: scale(1.1);
+	z-index: -999;
+}
+
+.landing__header--description {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin: auto 0;
+	left: 0;
+	width: 300px;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+	padding: 30px;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	line-height: 30px;
+	border-radius: 0 25px 25px 0;
+}
+
+.landing__header--logo {
+	position: absolute;
+	right: 150px;
+	top: 0;
+	bottom: 0;
+	margin: auto 0;
 }
 
 /*////////////////// SOCIAL //////////////////*/
