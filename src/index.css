@@ -1,13 +1,133 @@
 body {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Lato', sans-serif;;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Mobile */
+
+/* Desktop */
+
+.title__body {
+	display: none;
+}
+
+.desktop-header {
+    position: fixed;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		top: 0;
+		right: 0;
+		left: 0;
+		height: 60px;
+		background: linear-gradient(to bottom, #1e5799 0%,#207cca 80%,#2989d8 100%,#7db9e8 100%);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+.desktop-header__logo {
+  display: flex;
+  padding-left: 20px;
+  padding-right: 20px;
+  flex: 1;
+}
+
+#logo__pokeball {
+		width: 40px;
+		cursor: pointer;
+}
+
+#logo__cards {
+		width: 45px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.desktop-header__options {
+  display: flex;
+  flex: 1;
+}
+
+.desktop-header__menu-bar {
+  position: relative;
+  display: inline-block;
+}
+
+.menu-bar__dropdown {
+  background-color: transparent;
+  cursor: pointer;
+  color: white;
+  border: 1px;
+  outline: none;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  border-radius: 2%;
+  background: linear-gradient(to bottom, #1e5799 0%,#207cca 80%,#2989d8 100%,#7db9e8 100%);
+  padding: 10px 16px;
+  min-width: 180px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content span {
+  color: white;
+  font-weight: 400;
+  font-size: 14px;
+  text-decoration: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: block;
+  cursor: pointer;
+}
+
+.desktop-header__menu-bar:hover .dropdown-content {
+  display: block;
+}
+
+.menu-bar__dropdown:hover,
+.dropdown-content span:hover:hover {
+  color: #ffe300;
+}
+
+.desktop-header__login {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.desktop-header__login > div {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+#logo__login {
+  width: 20px;
+}
+
+.desktop-header__login span {
+  color: black;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.login__enter:hover {
+  color: #ffe300;
+}
+
+.desktop-header__logotgc {
+  padding-right: 20px;
+}
+
+#logo__tgc {
+  width: 100px;
+  cursor: pointer;
 }
