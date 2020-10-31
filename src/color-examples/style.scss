@@ -1,0 +1,177 @@
+body {
+    margin: 0;
+}
+
+$pokemonPaletteWhite: rgb(255, 255, 255);
+$pokemonPaletteYellow: rgb(251, 215, 67);
+$pokemonPaletteRed: rgb(255, 31, 31);
+$pokemonPaletteLightBlue: rgb(93, 185, 255);
+$pokemonPaletteDarkBlue: rgb(54, 59, 129);
+
+$headerBackgroundColor: linear-gradient(to bottom, #5c87ed 0%, #006ec9 39%, #006ec9 65%, #3096e5 100%);
+
+$firstLookBackgroundColor:rgb(224, 224, 224);
+$firsLookDescriptionTextColor: rgb(19, 19, 19);
+$firstLookDescriptionTextBackgroundColor:rgba(240, 255, 240, 0.788);
+
+$cardSectionBackgroundColor:cadetblue;
+
+$SocialBackgroundColor:green;
+$SocialVideoBackgroundColor:$pokemonPaletteRed;
+$SocialStreamingBackgroundColor:rgb(136, 69, 136);
+
+
+
+.landing__header {
+    display: flex;
+    width: 100%;
+    height: 70px;
+    justify-content: space-around;
+    align-items: center;
+    background: $headerBackgroundColor;
+    color: $pokemonPaletteYellow;
+
+    .landing__header__logo {
+        width: 40%;
+        display: flex;
+        align-items: center;
+        justify-self: flex-start;
+        margin: 5%;
+    }
+
+    .landing__header__title {
+        width: 30%;
+
+        h2 {
+            font-size: 35px;
+            font-weight: 900;
+            letter-spacing: 10PX;
+        }
+    }
+
+    .landing__header__nav {
+        width: 30%;
+        display: flex;
+        justify-content: flex-end;
+        padding: 20px;
+
+        .nav__icon {
+            padding: 3px
+        }
+    }
+}
+
+.landing__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: auto;
+
+    .landing__container__firstLook {
+        width: 100%;
+        height: auto;
+        background-color: $firstLookBackgroundColor;
+        padding: 30px;
+
+        .landing__container__firstLook__description {
+            display: flex;
+            align-items: center;
+
+            .description {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 65%;
+
+                .description-text {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 60%;
+                    line-height: 50px;
+                    padding: 30px;
+                    color: $firsLookDescriptionTextColor;
+                    background-color: $firstLookDescriptionTextBackgroundColor;
+                    border-radius: 25px;
+                    font-weight: 900;
+                    font-size: 20px;
+                }
+            }
+
+            .banner {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 35%;
+
+                #banner-image {
+                    width: 300px;
+                    border-radius: 30px;
+                }
+            }
+        }
+    }
+
+    .landing__container__cardSection {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        background-color: $cardSectionBackgroundColor;
+        padding: 20px;
+        padding-left: 200px;
+
+        .landing__container__cardSection_cards {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: auto;
+
+            .card__image {
+                width: 160px;
+                height: auto;
+                padding: 10px;
+                border-radius: 20px;
+            }
+        }
+
+        .landing__container__cardSection_myDeck {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60%;
+
+            .deck__image {
+                width: 250px;
+                height: auto;
+                padding: 10px;
+            }
+        }
+    }
+
+    .landing__container__social {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        padding: 60px;
+        background-color: $SocialBackgroundColor;
+
+        .landing__container__social__video {
+            width: 160px;
+            height: 120px;
+            background-color: $SocialVideoBackgroundColor;
+            border-radius: 25px;
+        }
+
+        .landing__container__social__streaming {
+            width: 160px;
+            height: 120px;
+            background-color: $SocialStreamingBackgroundColor;
+            border-radius: 25px;
+        }
+    }
+}

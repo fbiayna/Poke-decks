@@ -1,0 +1,17 @@
+This is a html with pre-defined sections simulating the landing page.
+It's style works with scss, and all variables are declared at the
+beggining of the scss file, so it's easy to manipulate.
+
+It's functionality consists in fast checks of different palettes with visual help.
+
+Of course, you can change the size of the elements, but it's not intended to determinate
+the sizes, but the color styles.
+
+Feel free to do what you like anyways! :D
+
+!!ATENTION!!
+You must install the "Sass/Less/Scss/Typescript/Javascript/Jade/Pug Compile Hero Pro"
+extension and set it on in order to modify the css file from the scss one.
+
+
+Open index html with Live server to see the page. The css file is stored in 'dist' folder.
