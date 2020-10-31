@@ -21,7 +21,6 @@ code {
 	overflow: hidden;
 	position: relative;
 }
-
 .landing__header--bg-image {
 	position: absolute;
 	background-image: url('https://assets.pokemon.com/assets//cms2-es-es/img/trading-card-game/_tiles/tcgo/generic/tcgo-playmat-action-169-es.png');
@@ -35,7 +34,6 @@ code {
 	transform: scale(1.1);
 	z-index: -999;
 }
-
 .landing__header--description {
 	position: absolute;
 	top: 0;
@@ -50,7 +48,6 @@ code {
 	line-height: 30px;
 	border-radius: 0 25px 25px 0;
 }
-
 .landing__header--logo {
 	position: absolute;
 	right: 150px;
