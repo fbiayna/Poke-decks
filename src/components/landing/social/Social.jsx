@@ -6,6 +6,7 @@ function Social() {
     const youtubeVideo = 'youtube-video';
     const streamingVideo ='streaming';
 
+
     return (
             <div className="landing__container__social">
                 {
@@ -13,7 +14,9 @@ function Social() {
                         if (video.type === youtubeVideo) {
                             return (
                                 <div className="landing__container__social__video">
-                                    <iframe width="420" height="345" title={video.title} src={video.url}>
+                                    <iframe className="landing__container__social__video__iframe" src={video.url} 
+                                    frameborder="0"  title={video.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen>
                                     </iframe>
                                 </div>
                             )
@@ -21,6 +24,7 @@ function Social() {
                             return (
                                 <div className="landing__container__social__streaming">
                                     <img src={video.icon} alt={video.title}/>
+                                    {console.log(video.icon)}
                                 </div>
                             )
                         }
