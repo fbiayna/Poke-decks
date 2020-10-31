@@ -1,17 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './index.css';
 import Landing from './components/Landing/Landing';
 import reportWebVitals from './reportWebVitals';
+import Landing from './components/Landing/Landing';
 
 ReactDOM.render(
-	<React.StrictMode>
-		<BrowserRouter>
-			<Route path="/" component={Landing} />
-		</BrowserRouter>
-	</React.StrictMode>,
-	document.getElementById('root')
+  <React.StrictMode>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" component={Landing} />
+      </Switch>
+    </BrowserRouter>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
