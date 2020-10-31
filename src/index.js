@@ -1,13 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Router } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Landing from './components/Landing/Landing';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Landing/>
+    <BrowserRouter>
+      <Route path="/" component={Landing} />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
