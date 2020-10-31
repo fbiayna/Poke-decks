@@ -1,12 +1,13 @@
 import React from 'react';
 import Social from './Social/Social';
-
+import FirstRow from './First-Row/FirstRow';
 
 function Landing() {
 
-    return <div className="landing">
+    return <>
+        <FirstRow />
         <Social />
-    </div>
+    </>
 }
 
 export default Landing;
