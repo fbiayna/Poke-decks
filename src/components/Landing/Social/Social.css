@@ -1,0 +1,75 @@
+.landing__container__social {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 450px;
+    padding: 10px;
+    background-image: url('https://trello-attachments.s3.amazonaws.com/5f8ca3639574d3550b3ad495/5f9cb0e6b6fed24123256da4/c87be3f6c32c7ceeef09823019b0dcb1/liveevents-2020-2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .landing__container__social__video {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 200px;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform .2s; /* Animation */
+  }
+  
+  .landing__container__social__streaming-block,
+  .landing__container__social__streaming-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .landing__container__social__streaming {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    min-width: 200px;
+    height: 164.29px;
+    border-radius: 20px;
+    transition: transform .2s;
+    cursor: pointer;
+  }
+  
+  .landing__container__social__streaming__twitch-icon {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .landing__container__social__video:hover,
+  .landing__container__social__streaming:hover {
+    transform: scale(1.1);
+  }
+  
+  
+  .social__block-element {
+    margin: 15px;
+  }
+  
+  .landing__container__social__video__title {
+    text-transform: capitalize;
+    font-size: 30px;
+    color: rgb(251, 215, 67);
+    text-shadow: 2px 0 0 rgb(54, 59, 129), -2px 0 0 rgb(54, 59, 129), 0 2px 0 rgb(54, 59, 129), 0 -2px 0 rgb(54, 59, 129), 1px 1px rgb(54, 59, 129), -1px -1px 0 rgb(54, 59, 129), 1px -1px 0 rgb(54, 59, 129), -1px 1px 0 rgb(54, 59, 129);
+    padding-bottom: 5px;
+  }
+  
+  @media (max-width:690px) {
+    .landing__container__social {
+      flex-direction: column;
+      background-image: url('https://trello-attachments.s3.amazonaws.com/5f8ca3639574d3550b3ad495/5f9cb0e6b6fed24123256da4/9ad05327addafd1e7ff610e9e758f316/wp5125804.jpg');
+      height: auto;
+    }
+  }
