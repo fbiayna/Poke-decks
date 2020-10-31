@@ -5,6 +5,9 @@ function Social() {
 
     const youtubeVideo = 'youtube-video';
     const streamingVideo ='streaming';
+    const videoWidth = 200;
+    const videoHeight = 164.29;
+
 
 
     return (
@@ -13,18 +16,18 @@ function Social() {
                     videos.map((video) => {
                         if (video.type === youtubeVideo) {
                             return (
-                                <div className="landing__container__social__video">
-                                    <iframe className="landing__container__social__video__iframe" src={video.url} 
+                                <div className="landing__container__social__video social__block-element" id={video.title}>
+                                    <iframe width={videoWidth} height={videoHeight} src={video.url} 
                                     frameborder="0"  title={video.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                     allowfullscreen>
                                     </iframe>
                                 </div>
+                                
                             )
                         } else if (video.type === streamingVideo) {
                             return (
-                                <div className="landing__container__social__streaming">
-                                    <img src={video.icon} alt={video.title}/>
-                                    {console.log(video.icon)}
+                                <div className="landing__container__social__streaming social__block-element" style={{backgroundImage: `url(${video.image})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}>
+                                    <img src={video.icon} alt={video.title} class="landing__container__social__streaming__twitch-icon"/>
                                 </div>
                             )
                         }
