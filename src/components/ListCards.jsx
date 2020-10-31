@@ -5,7 +5,6 @@ import cardsStore from '../stores/store';
 function ListCards () {
 
     const [cards, setCards] = useState(null);
-    debugger
 
     function handleChange() {
         setCards(cardsStore.getCards())
@@ -23,7 +22,7 @@ function ListCards () {
     }, [cards])
 
     return (
-    <ul>{cards?.map((card) => <li>{card.id}</li>)}</ul>
+    <ul>{cards?.cards.map((card) => <li>{card.id}</li>)}</ul>
     )
 }
 
