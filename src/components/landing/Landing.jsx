@@ -1,5 +1,5 @@
 import React from 'react';
-import Social from './social/Social';
+import Social from './Social/Social';
 
 
 function Landing() {
