@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Landing from './components/Landing/Landing';
@@ -8,7 +8,9 @@ import Landing from './components/Landing/Landing';
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Route path="/" component={Landing} />
+      <Switch>
+        <Route path="/" component={Landing} />
+      </Switch>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
