@@ -4,7 +4,6 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './index.css';
 import Landing from './components/Landing/Landing';
 import reportWebVitals from './reportWebVitals';
-import Landing from './components/Landing/Landing';
 
 ReactDOM.render(
   <React.StrictMode>
