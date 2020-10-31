@@ -28,9 +28,11 @@ function Social() {
                             return (
                                 <div class="landing__container__social__streaming-block">
                                     <span class="landing__container__social__video__title">{video.title}</span>
-                                    <div className="landing__container__social__streaming social__block-element" style={{backgroundImage: `url(${video.image})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}>
-                                        <img src={video.icon} alt={video.title} class="landing__container__social__streaming__twitch-icon"/>
-                                    </div>
+                                       <a href={video.url}>
+                                        <div className="landing__container__social__streaming social__block-element" style={{backgroundImage: `url(${video.image})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}>
+                                            <img src={video.icon} alt={video.title} class="landing__container__social__streaming__twitch-icon"/>
+                                        </div>
+                                       </a>
                                 </div>
                             )
                         }
