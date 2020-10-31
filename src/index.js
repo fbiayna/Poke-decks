@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ListCards from './components/ListCards';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import Landing from './components/landing/Landing';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ListCards/>
+    <Landing/>
   </React.StrictMode>,
   document.getElementById('root')
 );
