@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { loadCards } from '../actions/action-creators';
-import cardsStore from '../stores/store';
+import { loadCards } from '../../actions/action-creators';
+import cardsStore from '../../stores/store';
 
 function ListCards () {
 

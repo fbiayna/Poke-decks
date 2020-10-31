@@ -1,17 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Header from './components/Header ';
-import ListCards from './components/ListCards';
-import './index.css';
+import { BrowserRouter, Route } from 'react-router-dom'
+import Header from './components/header/Header';
+import ListCards from './components/list-cards/ListCards';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <BrowserRouter>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet"></link>
     <Header/>
     <ListCards/>
-    <script src="https://kit.fontawesome.com/e5fa61ddd0.js" crossorigin="anonymous"/>
+    <Route path="/" exact component={""}/>
+    <Route path="/cards" exact component={""}/>
+    <Route path="/my-decks" exact component={""}/>
+    <Route path="/social" exact component={""}/>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
