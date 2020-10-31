@@ -1,6 +1,6 @@
 This is a html with pre-defined sections simulating the landing page.
-It's style works with scss file, and all variables are declared at the
-beggining of the scss, so it's easy to manipulate.
+It's style works with scss, and all variables are declared at the
+beggining of the scss file, so it's easy to manipulate.
 
 It's functionality consists in fast checks of different palettes with visual help.
 
