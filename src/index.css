@@ -14,3 +14,53 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/*////////////////// SOCIAL //////////////////*/
+
+.landing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background-color: beige;
+}
+
+.landing__container__social {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.landing__container__social__video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.landing__container__social__streaming {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 164.29px;
+  border-radius: 20px;
+
+}
+
+.landing__container__social__streaming__twitch-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.landing__container__social__video:hover,
+.landing__container__social__streaming:hover {
+  transform: scale(1.2);
+}
+
+
+.social__block-element {
+  margin: 15px;
+}
