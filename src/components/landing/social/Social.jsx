@@ -8,11 +8,6 @@ function Social() {
     const videoWidth = 300;
     const videoHeight = 164.29;
 
-    const screenWidth = window.innerWidth;
-
-    const videoWidthMediaQuery = 200;
-    const videoHeightMediaQuery = 164.29;
-
     return (
             <div className="landing__container__social">
                 {
