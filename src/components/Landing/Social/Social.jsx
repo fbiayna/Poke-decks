@@ -6,8 +6,8 @@ function Social() {
 
     const youtubeVideo = 'youtube-video';
     const streamingVideo ='streaming';
-    const videoWidth = 300;
-    const videoHeight = 164.29;
+    const videoWidth = 230;
+    const videoHeight = 160;
 
     return (
             <div className="landing__container__social">
