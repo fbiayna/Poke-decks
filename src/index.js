@@ -10,13 +10,14 @@ import reportWebVitals from './reportWebVitals';
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet"></link>
       <Header/>
       <Switch>
         <Route path="/" component={Landing} />
         <Route path="/cards" exact component={ListCards}/>
         <Route path="/my-decks" exact component={""}/>
         <Route path="/social" exact component={""}/>
+        <Route path="/detail/:cardid" component={""}/>
+				<Route component={"NotFound"} />
       </Switch>
     </BrowserRouter>
   </React.StrictMode>,

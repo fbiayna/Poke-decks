@@ -14,6 +14,12 @@ body {
     height: 60px;
     background: linear-gradient(to bottom, #1e5799 20%,#207cca 80%,#2989d8 100%,#7db9e8 100%);
     box-shadow: 1px 1px #1e5799;
+    z-index: 1000;
+}
+
+.test {
+    z-index: 999;
+    height: 60px;
 }
 
 .title__body {
