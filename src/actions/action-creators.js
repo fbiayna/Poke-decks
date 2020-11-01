@@ -2,24 +2,39 @@ import actionTypes from './actiontypes';
 import dispatcher from '../dispatcher/dispatcher';
 
 let idpage = 1;
-let sizepage = 500
+let sizepage = 500;
 
-export async function loadCards () {
-    const response = await fetch(`https://api.pokemontcg.io/v1/cards?page=${idpage}&pageSize=${sizepage}`)
-    const cards = await response.json();
+export async function loadCards() {
+	const response = await fetch(
+		`https://api.pokemontcg.io/v1/cards?page=${idpage}&pageSize=${sizepage}`
+	);
+	const cards = await response.json();
 
-    dispatcher.dispatch({
-        type: actionTypes.loadCards,
-        payload: cards,
-    })
+	dispatcher.dispatch({
+		type: actionTypes.loadCards,
+		payload: cards
+	});
 }
 
-export async function loadRandomCards () {
-    const response = await fetch(`https://api.pokemontcg.io/v1/cards?page=1&pageSize=500`)
-    const cards = await response.json();
+export async function loadRandomCards() {
+	const response = await fetch(
+		`https://api.pokemontcg.io/v1/cards?page=1&pageSize=500`
+	);
+	const cards = await response.json();
 
-    dispatcher.dispatch({
-        type: actionTypes.loadRandomCards,
-        payload: cards,
-    })
+	dispatcher.dispatch({
+		type: actionTypes.loadRandomCards,
+		payload: cards
+	});
+}
+
+export async function loadCard(cardId) {
+	debugger;
+	const response = await fetch(`https://api.pokemontcg.io/v2/cards/${cardId}`);
+	const card = await response.json();
+
+	dispatcher.dispatch({
+		type: actionTypes.loadCard,
+		payload: card
+	});
 }
