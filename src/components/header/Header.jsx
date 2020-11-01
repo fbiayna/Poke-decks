@@ -37,8 +37,10 @@ function Header () {
                 </div>
                 <Link className="header__links" to="/"><img src={headerLogo.url} alt={headerLogo.title} className="desktop-header__title"/></Link>
                 <div className="desktop-header__login">
-                    <span id="login__icon" className="material-icons">person_add</span>
-                    <span id="login__sign">SIGN IN</span>
+                    <div className="desktop-header__login__block">
+                        <span id="login__icon" className="material-icons">person_add</span>
+                        <span id="login__sign">SIGN IN</span>
+                    </div>
                 </div>
                 <div className="desktop-header__logotgc">
                     <a href="https://www.pokemon.com/us/pokemon-tcg/"><img id="logo__tgc" alt="error"
