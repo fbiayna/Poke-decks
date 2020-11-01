@@ -1,6 +1,7 @@
 import React from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
+import headerLogo from './image/headerLogo';
 
 function Header () {
 
@@ -33,7 +34,7 @@ function Header () {
                         </div>
                     </div>
                 </div>
-                <Link className="header__links" to="/"><p className="desktop-header__title">DECK MASTERS</p></Link>
+                <Link className="header__links" to="/"><img src={headerLogo.url} alt={headerLogo.title} className="desktop-header__title"/></Link>
                 <div className="desktop-header__login">
                     <span id="login__icon" className="material-icons">person_add</span>
                     <span id="login__sign">SIGN IN</span>
