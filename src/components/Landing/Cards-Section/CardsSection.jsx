@@ -2,7 +2,9 @@ import React from 'react';
 import MyDecks from './my-decks/MyDecks';
 
 function CardsSection() {
-    <MyDecks />
+    return (
+        <MyDecks />
+    )
 }
 
 export default CardsSection;
