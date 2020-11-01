@@ -16,6 +16,12 @@ body {
     box-shadow: 1px 1px #1e5799;
 }
 
+.desktop-header__title {
+    width: 200px;
+    height: auto;
+    cursor: pointer;
+}
+
 .title__body {
     display: none;
 }
