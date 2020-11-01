@@ -1,0 +1,36 @@
+.cardsSection__myDeck {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+}
+
+.cardsSection__myDeck__deckBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform .2s;
+}
+
+.MyDeck-Links:link, .MyDeck-Links:visited, .MyDeck-Links:active {
+    outline-style: none;
+    text-decoration:none;
+}
+
+.cardsSection__myDeck__deckBlock:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.cardsSection__myDeck__deckBlock>img {
+    width: 200px;
+}
+
+.cardsSection__myDeck__deckBlock__title {
+    text-transform: capitalize;
+    font-size: 30px;
+    color: rgb(251, 215, 67);
+    text-shadow: 2px 0 0 rgb(54, 59, 129), -2px 0 0 rgb(54, 59, 129), 0 2px 0 rgb(54, 59, 129), 0 -2px 0 rgb(54, 59, 129), 1px 1px rgb(54, 59, 129), -1px -1px 0 rgb(54, 59, 129), 1px -1px 0 rgb(54, 59, 129), -1px 1px 0 rgb(54, 59, 129);
+    padding-bottom: 5px;
+}
