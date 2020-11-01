@@ -1,13 +1,13 @@
 import React from 'react';
 import Social from './Social/Social';
 import FirstRow from './First-Row/FirstRow';
-import CardSearchLanding from './Cards-Section/Cards-Search/CardSearchLanding';
+import CardsSection from './Cards-Section/CardsSection';
 
 function Landing() {
 
     return <>
         <FirstRow />
-        <CardSearchLanding/>
+        <CardsSection />
         <Social />
     </>
 }

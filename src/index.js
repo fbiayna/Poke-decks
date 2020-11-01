@@ -6,6 +6,7 @@ import ListCards from './components/list-cards/ListCards';
 import './index.css';
 import Landing from './components/Landing/Landing';
 import reportWebVitals from './reportWebVitals';
+import Footer from './components/Footer/Footer';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -19,6 +20,7 @@ ReactDOM.render(
         <Route path="/detail/:cardid" component={""}/>
 				<Route component={"NotFound"} />
       </Switch>
+      <Footer/>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

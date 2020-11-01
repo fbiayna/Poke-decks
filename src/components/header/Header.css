@@ -22,6 +22,12 @@ body {
     height: 60px;
 }
 
+.desktop-header__title {
+    width: 200px;
+    height: auto;
+    cursor: pointer;
+}
+
 .title__body {
     display: none;
 }

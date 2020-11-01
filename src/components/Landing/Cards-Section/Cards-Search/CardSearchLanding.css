@@ -4,14 +4,6 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
-.landing__container__cardSection {
-    display: flex;
-    align-items: center;
-    width: auto;
-    height: 450px;
-    background-color: rgb(219, 219, 219);
-}
-
 .cardSection__images {
     display: flex;
     flex-direction: column;
