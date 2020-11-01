@@ -15,5 +15,6 @@
 @media (max-width: 690px) {
     .landing__cards-section {
         flex-direction: column;
+        height: auto;
     }
 }
