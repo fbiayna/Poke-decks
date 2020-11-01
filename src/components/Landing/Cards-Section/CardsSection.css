@@ -9,3 +9,9 @@
     align-items: center;
     border-bottom: 2px solid white;
 }
+
+@media (max-width: 690px) {
+    .landing__cards-section {
+        flex-direction: column;
+    }
+}
