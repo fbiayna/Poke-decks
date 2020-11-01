@@ -58,7 +58,7 @@
 
 .cardsSection__myDeck__deckBlock>img {
     width: 30%;
-    min-width: 100px;
+    min-width: 140px;
 }
 
 .cardsSection__myDeck__deckBlock__title {
@@ -68,4 +68,20 @@
     color: rgb(251, 215, 67);
     text-shadow: 2px 0 0 rgb(54, 59, 129), -2px 0 0 rgb(54, 59, 129), 0 2px 0 rgb(54, 59, 129), 0 -2px 0 rgb(54, 59, 129), 1px 1px rgb(54, 59, 129), -1px -1px 0 rgb(54, 59, 129), 1px -1px 0 rgb(54, 59, 129), -1px 1px 0 rgb(54, 59, 129);
     padding-bottom: 5px;
+}
+
+@media (max-width: 690px) {
+    .cardsSection__myDeck__block {
+        width: 80%;
+        height: 40%;
+        margin: 10px 0;
+        border-radius: 25px;
+    }
+
+    .cardsSection__myDeck__title {
+        font-size: 20px;
+    }
+    .cardsSection__myDeck__deckBlock:hover {
+        transform: scale(1.05);
+    }
 }
