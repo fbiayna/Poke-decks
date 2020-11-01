@@ -9,6 +9,7 @@
     background-image: url('https://trello-attachments.s3.amazonaws.com/5f8ca3639574d3550b3ad495/5f9cb0e6b6fed24123256da4/c87be3f6c32c7ceeef09823019b0dcb1/liveevents-2020-2.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    border-bottom: 2px solid white;
   }
   
   .landing__container__social__video {
