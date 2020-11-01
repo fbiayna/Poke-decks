@@ -8,6 +8,7 @@ function Header () {
     return (
         <>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet"></link>
+        <div className="test"></div>
         <h1 className="title__body">Pokémon TCG - Deck Masters</h1>
         <nav className="mobile-header">
             <h2 className="title__body">Deck Masters - Header</h2>

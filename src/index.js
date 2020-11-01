@@ -9,23 +9,21 @@ import reportWebVitals from './reportWebVitals';
 import Footer from './components/Footer/Footer';
 
 ReactDOM.render(
-	<React.StrictMode>
-		<BrowserRouter>
-			<link
-				href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
-				rel="stylesheet"
-			></link>
-			<Header />
-			<Switch>
-				<Route path="/" component={Landing} />
-				<Route path="/cards" exact component={ListCards} />
-				<Route path="/my-decks" exact component={''} />
-				<Route path="/social" exact component={''} />
-			</Switch>
-			<Footer />
-		</BrowserRouter>
-	</React.StrictMode>,
-	document.getElementById('root')
+  <React.StrictMode>
+    <BrowserRouter>
+      <Header/>
+      <Switch>
+        <Route path="/" component={Landing} />
+        <Route path="/cards" exact component={ListCards}/>
+        <Route path="/my-decks" exact component={""}/>
+        <Route path="/social" exact component={""}/>
+        <Route path="/detail/:cardid" component={""}/>
+				<Route component={"NotFound"} />
+      </Switch>
+      <Footer/>
+    </BrowserRouter>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
