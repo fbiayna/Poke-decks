@@ -13,7 +13,6 @@ function CardSearchLanding() {
     }
 
     useEffect(() => {
-
         cardsStore.addEventListener(handleChange);
 
         if (!cards || !cards.length) {
@@ -22,7 +21,7 @@ function CardSearchLanding() {
 
         return () => {cardsStore.removeEventListener(handleChange)}
 
-    },[cards])
+    },[cards]);
 
     return (
         <div className="cardSection__images">

@@ -1,18 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { loadDecks } from '../../../../actions/action-creators';
+import cardsStore from '../../../../stores/store';
 import './MyDecks.css';
 
 function MyDecks() {
 
-    const myDecks = [
-        {
-        title: 'My Deck Name', 
-        totalcards: 0, 
-        id:0,
-        imagealt: 'card-pile',
-        url: 'https://trello-attachments.s3.amazonaws.com/5f8ca3639574d3550b3ad495/5f9cb0e6b6fed24123256da4/0b8025e8ab38f7b89454be9b91dd114a/91yL1H9fBdL.svg'
+    const [decks, setDecks] = useState(cardsStore.getDecks());
+
+    function handleChange() {
+        setDecks(cardsStore.getDecks());
     }
-    ];
+
+    useEffect(() => {
+        cardsStore.addEventListener(handleChange);
+
+        if (!decks || decks.length < 1) {
+            loadDecks();
+        }
+
+        return () => {cardsStore.removeEventListener(handleChange)}
+    }, [decks]);
 
     return (    
             <div className="cardsSection__myDeck__block">
@@ -21,7 +29,7 @@ function MyDecks() {
                 </div>
                 <div className="cardsSection__myDeck">
                     {
-                        myDecks.map((deck) => 
+                        decks.map((deck) => 
                         <Link to="/my-decks" className="MyDeck-Links">
                             <div className="cardsSection__myDeck__deckBlock">
                                 <span className="cardsSection__myDeck__deckBlock__title">{deck.title}</span>

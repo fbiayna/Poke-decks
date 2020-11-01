@@ -13,8 +13,11 @@ class CardsStore extends EventEmitter {
 	}
 
 	getRandomCards() {
+		debugger;
 		let random = Math.floor(Math.random() * 496);
-		return this.getCards().cards.slice(random, random + 3);
+		let randomCards = this.getCards().cards.slice(random, random + 3);
+		debugger;
+		return randomCards;
 	}
 
 	getCard() {
@@ -59,6 +62,7 @@ dispatcher.register((action) => {
 			break;
 
 		case actionTypes.loadDecks:
+			debugger;
 			_decks = action.payload;
 			cardsStore.emitChange();
 			break;
