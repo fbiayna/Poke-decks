@@ -52,6 +52,7 @@ body {
     cursor: pointer;
     transition: transform .2s;
     border-radius: 5px;
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.5);
 }
 
 .cards__png-info:hover {
