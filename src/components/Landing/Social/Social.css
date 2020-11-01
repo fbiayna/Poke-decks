@@ -19,7 +19,7 @@
     min-width: 200px;
     border-radius: 20px;
     overflow: hidden;
-    transition: transform .2s; /* Animation */
+    transition: transform .2s;
   }
   
   .landing__container__social__streaming-block,
