@@ -58,6 +58,11 @@ dispatcher.register((action) => {
 			cardsStore.emitChange();
 			break;
 
+		case actionTypes.loadDecks:
+			_decks = action.payload;
+			cardsStore.emitChange();
+			break;
+
 		default:
 			break;
 	}
