@@ -37,6 +37,12 @@ function Detail(props) {
 		}
 	}
 
+	function pokemonHp() {
+		if (card?.card.hp!==undefined) {
+			return `HP: ${card?.card.hp}`
+		}
+	}
+
 	function pokemonType() {
 		if (card?.card.types!==undefined) {
 			return card.card.types.map((type) => <li>Type: {type}</li>)
@@ -45,8 +51,20 @@ function Detail(props) {
 
 	function pokemonAttacks() {
 		if (card?.card.attacks!==undefined) {
-		return card.card.attacks.map((attack) => <li>Attack Name: {attack.name}<p>Cost: {attack.cost}</p><p>Description: {attack.text}</p><p>Damage: {attack.damage}</p><p>Converted Energy Cost: {attack.convertedEnergyCost}</p></li>)
+		return card.card.attacks.map((attack) => <li>{attack.name} | {attack.cost} | Damage: {attack.damage}<p>{attack.text}</p><p>Converted Energy Cost: {attack.convertedEnergyCost}</p></li>)
 		}
+	}
+
+	function pokemonResist() {
+		if (card?.card.resistances!==undefined) {
+			return card.card.resistances.map((resist) => <li>Resistance: {resist.type} | {resist.value}</li>)
+			}
+	}
+
+	function pokemonWeak() {
+		if (card?.card.weaknesses!==undefined) {
+			return card.card.weaknesses.map((weak) => <li>Weakness: {weak.type} | {weak.value}</li>)
+			}
 	}
 
 	return (
@@ -70,8 +88,11 @@ function Detail(props) {
 					</div>
 					<div className="description__pokemon">
 						<p>{pokedex()}</p>
+						<p>{pokemonHp()}</p>
 						<ul>{pokemonType()}</ul>
 						<ul>{pokemonAttacks()}</ul>
+						<ul>{pokemonResist()}</ul>
+						<ul>{pokemonWeak()}</ul>
 					</div>
 				</div>
 			</div>
