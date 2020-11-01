@@ -1,0 +1,18 @@
+.detail-container {
+    display: flex;
+    padding: 20px 20px;
+}
+
+.detail-container__image {
+    width: 100%;
+    display: flex;
+    
+}
+
+#image__poke-card {
+    width: 60%;
+}
+
+.detail-container__description {
+    width: 100%;
+}

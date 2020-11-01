@@ -14,11 +14,11 @@ ReactDOM.render(
 		<BrowserRouter>
 			<Header />
 			<Switch>
-				<Route path="/" component={Landing} />
+				<Route path="/" exact component={Landing} />
 				<Route path="/cards" exact component={ListCards} />
 				<Route path="/my-decks" exact component={''} />
 				<Route path="/social" exact component={''} />
-				<Route path="/detail/:cardid" component={Detail} />
+				<Route path="/detail/:cardid" exact component={Detail} />
 				<Route component={'NotFound'} />
 			</Switch>
 			<Footer />
