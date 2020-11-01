@@ -1,0 +1,11 @@
+.landing__cards-section {
+    background-image: url('https://trello-attachments.s3.amazonaws.com/5f8ca3639574d3550b3ad495/5f9cb0e6b6fed24123256da4/0b687a1a091b86ef5c02453e09541a2a/New_Project.jpg');
+    background-position: top;
+	background-repeat: no-repeat;
+    background-size: cover;
+    height: 470px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-bottom: 2px solid white;
+}
