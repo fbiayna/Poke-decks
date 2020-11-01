@@ -5,7 +5,7 @@
     background-size: cover;
     height: 470px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-around;
     align-items: center;
     border-bottom: 2px solid white;
 }
@@ -13,5 +13,6 @@
 @media (max-width: 690px) {
     .landing__cards-section {
         flex-direction: column;
+        height: 700px;
     }
 }
