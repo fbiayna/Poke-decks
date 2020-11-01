@@ -7,23 +7,24 @@ import './index.css';
 import Landing from './components/Landing/Landing';
 import reportWebVitals from './reportWebVitals';
 import Footer from './components/Footer/Footer';
+import Detail from './components/Detail/Detail';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Header/>
-      <Switch>
-        <Route path="/" component={Landing} />
-        <Route path="/cards" exact component={ListCards}/>
-        <Route path="/my-decks" exact component={""}/>
-        <Route path="/social" exact component={""}/>
-        <Route path="/detail/:cardid" component={""}/>
-				<Route component={"NotFound"} />
-      </Switch>
-      <Footer/>
-    </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById('root')
+	<React.StrictMode>
+		<BrowserRouter>
+			<Header />
+			<Switch>
+				<Route path="/" component={Landing} />
+				<Route path="/cards" exact component={ListCards} />
+				<Route path="/my-decks" exact component={''} />
+				<Route path="/social" exact component={''} />
+				<Route path="/detail/:cardid" component={Detail} />
+				<Route component={'NotFound'} />
+			</Switch>
+			<Footer />
+		</BrowserRouter>
+	</React.StrictMode>,
+	document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
