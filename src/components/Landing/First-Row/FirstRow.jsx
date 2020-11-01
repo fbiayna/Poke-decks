@@ -15,7 +15,7 @@ function FirstRow() {
 				</p>
 				<div className="landing__header--logo">
 					<img
-						src="https://trello-attachments.s3.amazonaws.com/5f8ca3639574d3550b3ad495/5f9cb0e6b6fed24123256da4/0f2bbc509d773898be637ebff6aeec9e/Master-Dex_(1).png"
+						src="https://trello-attachments.s3.amazonaws.com/5f8ca3639574d3550b3ad495/5f9cb0e6b6fed24123256da4/5008bece5d858b116da1ee25fae6206e/Poke-Decks.png"
 						alt="website-logo"
 						className="website-logo"
 					/>
