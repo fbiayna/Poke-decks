@@ -29,6 +29,23 @@ body {
     padding-bottom: 5px;
 }
 
+.images__title {
+    transition: transform .2s
+}
+
+.images__title > p {
+    color: black;
+}
+
+.images__title:hover {
+    transform: scale(1.1);
+}
+
+.title__link:link, .title__link:visited, .title__link:active {
+    outline-style: none;
+    text-decoration: none;
+}
+
 .images__cards {
     display: flex;
     flex-direction: row;
@@ -41,6 +58,7 @@ body {
     height: auto;
     max-height: 275px;
     cursor: pointer;
+    transition: transform .2s
 }
 
 .cards__png-info:hover {
