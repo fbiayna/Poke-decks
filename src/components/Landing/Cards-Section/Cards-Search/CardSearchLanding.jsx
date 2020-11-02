@@ -6,8 +6,8 @@ import './CardSearchLanding.css';
 
 function CardSearchLanding() {
 
-    const [cards, setCards] = useState([]);
-
+    const [cards, setCards] = useState(cardsStore.getRandomCards());
+    debugger;
     function handleChange() {
         setCards(cardsStore.getRandomCards());
     }
