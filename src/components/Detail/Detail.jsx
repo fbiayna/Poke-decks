@@ -26,19 +26,35 @@ function Detail(props) {
 
 	function rules() {
 		if (Array.isArray(card.card?.text)) {
-			return `Rules: ${card.card.text}`;
+			return (
+				<div className="pokemon-card__description">
+					<span>Rules</span>
+					<p>{card.card.text}</p>
+				</div>
+			);
+		}
+	}
+
+	function ability() {
+		if (card.card?.ability !== undefined) {
+			return (
+				<div className="pokemon-card__description">
+					<span>{card.card.ability.name}</span>
+					<p>{card.card.ability.text}</p>
+				</div>
+			);
 		}
 	}
 
 	function pokedex() {
 		if (card.card?.nationalPokedexNumber !== undefined) {
-			return `Pokédex Number: #${card?.card.nationalPokedexNumber}`;
+			return `Pokédex Number - #${card?.card.nationalPokedexNumber}`;
 		}
 	}
 
 	function pokemonHp() {
 		if (card.card?.hp !== undefined) {
-			return `HP ${card.card.hp}`;
+			return `${card.card.hp} HP`;
 		}
 	}
 
@@ -46,7 +62,7 @@ function Detail(props) {
 		if (card.card?.evolvesFrom !== undefined) {
 			return (
 				<div>
-					<span>Evolve from: </span>
+					<span>Evolve from - </span>
 					<Link to={`../cards/?name=${card?.card.evolvesFrom}`}><span>{card?.card.evolvesFrom}</span></Link>
 				</div>
 			)
@@ -64,16 +80,15 @@ function Detail(props) {
 	function pokemonAttacks() {
 		if (card.card?.attacks !== undefined) {
 			return card.card.attacks.map((attack) => (
-				<li>
+				<div className="pokemon-card__description">
 					{attack.cost.map((energy) => (
 						<i className={`energy ${energy}`}></i>
 					))}
 					<span>
-						{attack.name} | {attack.damage}
+						{attack.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{attack.damage}
 					</span>
 					<p>{attack.text}</p>
-					<p>Converted Energy Cost: {attack.convertedEnergyCost}</p>
-				</li>
+				</div>
 			));
 		}
 	}
@@ -82,15 +97,15 @@ function Detail(props) {
 		if (card.card?.resistances !== undefined) {
 			return (
 				<div className="pokemon__resistance">
-					<span>Resistances: </span>
-					<p>
-						{card.card?.resistance.map((resist) => (
-							<span>
+					<span>Resistances</span>
+					<div>
+						{card.card?.resistances.map((resist) => (
+							<p>
 								<i className={`energy ${resist.type}`}></i>
 								<span>{resist.value}</span>
-							</span>
+							</p>
 						))}
-					</p>
+					</div>
 				</div>
 			);
 		}
@@ -100,15 +115,15 @@ function Detail(props) {
 		if (card.card?.weaknesses !== undefined) {
 			return (
 				<div className="pokemon__weakness">
-					<span>Weakness: </span>
-					<p>
+					<span>Weakness</span>
+					<div>
 						{card.card?.weaknesses.map((weak) => (
-							<span>
+							<p>
 								<i className={`energy ${weak.type}`}></i>
 								<span>{weak.value}</span>
-							</span>
+							</p>
 						))}
-					</p>
+					</div>
 				</div>
 			);
 		}
@@ -118,7 +133,7 @@ function Detail(props) {
 		if (card.card?.retreatCost !== undefined) {
 			return (
 				<div className="pokemon__retreat">
-					<span>Retreat Cost: </span>
+					<span>Retreat Cost</span>
 					<p>
 						{card.card.retreatCost.map((retreat) => (
 							<i className={`energy ${retreat}`}></i>
@@ -132,6 +147,7 @@ function Detail(props) {
 	return (
 		<>
 			<div className="detailcard-container">
+				<div className="opacity"></div>
 				<div className="detailcard-container__image">
 					<img
 						id="image__poke-card"
@@ -147,20 +163,21 @@ function Detail(props) {
 						<p>{pokemonType()}</p>
 					</div>
 					<div className="description__set">
-						<p>Set: {card.card?.set}</p>
-						<p>Rarity: {card.card?.rarity}</p>
+						<p>Set - {card.card?.set}</p>
+						<p>Rarity - {card.card?.rarity}</p>
 					</div>
-					<div className="description__rules">
-						<p>{rules()}</p>
-					</div>
+					<p>{ability()}</p>
+					<p>{rules()}</p>
 					<div className="description__pokemon">
-						<p>{pokedex()}</p>
-						<p>{pokemonEvolve()}</p>
-						<ul>{pokemonAttacks()}</ul>
+						<div className="pokemon__dex">
+							{pokedex()}
+							{pokemonEvolve()}
+						</div>
+						<p>{pokemonAttacks()}</p>
 						<div className="pokemon__other-type">
-							<span>{pokemonResist()}</span>
-							<span>{pokemonWeak()}</span>
-							<span>{pokemonRetreat()}</span>
+							{pokemonResist()}
+							{pokemonWeak()}
+							{pokemonRetreat()}
 						</div>
 					</div>
 				</div>

@@ -15,14 +15,14 @@ ReactDOM.render(
 			<Header />
 			<Switch>
 				<Route path="/" exact component={Landing} />
-				{/* <Route path="/cards" exact component={ListCards} /> */}
-				<Route path="/cards" exact component={List} />
+				{/* <Route path="/cards" exact component={List} /> */}
+				<Route path="/cards" exact component={""} />
 				<Route path="/my-decks" exact component={''} />
 				<Route path="/social" exact component={''} />
 				<Route path="/detail/:cardid" exact component={Detail} />
 				<Route component={'NotFound'} />
 			</Switch>
-			<Footer />
+			{/* <Footer /> */}
 		</BrowserRouter>
 	</React.StrictMode>,
 	document.getElementById('root')
