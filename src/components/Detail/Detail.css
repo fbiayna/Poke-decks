@@ -1,20 +1,46 @@
-.detail-container {
-    display: flex;
-    padding: 20px 20px;
+body {
+    padding: 0;
+    margin: 0;
+    background-color: rgb(245, 245, 245);
 }
 
-.detail-container__image {
-    width: 100%;
+.detailcard-container {
+    padding: 40px;
     display: flex;
-    
+    justify-content: space-between;
+}
+
+.description__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 1px solid grey;
+}
+
+.detailcard-container__image {
+    width: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;   
+}
+
+.detailcard-container__description {
+    width: auto;
+    padding: 0 100px;
 }
 
 #image__poke-card {
-    width: 60%;
+    max-width: 400px;
+    width: 100%;
 }
 
 .detail-container__description {
     width: 100%;
+}
+
+.pokemon__other-type {
+    display: flex;
+    justify-content: space-around;
 }
 
 .energy {

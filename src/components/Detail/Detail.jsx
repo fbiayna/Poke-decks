@@ -5,9 +5,8 @@ import './Detail.css';
 import { loadCard } from '../../actions/action-creators';
 
 function Detail(props) {
-	debugger;
 	const [cardId] = useState(props.match.params.cardid);
-	const [card, setCard] = useState(null);
+	const [card, setCard] = useState(cardsStore.getCard());
 
 	function handleChange() {
 		setCard(cardsStore.getCard());
@@ -16,7 +15,7 @@ function Detail(props) {
 	useEffect(() => {
 		cardsStore.addEventListener(handleChange);
 
-		if (!card) {
+		if (!card || !card.length) {
 			loadCard(cardId);
 		}
 
@@ -26,36 +25,36 @@ function Detail(props) {
 	}, [card, cardId]);
 
 	function rules() {
-		if (Array.isArray(card?.card.text)) {
+		if (Array.isArray(card.card?.text)) {
 			return `Rules: ${card.card.text}`;
 		}
 	}
 
 	function pokedex() {
-		if (card?.card.nationalPokedexNumber !== undefined) {
+		if (card.card?.nationalPokedexNumber !== undefined) {
 			return `Pokédex Number: #${card?.card.nationalPokedexNumber}`;
 		}
 	}
 
 	function pokemonHp() {
-		if (card?.card.hp !== undefined) {
-			return `HP: ${card?.card.hp}`;
+		if (card.card?.hp !== undefined) {
+			return `HP ${card.card.hp}`;
 		}
 	}
 
 	function pokemonEvolve() {
-		if (card?.card.evolvesFrom !== undefined) {
+		if (card.card?.evolvesFrom !== undefined) {
 			return (
 				<div>
 					<span>Evolve from: </span>
-					<Link to={`./cards/?name=${card?.card.evolvesFrom}`}><span>{card?.card.evolvesFrom}</span></Link>
+					<Link to={`../cards/?name=${card?.card.evolvesFrom}`}><span>{card?.card.evolvesFrom}</span></Link>
 				</div>
 			)
 		}
 	}
 
 	function pokemonType() {
-		if (card?.card.types !== undefined) {
+		if (card.card?.types !== undefined) {
 			return card.card.types.map((type) => (
 				<i className={`energy ${type}`}></i>
 			));
@@ -63,7 +62,7 @@ function Detail(props) {
 	}
 
 	function pokemonAttacks() {
-		if (card?.card.attacks !== undefined) {
+		if (card.card?.attacks !== undefined) {
 			return card.card.attacks.map((attack) => (
 				<li>
 					{attack.cost.map((energy) => (
@@ -80,53 +79,51 @@ function Detail(props) {
 	}
 
 	function pokemonResist() {
-		if (card?.card.resistances !== undefined) {
+		if (card.card?.resistances !== undefined) {
 			return (
 				<div className="pokemon__resistance">
 					<span>Resistances: </span>
-					<span>
-						{card.card.resistance.map((resist) => (
-							<li>
+					<p>
+						{card.card?.resistance.map((resist) => (
+							<span>
 								<i className={`energy ${resist.type}`}></i>
 								<span>{resist.value}</span>
-							</li>
+							</span>
 						))}
-					</span>
+					</p>
 				</div>
 			);
 		}
 	}
 
 	function pokemonWeak() {
-		if (card?.card.weaknesses !== undefined) {
+		if (card.card?.weaknesses !== undefined) {
 			return (
 				<div className="pokemon__weakness">
 					<span>Weakness: </span>
-					<span>
-						{card.card.weaknesses.map((weak) => (
-							<li>
+					<p>
+						{card.card?.weaknesses.map((weak) => (
+							<span>
 								<i className={`energy ${weak.type}`}></i>
 								<span>{weak.value}</span>
-							</li>
+							</span>
 						))}
-					</span>
+					</p>
 				</div>
 			);
 		}
 	}
 
 	function pokemonRetreat() {
-		if (card?.card.retreatCost !== undefined) {
+		if (card.card?.retreatCost !== undefined) {
 			return (
 				<div className="pokemon__retreat">
 					<span>Retreat Cost: </span>
-					<span>
+					<p>
 						{card.card.retreatCost.map((retreat) => (
-							<li>
-								<i className={`energy ${retreat}`}></i>
-							</li>
+							<i className={`energy ${retreat}`}></i>
 						))}
-					</span>
+					</p>
 				</div>
 			);
 		}
@@ -134,36 +131,37 @@ function Detail(props) {
 
 	return (
 		<>
-			<div className="detail-container">
-				<div className="detail-container__image">
+			<div className="detailcard-container">
+				<div className="detailcard-container__image">
 					<img
 						id="image__poke-card"
 						alt="error"
-						src={card?.card.imageUrlHiRes}
+						src={card.card?.imageUrlHiRes}
 					></img>
 				</div>
-				<div className="detail-container__description">
+				<div className="detailcard-container__description">
 					<div className="description__title">
-						<h2>{card?.card.name}</h2>
-						<p>{card?.card.supertype}</p>
-						<p>{card?.card.subtype}</p>
+						<h2>{card.card?.name}</h2>
+						<p>{card.card?.supertype}{` - ${card.card?.subtype}`}</p>
+						<p>{pokemonHp()}</p>
+						<p>{pokemonType()}</p>
 					</div>
 					<div className="description__set">
-						<p>Set: {card?.card.set}</p>
-						<p>Rarity: {card?.card.rarity}</p>
+						<p>Set: {card.card?.set}</p>
+						<p>Rarity: {card.card?.rarity}</p>
 					</div>
 					<div className="description__rules">
 						<p>{rules()}</p>
 					</div>
 					<div className="description__pokemon">
 						<p>{pokedex()}</p>
-						<p>{pokemonHp()}</p>
 						<p>{pokemonEvolve()}</p>
-						<ul>{pokemonType()}</ul>
 						<ul>{pokemonAttacks()}</ul>
-						<ul>{pokemonResist()}</ul>
-						<ul>{pokemonWeak()}</ul>
-						<ul>{pokemonRetreat()}</ul>
+						<div className="pokemon__other-type">
+							<span>{pokemonResist()}</span>
+							<span>{pokemonWeak()}</span>
+							<span>{pokemonRetreat()}</span>
+						</div>
 					</div>
 				</div>
 			</div>
