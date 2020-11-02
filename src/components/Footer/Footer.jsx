@@ -6,26 +6,26 @@ function Footer() {
 		<div className="footer-container">
 			<div className="footer__about-us">
 				<h5>ABOUT US</h5>
-				<p>You can reach us at:</p>
+				<p>You can reach us at: info@poke-decks.com</p>
 
 				<div className="footer__info">
 					<div className="address">
 						<h6 className="footer__about-us--headers">ADDRESS</h6>
-						<address>Roc Boronat 35 - 08005 Barcelona</address>
+						<address>Pallet Town 35 - 08005 Kanto</address>
 					</div>
 
 					<br />
 
 					<div className="email">
 						<h6 className="footer__about-us--headers">HAVE ANY QUESTIONS?</h6>
-						<p>contact@mail.com</p>
+						<p>info@poke-decks.com</p>
 					</div>
 
 					<br />
 
 					<div className="phone">
 						<h6 className="footer__about-us--headers">PHONE</h6>
-						<p>+XX (0) XX XX-XXXX-XXXX</p>
+						<p>+34 (6) 40 12-9873-12345</p>
 					</div>
 				</div>
 			</div>
