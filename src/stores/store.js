@@ -13,7 +13,7 @@ class CardsStore extends EventEmitter {
 	}
 
 	getRandomCards() {
-		debugger
+		debugger;
 		let random = Math.floor(Math.random() * 996);
 		return this.getCards().cards?.slice(random, random + 3);
 	}
@@ -42,7 +42,6 @@ class CardsStore extends EventEmitter {
 const cardsStore = new CardsStore();
 
 dispatcher.register((action) => {
-	debugger;
 	switch (action.type) {
 		case actionTypes.loadCards:
 			cards = action.payload;
@@ -63,7 +62,7 @@ dispatcher.register((action) => {
 			_decks = action.payload;
 			cardsStore.emitChange();
 			break;
-		
+
 		case actionTypes.loadList:
 			cards = action.payload;
 			cardsStore.emitChange();

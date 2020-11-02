@@ -22,7 +22,7 @@
 .landing__header--bg-image {
 	position: absolute;
 	background-image: url('https://assets.pokemon.com/assets//cms2-es-es/img/trading-card-game/_tiles/tcgo/generic/tcgo-playmat-action-169-es.png');
-	height: 400px;
+	height: 500px;
 	width: 100vw;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -67,23 +67,23 @@
 }
 
 @media (max-width: 900px) {
-
 	.landing__header--first-row {
 		flex-direction: column-reverse;
 		position: relative;
 		display: flex;
 		align-items: center;
 		justify-content: space-around;
+		padding-bottom: 40px;
+		padding-top: 30px;
 	}
 }
 
 @media screen and (max-width: 690px) {
-
 	.landing__header--logo {
 		margin-top: 50px;
 		margin-bottom: 20px;
 	}
-	
+
 	.header--content__text {
 		width: 80%;
 		margin-bottom: 30px;

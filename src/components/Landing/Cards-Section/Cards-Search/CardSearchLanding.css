@@ -11,7 +11,7 @@ body {
 	text-align: center;
 	justify-content: space-around;
 	background-color: rgba(0, 0, 0, 0.7);
-	border-radius: 25px 25px 25px 25px;
+	border-radius: 0px 25px 25px 0px;
 	width: 48%;
 	z-index: 1;
 }
@@ -55,7 +55,6 @@ body {
 .cards__png-info {
 	width: 90%;
 	max-width: 180px;
-	height: auto;
 	max-height: 250px;
 	cursor: pointer;
 	transition: transform 0.2s;
@@ -86,18 +85,18 @@ body {
 	background-color: #133863;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1024px) {
 	#cards__png-info-2 {
 		display: none;
 	}
 }
 
-@media screen and (max-width: 690px) {
+@media screen and (max-width: 900px) {
 	.cardSection__images {
 		width: 95%;
 		margin-top: 40px;
-		margin-bottom: 20px;
 		padding-left: 3px;
 		padding-right: 3px;
+		border-radius: 25px 25px 25px 25px;
 	}
 }

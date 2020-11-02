@@ -1,200 +1,210 @@
 body {
-    padding: 0;
-    margin: 0;
-    font-family: 'Lato', sans-serif;;
-  }
+	padding: 0;
+	margin: 0;
+	font-family: 'Lato', sans-serif;
+}
 
 .desktop-header {
-    position: fixed;
-    display: flex;
-    align-items: center;
-    top: 0;
-    right: 0;
-    left: 0;
-    height: 60px;
-    padding-left: 20px;
-    background: linear-gradient(to bottom, #1e5799 20%,#207cca 80%,#2989d8 100%,#7db9e8 100%);
-    box-shadow: 1px 1px #1e5799;
-    z-index: 1000;
+	position: fixed;
+	display: flex;
+	align-items: center;
+	top: 0;
+	right: 0;
+	left: 0;
+	height: 60px;
+	padding-left: 20px;
+	background: linear-gradient(
+		to bottom,
+		#1e5799 20%,
+		#207cca 80%,
+		#2989d8 100%,
+		#7db9e8 100%
+	);
+	box-shadow: 1px 1px #1e5799;
+	z-index: 1000;
 }
 
 .test {
-    z-index: 999;
-    height: 60px;
+	z-index: 999;
+	height: 60px;
 }
 
 .desktop-header__title {
-    width: 200px;
-    height: auto;
-    cursor: pointer;
+	width: 200px;
+	height: auto;
+	cursor: pointer;
 }
 
 .title__body {
-    display: none;
+	display: none;
 }
 
 #login__icon {
-    font-size: 30px;
+	font-size: 30px;
 }
 
 @media screen and (max-width: 900px) {
+	.desktop-header__title {
+		display: none;
+	}
 
-    .desktop-header__title {
-    display: none;
-    }
-
-    #login__sign {
-    display: none;
-    }
-
+	#login__sign {
+		display: none;
+	}
 }
 
 @media screen and (max-width: 715px) {
+	#logo__tgc {
+		display: none;
+	}
 
-    #logo__tgc {
-    display: none;
-    }
+	#logo__cards {
+		display: none;
+	}
 
-    #logo__cards {
-    display: none;
-    }
-
-    #logo__login {
-    display: none;
-    }
-
+	#logo__login {
+		display: none;
+	}
 }
-    
+
 .desktop-header__logo {
-    display: flex;
+	display: flex;
 }
 
 #logo__pokeball {
-    width: 40px;
-    margin-right: 5px;
-    cursor: pointer;
-    transition: transform 0.5s;
+	width: 40px;
+	margin-right: 5px;
+	cursor: pointer;
+	transition: transform 0.5s;
 }
 
 #logo__pokeball:hover {
-    transform: rotate(45deg);
+	transform: rotate(45deg);
 }
 
 #logo__cards {
-        width: 45px;
-    cursor: pointer;
-    margin-left: 5px;
-    padding-right: 10px;
+	width: 45px;
+	cursor: pointer;
+	margin-left: 5px;
+	padding-right: 10px;
 }
 
 .desktop-header__options {
-    display: flex;
-    flex: 1;
+	display: flex;
+	flex: 1;
 }
 
 .desktop-header__menu-bar {
-    position: relative;
-    display: inline-block;
+	position: relative;
+	display: inline-block;
 }
 
 .menu-bar__dropdown {
-    background-color: transparent;
-    text-align: center;
-    cursor: pointer;
-    color: white;
-    border: 1px;
-    outline: none;
-    font-weight: 700;
-    font-size: 14px;
+	background-color: transparent;
+	text-align: center;
+	cursor: pointer;
+	color: white;
+	border: 1px;
+	outline: none;
+	font-weight: 700;
+	font-size: 14px;
 }
 
 .menu-bar__logotgc {
-    width: auto;
-    padding-right: 10px;
+	width: auto;
+	padding-right: 10px;
 }
 
 .dropdown-content {
-    display: none;
-    position: absolute;
-    z-index: 1;
-    border-radius: 2%;
-    background: linear-gradient(to bottom, #1e5799 0%,#207cca 80%,#2989d8 100%,#7db9e8 100%);
-    padding: 10px 16px;
-    min-width: 120px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	display: none;
+	position: absolute;
+	z-index: 1;
+	border-radius: 2%;
+	background: linear-gradient(
+		to bottom,
+		#1e5799 0%,
+		#207cca 80%,
+		#2989d8 100%,
+		#7db9e8 100%
+	);
+	padding: 10px 16px;
+	min-width: 120px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
 .dropdown-content span {
-    color: white;
-    font-weight: 400;
-    font-size: 14px;
-    text-decoration: none;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    display: block;
-    cursor: pointer;
+	color: white;
+	font-weight: 400;
+	font-size: 14px;
+	text-decoration: none;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	display: block;
+	cursor: pointer;
 }
 
 .desktop-header__menu-bar:hover .dropdown-content {
-    display: block;
+	display: block;
 }
 
 .menu-bar__dropdown:hover,
 .dropdown-content span:hover:hover {
-    color: #ffe300;
+	color: #ffe300;
 }
 
 .desktop-header__login {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .desktop-header__login__block {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-.desktop-header__login__block:hover >span{
-    color: #ffe300;
+.desktop-header__login__block:hover > span {
+	color: #ffe300;
 }
 
 .desktop-header__title {
-    color: #ffe300;
-    font-weight: 700;
-    font-size: 22px;
-    cursor: pointer;
+	color: #ffe300;
+	font-weight: 700;
+	font-size: 22px;
+	cursor: pointer;
 }
 
 .desktop-header__login span {
-    color: rgb(255, 255, 255);
-    font-weight: 700;
-    font-size: 14px;
-    cursor: pointer;
-    margin-left: 5px;
+	color: rgb(255, 255, 255);
+	font-weight: 700;
+	font-size: 14px;
+	cursor: pointer;
+	margin-left: 5px;
 }
 
 .desktop-header__logotgc {
-    display: block;
-    justify-content: flex-end;
-    flex: 0.25;
-    padding-right: 0px;
+	display: block;
+	justify-content: flex-end;
+	flex: 0.25;
+	padding-right: 0px;
 }
 
 #logo__tgc {
-    width: 100px;
-    padding-right: 20px;
-    cursor: pointer;
+	width: 100px;
+	padding-right: 20px;
+	cursor: pointer;
 }
 
 #menu-bar__trading {
-    padding-left: 20px;
-    width: 150px;
+	padding-left: 20px;
+	width: 150px;
 }
 
-.header__links:link, .header__links:visited, .header__links:active {
-    outline-style: none;
-    text-decoration:none;
+.header__links:link,
+.header__links:visited,
+.header__links:active {
+	outline-style: none;
+	text-decoration: none;
 }
