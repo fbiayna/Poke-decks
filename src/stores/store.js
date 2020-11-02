@@ -5,6 +5,7 @@ import actionTypes from '../actions/actiontypes';
 const change = 'change';
 let cards = [];
 let card;
+let _decks = [];
 
 class CardsStore extends EventEmitter {
 	getCards() {
@@ -19,6 +20,10 @@ class CardsStore extends EventEmitter {
 
 	getCard() {
 		return card;
+	}
+
+	getDecks() {
+		return _decks;
 	}
 
 	addEventListener(callback) {
@@ -54,6 +59,11 @@ dispatcher.register((action) => {
 			cardsStore.emitChange();
 			break;
 
+		case actionTypes.loadDecks:
+			_decks = action.payload;
+			cardsStore.emitChange();
+			break;
+		
 		case actionTypes.loadList:
 			cards = action.payload;
 			cardsStore.emitChange();
