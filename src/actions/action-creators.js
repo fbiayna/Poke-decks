@@ -38,9 +38,11 @@ export async function loadCard(cardId) {
 	});
 }
 
-export async function loadList() {
+export async function loadList(cardName) {
 	debugger;
-	const response = await fetch(`https://api.pokemontcg.io/v1/cards`);
+	const response = await fetch(
+		`https://api.pokemontcg.io/v1/cards?name=${cardName}`
+	);
 	const cardList = await response.json();
 
 	dispatcher.dispatch({
