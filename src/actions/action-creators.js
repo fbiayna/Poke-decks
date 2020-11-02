@@ -1,6 +1,5 @@
 import actionTypes from './actiontypes';
 import dispatcher from '../dispatcher/dispatcher';
-import decks from '../components/Decks/data/decks.json';
 
 let idpage = 1;
 let sizepage = 500;
@@ -37,15 +36,14 @@ export async function loadCard(cardId) {
 	});
 }
 
-export function loadDecks() {
-	
-	const userDecks = decks;
-
+export async function loadDecks() {
+	debugger;
+	const response = await fetch('../components/Decks/data/decks.json');
+	const decks = await response.json();
 	dispatcher.dispatch({
 		type: actionTypes.loadDecks,
-		payload: userDecks
+		payload: decks
 	})
-
 }
 
 export async function loadList() {
