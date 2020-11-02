@@ -36,7 +36,7 @@ function CardSearchLanding() {
 			</Link>
 			<div className="images__cards">
 				{cards?.map((card, index) => (
-					<Link to={`/detail/${card.id}`}>
+					<Link key={`detail-${card.name}`} to={`/detail/${card.id}`}>
 						<img
 							className="cards__png-info"
 							id={`cards__png-info-${index}`}

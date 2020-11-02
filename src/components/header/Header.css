@@ -155,8 +155,9 @@ body {
 .desktop-header__login {
 	flex: 1;
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	justify-content: flex-end;
+    align-items: center;
+    margin-right: 30px;
 }
 
 .desktop-header__login__block {
