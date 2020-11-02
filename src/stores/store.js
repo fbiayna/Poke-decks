@@ -53,6 +53,11 @@ dispatcher.register((action) => {
 			cardsStore.emitChange();
 			break;
 
+		case actionTypes.loadList:
+			cards = action.payload;
+			cardsStore.emitChange();
+			break;
+
 		default:
 			break;
 	}
