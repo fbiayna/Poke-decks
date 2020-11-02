@@ -27,7 +27,7 @@ function CardSearchLanding() {
         <div className="cardSection__images">
             <Link className="title__link" to="/cards"><div className="images__title">
                 <h2>SEARCH BY CARDS</h2>
-                <p>Do you need information about any card?<br></br>Find it with Master Deck' search tool!</p>
+                <p>Do you need information about any card?<br></br>Find it with Poke-Decks' search tool!</p>
             </div></Link>
             <div className="images__cards">
             {cards?.map((card,index) => <Link to={`/detail/${card.id}`}><img className="cards__png-info" id={`cards__png-info-${index}`} alt='error' src={card.imageUrl}/></Link>)}
