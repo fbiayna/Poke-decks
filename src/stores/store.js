@@ -72,7 +72,7 @@ dispatcher.register((action) => {
 			_decks = action.payload;
 			cardsStore.emitChange();
 			break;
-		
+
 		case actionTypes.loadList:
 			cards = action.payload;
 			cardsStore.emitChange();
