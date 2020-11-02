@@ -4,18 +4,28 @@ import actionTypes from '../actions/actiontypes';
 
 const change = 'change';
 let cards = [];
-let card;
+let card = null;
 let _decks = [];
+let randomAmount = 996;
 
 class CardsStore extends EventEmitter {
 	getCards() {
 		return cards;
 	}
 
+	setTestCards() {
+		return cards = { cards: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] };
+	}
+
+	setTestRandomAmount() {
+		randomAmount = 7;
+		return randomAmount;
+	}
+
 	getRandomCards() {
-		debugger;
-		let random = Math.floor(Math.random() * 996);
-		return this.getCards().cards?.slice(random, random + 3);
+		let random = Math.ceil(Math.random() * randomAmount);
+		let randomCards = cards.cards?.slice(random, random + 3) || null;	
+		return randomCards;
 	}
 
 	getCard() {
