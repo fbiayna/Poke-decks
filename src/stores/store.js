@@ -14,7 +14,6 @@ class CardsStore extends EventEmitter {
 
 	getRandomCards() {
 		let random = Math.floor(Math.random() * 996);
-		console.log(this.getCards().cards);
 		return this.getCards().cards?.slice(random, random + 3);
 	}
 
