@@ -5,9 +5,7 @@ let idpage = 1;
 let sizepage = 500;
 
 export async function loadCards() {
-	const response = await fetch(
-		`https://api.pokemontcg.io/v1/cards?page=${idpage}&pageSize=${sizepage}`
-	);
+	const response = await fetch(`https://api.pokemontcg.io/v1/cards?page=${idpage}&pageSize=${sizepage}`);
 	const cards = await response.json();
 
 	dispatcher.dispatch({
@@ -36,6 +34,16 @@ export async function loadCard(cardId) {
 		type: actionTypes.loadCard,
 		payload: card
 	});
+}
+
+export async function loadDecks() {
+	debugger;
+	const response = await fetch('../components/Decks/data/decks.json');
+	const decks = await response.json();
+	dispatcher.dispatch({
+		type: actionTypes.loadDecks,
+		payload: decks
+	})
 }
 
 export async function loadList() {
