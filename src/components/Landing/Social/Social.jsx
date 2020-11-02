@@ -11,6 +11,7 @@ function Social() {
 
     return (
             <div className="landing__container__social">
+                <div className="opacity"></div>
                 {
                     videos.map((video) => {
                         if (video.type === youtubeVideo) {
