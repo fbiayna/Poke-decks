@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from './components/header/Header';
-/* import ListCards from './components/list-cards/ListCards'; */
 import './index.css';
 import Landing from './components/Landing/Landing';
 import reportWebVitals from './reportWebVitals';

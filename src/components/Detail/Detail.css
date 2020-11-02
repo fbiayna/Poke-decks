@@ -16,3 +16,55 @@
 .detail-container__description {
     width: 100%;
 }
+
+.energy {
+    background-image: url(https://pokemontcg.io/static/media/energy-types.f0fdba3b.png);
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    margin: 0 3px;
+}
+
+.energy.Fire {
+    background-position: 0 0;
+}
+
+.energy.Darkness {
+    background-position: 0 -50px;
+}
+
+.energy.Colorless {
+    background-position: -25px 0;
+}
+
+.energy.Fighting {
+    background-position: -50px -25px;
+}
+
+.energy.Psychic {
+    background-position: -75px -25px;
+}
+
+.energy.Grass {
+    background-position: -25px -50px;
+}
+
+.energy.Lightning {
+    background-position: -50px -50px;
+}
+
+.energy.Metal {
+    background-position: -75px 0;
+}
+
+.energy.Water {
+    background-position: -75px -50px;
+}
+
+.energy.Fairy {
+    background-position: -50px 0;
+}
+
+.energy.Dragon {
+    background-position: 0 -25px;
+}

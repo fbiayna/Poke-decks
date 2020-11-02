@@ -4,20 +4,36 @@ import actionTypes from '../actions/actiontypes';
 
 const change = 'change';
 let cards = [];
-let card;
+let card = null;
+let _decks = [];
+let randomAmount = 996;
 
 class CardsStore extends EventEmitter {
 	getCards() {
 		return cards;
 	}
 
+	setTestCards() {
+		return cards = { cards: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] };
+	}
+
+	setTestRandomAmount() {
+		randomAmount = 7;
+		return randomAmount;
+	}
+
 	getRandomCards() {
-		let random = Math.floor(Math.random() * 496);
-		return this.getCards().cards.slice(random, random + 3);
+		let random = Math.ceil(Math.random() * randomAmount);
+		let randomCards = cards.cards?.slice(random, random + 3) || null;	
+		return randomCards;
 	}
 
 	getCard() {
 		return card;
+	}
+
+	getDecks() {
+		return _decks;
 	}
 
 	addEventListener(callback) {
@@ -36,7 +52,6 @@ class CardsStore extends EventEmitter {
 const cardsStore = new CardsStore();
 
 dispatcher.register((action) => {
-	debugger;
 	switch (action.type) {
 		case actionTypes.loadCards:
 			cards = action.payload;
@@ -50,6 +65,11 @@ dispatcher.register((action) => {
 
 		case actionTypes.loadCard:
 			card = action.payload;
+			cardsStore.emitChange();
+			break;
+
+		case actionTypes.loadDecks:
+			_decks = action.payload;
 			cardsStore.emitChange();
 			break;
 

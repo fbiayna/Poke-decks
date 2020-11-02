@@ -1,38 +1,57 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { loadDecks } from '../../../../actions/action-creators';
+import cardsStore from '../../../../stores/store';
 import './MyDecks.css';
 
 function MyDecks() {
+	const [decks, setDecks] = useState(cardsStore.getDecks());
 
-    const myDecks = [
-        {
-        title: 'My Deck Name', 
-        totalcards: 0, 
-        id:0,
-        imagealt: 'card-pile',
-        url: 'https://trello-attachments.s3.amazonaws.com/5f8ca3639574d3550b3ad495/5f9cb0e6b6fed24123256da4/0b8025e8ab38f7b89454be9b91dd114a/91yL1H9fBdL.svg'
-    }
-    ];
+	function handleChange() {
+		setDecks(cardsStore.getDecks());
+	}
 
-    return (    
-            <div className="cardsSection__myDeck__block">
-                <div className="cardsSection__myDeck__titleBlock">
-                <span className="cardsSection__myDeck__title" id="title">MY DECKS</span>
-                </div>
-                <div className="cardsSection__myDeck">
-                    {
-                        myDecks.map((deck) => 
-                        <Link to="/my-decks" className="MyDeck-Links">
-                            <div className="cardsSection__myDeck__deckBlock">
-                                <span className="cardsSection__myDeck__deckBlock__title">{deck.title}</span>
-                                <img src={deck.url} alt={deck.imagealt}/>
-                            </div>
-                        </Link>
-                        )
-                    }
-                </div>
-            </div>
-    );
+	useEffect(() => {
+		cardsStore.addEventListener(handleChange);
+
+		if (!decks || decks.length < 1) {
+			loadDecks();
+		}
+
+		return () => {
+			cardsStore.removeEventListener(handleChange);
+		};
+	}, [decks]);
+
+	return (
+		<div id="image__cards-deck" className="deckSection__images">
+			<Link className="title__link" to="/my-decks">
+				<div className="images__title">
+					<h2>MY DECKS</h2>
+					<p>
+						It's time to create!<br></br>Customize decks whatever you want
+					</p>
+				</div>
+			</Link>
+			<div className="images__cards">
+				{decks.map((deck) => (
+					<Link to="/my-decks" className="MyDeck-Links">
+						<div className="cardsSection__myDeck__deckBlock">
+							<span className="cardsSection__myDeck__deckBlock__title">
+								{deck.title}
+							</span>
+							<img src={deck.url} alt={deck.imagealt} />
+						</div>
+					</Link>
+				))}
+			</div>
+			<div className="images__button-search">
+				<Link to="/my-decks">
+					<button id="button-search__cards-home">Create decks</button>
+				</Link>
+			</div>
+		</div>
+	);
 }
 
 export default MyDecks;
