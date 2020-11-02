@@ -18,7 +18,7 @@ export async function loadCards() {
 
 export async function loadRandomCards() {
 	const response = await fetch(
-		`https://api.pokemontcg.io/v1/cards?page=1&pageSize=500`
+		`https://api.pokemontcg.io/v1/cards?page=1&pageSize=1000`
 	);
 	const cards = await response.json();
 
