@@ -2,12 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from './components/header/Header';
-import ListCards from './components/list-cards/ListCards';
+/* import ListCards from './components/list-cards/ListCards'; */
 import './index.css';
 import Landing from './components/Landing/Landing';
 import reportWebVitals from './reportWebVitals';
 import Footer from './components/Footer/Footer';
 import Detail from './components/Detail/Detail';
+import List from './components/List/List';
 
 ReactDOM.render(
 	<React.StrictMode>
@@ -15,7 +16,8 @@ ReactDOM.render(
 			<Header />
 			<Switch>
 				<Route path="/" exact component={Landing} />
-				<Route path="/cards" exact component={ListCards} />
+				{/* <Route path="/cards" exact component={ListCards} /> */}
+				<Route path="/cards" exact component={List} />
 				<Route path="/my-decks" exact component={''} />
 				<Route path="/social" exact component={''} />
 				<Route path="/detail/:cardid" exact component={Detail} />
