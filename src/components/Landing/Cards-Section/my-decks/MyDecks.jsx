@@ -35,7 +35,7 @@ function MyDecks() {
 			</Link>
 			<div className="images__cards">
 				{decks.map((deck) => (
-					<Link to="/my-decks" className="MyDeck-Links">
+					<Link to="/my-decks" key={`deck-${deck.title}`} className="MyDeck-Links">
 						<div className="cardsSection__myDeck__deckBlock">
 							<span className="cardsSection__myDeck__deckBlock__title">
 								{deck.title}
