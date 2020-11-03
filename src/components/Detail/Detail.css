@@ -1,16 +1,15 @@
 body {
     padding: 0;
     margin: 0;
-    background-color: rgb(245, 245, 245);
 }
 
 .detailcard-container {
 	display: flex;
 	position: relative;
-	justify-content: space-around;
-	align-items: center;
+	justify-content: space-between;
+	align-items: flex-start;
 	width: 100%;
-	height: 600px;
+	height: auto;
 	background-image: url('https://trello-attachments.s3.amazonaws.com/5f8ca3639574d3550b3ad495/5f9cb0e6b6fed24123256da4/0b8e26d4a2c2c4c7153d8a08020b31c9/New_Project.jpg');
 	background-position: top;
 	background-repeat: no-repeat;
@@ -25,6 +24,37 @@ body {
 	position: absolute;
 }
 
+.detailcard-container__image {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.detailcard-container__description-block {
+    z-index: 1;
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.detailcard-container__image-block {
+    z-index: 1;
+    display: flex;
+    width: 70%;
+    justify-content: center;
+}
+
+.detailcard-container__description {
+    color: white;
+    width: 100%;
+    padding: 20px 100px 30px 60px;
+    margin: 50px 0;
+    background-color: rgba(0, 0, 0, 0.6);
+	border-radius: 25px 0px 0px 25px;
+}
+
 .description__title {
     display: flex;
     justify-content: space-between;
@@ -32,18 +62,31 @@ body {
     border-bottom: 1px solid grey;
 }
 
-.detailcard-container__image {
-    width: 400;
-    z-index: 1;
+.pokemon-card__title {
+    font-weight: 700;
+    color: white;
 }
 
-.detailcard-container__description {
-    z-index: 1;
-    color: white;
-    width: 40%;
-    padding: 20px 60px;
-    background-color: rgba(0, 0, 0, 0.6);
-	border-radius: 25px 0px 0px 25px;
+.pokemon-card__text {
+    color: rgb(202, 202, 202);
+}
+
+.pokemon-card__text:link,
+.pokemon-card__text:visited,
+.pokemon-card__text:active {
+	outline-style: none;
+	text-decoration: none;
+}
+
+.pokemon__dex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.description__set {
+    display: flex;
+    justify-content: space-between;
 }
 
 #image__poke-card {
@@ -56,14 +99,46 @@ body {
 }
 
 .pokemon-card__description {
-    margin-top: 10px;
-    border-bottom: 1px solid rgb(189, 189, 189);
+    border-top: 1px solid rgb(189, 189, 189);
+}
+
+.pokemon__retreat, .pokemon__weakness, .pokemon__resistance {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pokemon-element__icons {
+    display: flex;
+}
+
+.pokemon-element__icons > p {
+    margin: 10px 5px;
 }
 
 .pokemon__other-type {
     display: flex;
     justify-content: space-around;
     text-align: center;
+}
+
+#button-add__card {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 10px 20px;
+	font-size: 16px;
+	color: white;
+	font-weight: 700;
+	border: none;
+	border-radius: 5px;
+	outline-style: none;
+	cursor: pointer;
+	outline: none;
+	background-color: #1e5799;
+}
+
+#button-add__card:hover {
+	background-color: #133863;
 }
 
 .energy {
@@ -125,12 +200,19 @@ body {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 1000px;
+        height: auto;
     }
 
     .detailcard-container__description {
         margin-top: 20px;
-        width: 80%;
+        width: 100%;
+        justify-content: center;
+        border-radius: 25px 25px 25px 25px;
+        padding: 20px 60px 30px 60px;
+    }
+
+    .detailcard-container__description-block {
+        width: 90%;
     }
     
 }
