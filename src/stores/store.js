@@ -4,7 +4,7 @@ import actionTypes from '../actions/actiontypes';
 
 const change = 'change';
 let cards = [];
-let card = null;
+let card = [];
 let _decks = [];
 let randomAmount = 996;
 
