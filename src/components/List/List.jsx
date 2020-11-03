@@ -2,27 +2,30 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import cardsStore from '../../stores/store';
 import './List.css';
-import { loadList } from '../../actions/action-creators';
+import { loadList, loadCards } from '../../actions/action-creators';
 
-function List() {
-	const [cards, setCards] = useState(cardsStore.getCards());
+function List(params) {
+	const [cards, setCards] = useState(null);
+	const [cardName] = useState(params.location.search.split('=')[1])
 
 	useEffect(() => {
-		debugger;
+
 		cardsStore.addEventListener(onChange);
 
-		/* REVISAR */
-		if (!cards) {
-			loadList();
+		if (cardName && !cards) {
+			handleChange(loadList, cardName)
+		} else if (!cards) {
+			handleChange(loadCards);
 		}
 
 		return () => {
 			cardsStore.removeEventListener(onChange);
 		};
-	}, [cards]);
+	}, [cards, cardName]);
 
-	function handleChange(event, setValue) {
-		setValue(event.target.value);
+	function handleChange(setValue, ...event) {
+		debugger
+		setValue(event);
 	}
 
 	function onChange() {
@@ -38,7 +41,7 @@ function List() {
 					name="searchBar"
 					id="searchBar"
 					placeholder="search for a card"
-					onChange={(event) => handleChange(event, loadList)}
+					onChange={(event) => handleChange(loadList, event.target.value)}
 				/>
 			</div>
 			<ul className="card-gallery">

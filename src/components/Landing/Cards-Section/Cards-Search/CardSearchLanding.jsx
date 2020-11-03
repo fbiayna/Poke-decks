@@ -5,7 +5,7 @@ import { loadRandomCards } from '../../../../actions/action-creators';
 import './CardSearchLanding.css';
 
 function CardSearchLanding() {
-	const [cards, setCards] = useState(cardsStore.getRandomCards());
+	const [cards, setCards] = useState(null);
 
 	function handleChange() {
 		setCards(cardsStore.getRandomCards());
@@ -14,7 +14,7 @@ function CardSearchLanding() {
 	useEffect(() => {
 		cardsStore.addEventListener(handleChange);
 
-		if (!cards || !cards.length) {
+		if (!cards) {
 			loadRandomCards();
 		}
 
