@@ -1,7 +1,6 @@
 import axios from 'axios';
 import actionTypes from './actiontypes';
 import dispatcher from '../dispatcher/dispatcher';
-import axios from 'axios';
 
 export async function loadCards() {
 	const cards = await axios('https://api.pokemontcg.io/v1/cards?page=1&pageSize=500');
