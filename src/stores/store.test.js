@@ -3,6 +3,7 @@ import dispatcher from '../dispatcher/dispatcher';
 import actionTypes from '../actions/actiontypes';
 
 describe('cardsStore functions', () => {
+
     test('should get an empty array from getCards', () => {
         // act
         let cards = cardsStore.getCards();
@@ -35,14 +36,14 @@ describe('cardsStore functions', () => {
         expect(randomCards).toBe(null);
     });
 
-    test('should return a three item array from a 5 item array getRandomCards', () => {
-        // act
-        cardsStore.setTestCards();
-        cardsStore.setTestRandomAmount();
-        const finalCards = cardsStore.getRandomCards();
-        // assert
-        expect(finalCards.length).toBe(3);
-    });
+	test('should return a three item array from a 5 item array getRandomCards', () => {
+		// act
+		cardsStore.setTestCards();
+		cardsStore.setTestRandomAmount();
+		const finalCards = cardsStore.getRandomCards();
+		// assert
+		expect(finalCards.length).toBe(3);
+	});
 
     test('should return an empty array from getCard', () => {
         // act
@@ -57,21 +58,21 @@ describe('cardsStore functions', () => {
         // assert
         expect(decks).toEqual([]);
     });
+
 });
 
 describe('dispatcher.register functions', () => {
-    
-    test('should return cards as 1 in loadCards', () => {
-        // arrange
-        dispatcher.dispatch({
-            type: actionTypes.loadCards,
-            payload: 1
-        });
-        // act
-        const cards = cardsStore.getCards();
-        // assert
-        expect(cards).toBe(1);
-    });
+	test('should return cards as 1 in loadCards', () => {
+		// arrange
+		dispatcher.dispatch({
+			type: actionTypes.loadCards,
+			payload: 1
+		});
+		// act
+		const cards = cardsStore.getCards();
+		// assert
+		expect(cards).toBe(1);
+	});
 
     test('should return a three item array from loadRandomCards', () => {
         // arrange
@@ -84,4 +85,44 @@ describe('dispatcher.register functions', () => {
         // assert
         expect(randomCard.length).toBe(3);
     });
+});
+
+	test('should return an object item', () => {
+		//arrange
+		const card = { id: 'ex14-28' };
+		dispatcher.dispatch({
+			type: actionTypes.loadCard,
+			payload: card
+		});
+		//act
+		const newCard = cardsStore.getCard();
+		//assert
+		expect(newCard).toEqual(card);
+	});
+
+	test('should return deck info', () => {
+		//arrange
+		const decks = [{ id: 'Deck#001' }];
+		dispatcher.dispatch({
+			type: actionTypes.loadDecks,
+			payload: decks
+		});
+		//act
+		const pokemonDeck = cardsStore.getDecks();
+		//assert
+		expect(pokemonDeck).toEqual(decks);
+	});
+
+	test('should return an array item', () => {
+		//arrange
+		const cardName = [{ name: 'Charizard' }];
+		dispatcher.dispatch({
+			type: actionTypes.loadList,
+			payload: cardName
+		});
+		//act
+		const pokemonName = cardsStore.getCards();
+		//assert
+		expect(pokemonName).toEqual(cardName);
+	});
 });

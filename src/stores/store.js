@@ -14,11 +14,11 @@ class CardsStore extends EventEmitter {
 	}
 
 	setCards() {
-		return cards = [];
+		return (cards = []);
 	}
 
 	setTestCards() {
-		return cards = { cards: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] };
+		return (cards = { cards: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] });
 	}
 
 	setTestRandomAmount() {
@@ -28,7 +28,7 @@ class CardsStore extends EventEmitter {
 
 	getRandomCards() {
 		let random = Math.ceil(Math.random() * randomAmount);
-		let randomCards = cards.cards?.slice(random, random + 3) || null;	
+		let randomCards = cards.cards?.slice(random, random + 3) || null;
 		return randomCards;
 	}
 
@@ -56,6 +56,7 @@ class CardsStore extends EventEmitter {
 const cardsStore = new CardsStore();
 
 dispatcher.register((action) => {
+	debugger;
 	switch (action.type) {
 		case actionTypes.loadCards:
 			cards = action.payload;
@@ -78,6 +79,11 @@ dispatcher.register((action) => {
 			break;
 
 		case actionTypes.loadList:
+			cards = action.payload;
+			cardsStore.emitChange();
+			break;
+
+		case actionTypes.loadCollection:
 			cards = action.payload;
 			cardsStore.emitChange();
 			break;
