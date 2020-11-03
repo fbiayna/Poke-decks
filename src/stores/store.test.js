@@ -9,12 +9,31 @@ describe('cardsStore functions', () => {
         //assert
         expect(cards).toEqual([]);
     });
-    test('should return null from an empty cards array geRandomCards', () => {
-        // act
-        let cards = cardsStore.getRandomCards();
-        // assert 
-        expect(cards).toBe(null);
+    
+    test('should return cards as an empty array in setCards', () => {
+        // arrange
+        const cards = cardsStore.setCards();
+        // asssert
+        expect(cards).toEqual([]);
     })
+
+    test('should return an object with an array with numbers in setTestCards', () => {
+        const testCards = cardsStore.setTestCards();
+        expect(testCards).toEqual({ cards: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] });
+    })
+
+    test('should return number 7 in setTestRandomAmount', () => {
+        const randomAmount = cardsStore.setTestRandomAmount();
+        expect(randomAmount).toBe(7);
+    })
+
+    test('should get null if cards is an empty array in getRandomCards', () => {
+        // act
+        cardsStore.setCards();
+        const randomCards = cardsStore.getRandomCards();
+        // assert
+        expect(randomCards).toBe(null);
+    });
 
     test('should return a three item array from a 5 item array getRandomCards', () => {
         // act
