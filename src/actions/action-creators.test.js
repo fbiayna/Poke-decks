@@ -1,6 +1,6 @@
 import axios from 'axios';
 import dispatcher from '../dispatcher/dispatcher';
-import { loadCards, loadRandomCards, loadCard, loadDecks } from '../actions/action-creators';
+import { loadCards, loadRandomCards, loadCard, loadDecks, loadList } from '../actions/action-creators';
 import actionTypes from './actiontypes';
 
 jest.mock('axios');
@@ -58,7 +58,8 @@ describe('action-creators', () => {
     describe('loadCard', () => {
         beforeEach(async () => {
             axios.mockImplementationOnce(() => Promise.resolve({ data: [] }));
-            await loadCard("ex14-28");
+            const cardId = "ex14-28";
+            await loadCard(cardId);
         });
 
         test('should call dispatcher', () => {
@@ -95,6 +96,27 @@ describe('action-creators', () => {
 
         test('should call axios with loadDecks api', () => {
             expect(axios.mock.calls[0][0]).toEqual('api/decks.json');
+        });
+
+        test('should call axios just once', () => {
+            expect(axios.mock.calls.length).toBe(1);
+        });
+    });
+
+    describe('loadList', () => {
+        beforeEach(async () => {
+            axios.mockImplementationOnce(() => Promise.resolve({ data: [] }));
+            const cardName = 'charizard'
+            await loadList(cardName);
+        });
+
+        test('should call dispatcher', () => {
+            expect(dispatcher.dispatch.mock.calls[0][0]).toEqual({ type: actionTypes.loadList, payload: [] });
+        });
+
+        test('should call axios with list api', () => {
+            const cardName = 'charizard'
+            expect(axios.mock.calls[0][0]).toEqual(`https://api.pokemontcg.io/v1/cards?name=${cardName}`);
         });
 
         test('should call axios just once', () => {
