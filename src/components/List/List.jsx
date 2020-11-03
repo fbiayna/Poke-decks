@@ -45,7 +45,7 @@ function List(params) {
 				/>
 			</div>
 			<ul className="card-gallery">
-				{cards?.cards.map((card) => (
+				{cards?.map((card) => (
 					<li>
 						<Link to={`/detail/${card.id}`}>
 							<img src={card.imageUrl} alt={card.id} />
