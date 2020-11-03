@@ -1,61 +1,49 @@
+import axios from 'axios';
 import actionTypes from './actiontypes';
 import dispatcher from '../dispatcher/dispatcher';
 
-let idpage = 1;
-let sizepage = 500;
-
 export async function loadCards() {
-	const response = await fetch(
-		`https://api.pokemontcg.io/v1/cards?page=${idpage}&pageSize=${sizepage}`
-	);
-	const cards = await response.json();
+	const cards = await axios('https://api.pokemontcg.io/v1/cards?page=1&pageSize=500');
 
 	dispatcher.dispatch({
 		type: actionTypes.loadCards,
-		payload: cards
+		payload: cards.data
 	});
 }
 
 export async function loadRandomCards() {
-	const response = await fetch(
-		`https://api.pokemontcg.io/v1/cards?page=1&pageSize=1000`
-	);
-	const cards = await response.json();
+	const cards = await axios('https://api.pokemontcg.io/v1/cards?page=1&pageSize=1000');
 
 	dispatcher.dispatch({
 		type: actionTypes.loadRandomCards,
-		payload: cards
+		payload: cards.data
 	});
 }
 
 export async function loadCard(cardId) {
-	const response = await fetch(`https://api.pokemontcg.io/v1/cards/${cardId}`);
-	const card = await response.json();
+	const card = await axios(`https://api.pokemontcg.io/v1/cards/${cardId}`);
 
 	dispatcher.dispatch({
 		type: actionTypes.loadCard,
-		payload: card
+		payload: card.data
 	});
 }
 
 export async function loadDecks() {
-	const response = await fetch('api/decks.json');
-	const decks = await response.json();
+	const decks = await axios('api/decks.json');
+
 	dispatcher.dispatch({
 		type: actionTypes.loadDecks,
-		payload: decks
+		payload: decks.data
 	});
 }
 
 export async function loadList(cardName) {
 	debugger;
-	const response = await fetch(
-		`https://api.pokemontcg.io/v1/cards?name=${cardName}`
-	);
-	const cardList = await response.json();
+	const cardList = await axios(`https://api.pokemontcg.io/v1/cards?name=${cardName}`);
 
 	dispatcher.dispatch({
 		type: actionTypes.loadList,
-		payload: cardList
+		payload: cardList.data
 	});
 }
