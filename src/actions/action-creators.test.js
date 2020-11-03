@@ -56,9 +56,9 @@ describe('action-creators', () => {
     })
 
     describe('loadCard', () => {
+        const cardId = "ex14-28";
         beforeEach(async () => {
             axios.mockImplementationOnce(() => Promise.resolve({ data: [] }));
-            const cardId = "ex14-28";
             await loadCard(cardId);
         });
 
@@ -71,7 +71,7 @@ describe('action-creators', () => {
         });
 
         test('should call axios with loadCard api', () => {
-            expect(axios.mock.calls[0][0]).toEqual(`https://api.pokemontcg.io/v1/cards/ex14-28`);
+            expect(axios.mock.calls[0][0]).toEqual(`https://api.pokemontcg.io/v1/cards/${cardId}`);
         });
 
         test('should call axios just once', () => {
@@ -104,9 +104,9 @@ describe('action-creators', () => {
     });
 
     describe('loadList', () => {
+        const cardName = 'charizard';
         beforeEach(async () => {
             axios.mockImplementationOnce(() => Promise.resolve({ data: [] }));
-            const cardName = 'charizard'
             await loadList(cardName);
         });
 
@@ -115,7 +115,6 @@ describe('action-creators', () => {
         });
 
         test('should call axios with list api', () => {
-            const cardName = 'charizard'
             expect(axios.mock.calls[0][0]).toEqual(`https://api.pokemontcg.io/v1/cards?name=${cardName}`);
         });
 
