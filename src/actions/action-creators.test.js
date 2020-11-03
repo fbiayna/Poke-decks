@@ -1,6 +1,6 @@
 import axios from 'axios';
 import dispatcher from '../dispatcher/dispatcher';
-import { loadCards, loadRandomCards } from '../actions/action-creators';
+import { loadCards, loadRandomCards, loadCard, loadDecks } from '../actions/action-creators';
 import actionTypes from './actiontypes';
 
 jest.mock('axios');
@@ -54,5 +54,29 @@ describe('action-creators', () => {
         });
 
     })
+
+    describe('loadCard', () => {
+        beforeEach(async () => {
+            axios.mockImplementationOnce(() => Promise.resolve({ data: [] }));
+            await loadCard("ex14-28");
+        });
+
+        test('should call dispatcher', () => {
+            expect(dispatcher.dispatch.mock.calls[0][0]).toEqual({ type: actionTypes.loadCard, payload: []});
+        });
+
+        test('should call dispatcher just once', () => {
+            expect(dispatcher.dispatch.mock.calls.length).toBe(1);
+        });
+
+        test('should call axios with loadCard api', () => {
+            expect(axios.mock.calls[0][0]).toEqual(`https://api.pokemontcg.io/v1/cards/ex14-28`);
+        });
+
+        test('should call axios just once', () => {
+            expect(axios.mock.calls.length).toBe(1);
+        })
+
+    });
 
 });
