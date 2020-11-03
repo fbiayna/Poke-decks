@@ -79,4 +79,27 @@ describe('action-creators', () => {
 
     });
 
+    describe('loadDecks', () => {
+        beforeEach(async () => {
+            axios.mockImplementationOnce(() => Promise.resolve({ data: [] }));
+            await loadDecks();
+        });
+
+        test('should call dispatcher', () => {
+            expect(dispatcher.dispatch.mock.calls[0][0]).toEqual({ type: actionTypes.loadDecks, payload: [] });
+        });
+
+        test('should call dispatcher just once', () => {
+            expect(dispatcher.dispatch.mock.calls.length).toBe(1);
+        });
+
+        test('should call axios with loadDecks api', () => {
+            expect(axios.mock.calls[0][0]).toEqual('api/decks.json');
+        });
+
+        test('should call axios just once', () => {
+            expect(axios.mock.calls.length).toBe(1);
+        });
+    });
+
 });
