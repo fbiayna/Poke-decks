@@ -1,5 +1,5 @@
 import axios from 'axios';
-import actionTypes from './actiontypes';
+import actionTypes from './actionTypes';
 import dispatcher from '../dispatcher/dispatcher';
 
 export async function loadCards() {
