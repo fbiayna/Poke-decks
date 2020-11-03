@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import cardsStore from '../../stores/store';
 import './List.css';
-import { loadList } from '../../actions/action-creators';
+import { loadCollection, loadList } from '../../actions/action-creators';
 
 function List() {
-	const [cards, setCards] = useState(cardsStore.getCards());
+	const [cards, setCards] = useState(null);
 
 	useEffect(() => {
 		debugger;
@@ -13,7 +13,7 @@ function List() {
 
 		/* REVISAR */
 		if (!cards) {
-			loadList();
+			loadCollection();
 		}
 
 		return () => {
@@ -42,7 +42,7 @@ function List() {
 				/>
 			</div>
 			<ul className="card-gallery">
-				{cards?.cards.map((card) => (
+				{cards?.map((card) => (
 					<li>
 						<Link to={`/detail/${card.id}`}>
 							<img src={card.imageUrl} alt={card.id} />
