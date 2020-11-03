@@ -33,12 +33,26 @@ describe('action-creators', () => {
 
     describe('loadRandomCards', () => {
         beforeEach(async () => {
-            axios.mockImplementationOnce(() => Promise.resolve([]));
+            axios.mockImplementationOnce(() => Promise.resolve({ data: [] }));
             await loadRandomCards();
         });
+
         test('should call dispatch', () => {
             expect(dispatcher.dispatch.mock.calls[0][0]).toEqual({ type: actionTypes.loadRandomCards, payload: [] });
         });
-        
+
+        test('should call dispatch just once', () => {
+            expect(dispatcher.dispatch.mock.calls.length).toBe(1);
+        });
+
+        test('should call axios with randomCards API', async () => {
+            expect(axios.mock.calls[0][0]).toEqual('https://api.pokemontcg.io/v1/cards?page=1&pageSize=1000');
+        });
+    
+        test('should call axios just once', () => {
+            expect(axios.mock.calls.length).toBe(1);
+        });
+
     })
+
 });
