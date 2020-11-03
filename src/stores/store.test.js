@@ -85,8 +85,7 @@ describe('dispatcher.register functions', () => {
         // assert
         expect(randomCard.length).toBe(3);
     });
-});
-
+	
 	test('should return an object item', () => {
 		//arrange
 		const card = { id: 'ex14-28' };
