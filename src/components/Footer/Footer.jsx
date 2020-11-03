@@ -37,28 +37,28 @@ function Footer() {
 						<img
 							src="https://www.flaticon.es/svg/static/icons/svg/733/733549.svg"
 							alt="fb-logo"
-							className="fb-logo"
+							className="footer__follow__img"
 						/>
 					</li>
 					<li>
 						<img
 							src="https://www.flaticon.es/svg/static/icons/svg/733/733579.svg"
 							alt="twitter-logo"
-							className="twitter-logo"
+							className="footer__follow__img"
 						/>
 					</li>
 					<li>
 						<img
 							src="https://www.flaticon.es/svg/static/icons/svg/733/733557.svg"
 							alt="gplus-logo"
-							className="gplus-logo"
+							className="footer__follow__img"
 						/>
 					</li>
 					<li>
 						<img
 							src="https://www.flaticon.es/svg/static/icons/svg/174/174855.svg"
 							alt="instagram-logo"
-							className="instagram-logo"
+							className="footer__follow__img"
 						/>
 					</li>
 					<li>
@@ -66,7 +66,7 @@ function Footer() {
 							<img
 								src="https://www.flaticon.es/svg/static/icons/svg/733/733609.svg"
 								alt="github-logo"
-								className="github-logo"
+								className="footer__follow__img"
 							/>
 						</a>
 					</li>
