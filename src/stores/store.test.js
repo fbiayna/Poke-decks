@@ -25,11 +25,11 @@ describe('cardsStore functions', () => {
         expect(finalCards.length).toBe(3);
     });
 
-    test('should return null from getCard', () => {
+    test('should return an empty array from getCard', () => {
         // act
         const card = cardsStore.getCard();
         // assert
-        expect(card).toBe(null);
+        expect(card).toEqual([]);
     });
 
     test('should return an empty array from getDecks', () => {
@@ -37,7 +37,7 @@ describe('cardsStore functions', () => {
         const decks = cardsStore.getDecks();
         // assert
         expect(decks).toEqual([]);
-    })
+    });
 });
 
 describe('dispatcher.register functions', () => {
