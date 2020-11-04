@@ -36,10 +36,10 @@ function CardSearchLanding() {
 					</p>
 				</div>
 			</Link>
-			{!cards?.length && <LoadingGif />}
-			{cards?.length && 
+			{/* {!cards?.length && <LoadingGif />}
+			{cards?.length &&  */}
 				<div className="images__cards">
-					{cards?.map((card, index) => (
+					{cards?.cards.map((card, index) => (
 						<Link key={`detail-${card.name}`} to={`/detail/${card.id}`}>
 							<img
 								className="cards__png-info"
@@ -50,7 +50,7 @@ function CardSearchLanding() {
 						</Link>
 					))}
 				</div>
-			}
+			{/* } */}
 			<div className="images__button-search">
 				<Link to="/cards">
 					<button id="button-search__cards-home">Find Cards</button>
