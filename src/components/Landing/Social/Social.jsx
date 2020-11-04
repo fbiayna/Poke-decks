@@ -14,8 +14,8 @@ function Social() {
 			{videos.map((video) => {
 				if (video.type === youtubeVideo) {
 					return (
-						<div key={`video-${video.title}`} className="landing__container__social__streaming-block">
-							<span className="landing__container__social__video__title">
+						<div id={`${video.title}`} key={`video-${video.title}`} className="landing__container__social__streaming-block">
+							<span id={`${video.title}`}className="landing__container__social__video__title">
 								{video.title}
 							</span>
 							<div
@@ -36,11 +36,11 @@ function Social() {
 					);
 				} else if (video.type === streamingVideo) {
 					return (
-						<div key={`video-${video.title}`} className="landing__container__social__streaming-block">
-							<span className="landing__container__social__video__title">
+						<div id={`${video.title}`} key={`video-${video.title}`} className="landing__container__social__streaming-block">
+							<span id={`${video.title}-title`}className="landing__container__social__video__title">
 								{video.title}
 							</span>
-							<a href={video.url}>
+							<a className='landing__container__social__anchor' href={video.url}>
 								<div
 									className="landing__container__social__streaming social__block-element"
 									style={{
