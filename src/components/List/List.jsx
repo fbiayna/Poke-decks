@@ -5,12 +5,12 @@ import './List.css';
 import { loadList, loadRandomCards } from '../../actions/action-creators';
 
 function List(params) {
-	debugger
+
 	const [cards, setCards] = useState(null);
 	const [cardName] = useState(params.location.search.split('=')[1])
 
 	useEffect(() => {
-
+		document.body.scrollTop = document.documentElement.scrollTop = 0;
 		cardsStore.addEventListener(onChange);
 
 		if (cardName && !cards) {
