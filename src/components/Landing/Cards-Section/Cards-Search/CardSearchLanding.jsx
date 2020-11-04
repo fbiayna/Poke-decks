@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import cardsStore from '../../../../stores/store';
-import { loadRandomCards } from '../../../../actions/action-creators';
+import { loadCards } from '../../../../actions/action-creators';
 import './CardSearchLanding.css';
 import LoadingGif from '../../../LoadingGif/LoadingGif';
 
@@ -9,14 +9,15 @@ function CardSearchLanding() {
 	const [cards, setCards] = useState(null);
 
 	function handleChange() {
-		setCards(cardsStore.getRandomCards());
+		setCards(cardsStore.getCards());
 	}
 
 	useEffect(() => {
+		debugger
 		cardsStore.addEventListener(handleChange);
 
 		if (!cards) {
-			loadRandomCards();
+			loadCards();
 		}
 
 		return () => {
