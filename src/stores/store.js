@@ -6,7 +6,6 @@ const change = 'change';
 let cards = null;
 let card = [];
 let _decks = [];
-let randomAmount = 46;
 
 class CardsStore extends EventEmitter {
 	getCards() {
