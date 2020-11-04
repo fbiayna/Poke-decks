@@ -10,6 +10,7 @@ function List(params) {
 
 	useEffect(() => {
 
+		document.body.scrollTop = document.documentElement.scrollTop = 0;
 		cardsStore.addEventListener(onChange);
 
 		if (cardName && !cards) {

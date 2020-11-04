@@ -5,7 +5,7 @@ import './Detail.css';
 import { loadCard } from '../../actions/action-creators';
 
 function Detail(props) {
-	debugger;
+	
 	const [cardId] = useState(props.match.params.cardid);
 	const [card, setCard] = useState([]);
 
