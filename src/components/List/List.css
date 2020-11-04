@@ -27,14 +27,18 @@
 	z-index: 1;
 }
 
+
 #searchBar {
 	width: 50%;
 	height: 15px;
 	padding: 5px;
 	border-radius: 10px;
 	text-align: center;
-	transition: transform 0.2s;
 	font-family: 'Lato', sans-serif;
+	background-image: url('https://trello-attachments.s3.amazonaws.com/5f8ca3639574d3550b3ad495/5f9cb0e6b6fed24123256da4/ae62e70c793db11792222c22b27334aa/pokeball.png');
+	background-repeat: no-repeat;
+	background-position: 3px 3px;
+	transition: transform 0.2s;
 }
 
 #searchBar:hover {
