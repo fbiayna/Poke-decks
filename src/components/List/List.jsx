@@ -2,21 +2,21 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import cardsStore from '../../stores/store';
 import './List.css';
-import { loadList, loadCards } from '../../actions/action-creators';
+import { loadList, loadRandomCards } from '../../actions/action-creators';
 
 function List(params) {
+
 	const [cards, setCards] = useState(null);
 	const [cardName] = useState(params.location.search.split('=')[1])
 
 	useEffect(() => {
-
 		document.body.scrollTop = document.documentElement.scrollTop = 0;
 		cardsStore.addEventListener(onChange);
 
 		if (cardName && !cards) {
 			handleChange(loadList, cardName)
 		} else if (!cards) {
-			loadCards();
+			loadRandomCards();
 		}
 
 		return () => {
@@ -24,7 +24,7 @@ function List(params) {
 		};
 	}, [cards, cardName]);
 
-	function handleChange(setValue, ...event) {
+	function handleChange(setValue, event) {
 		setValue(event);
 	}
 
