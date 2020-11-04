@@ -3,7 +3,10 @@ import actionTypes from './actionTypes';
 import dispatcher from '../dispatcher/dispatcher';
 
 export async function loadCards() {
-	const cards = await axios('https://api.pokemontcg.io/v1/cards?page=1&pageSize=500');
+
+	let randomPage = Math.floor(Math.random()*3000)
+
+	const cards = await axios(`https://api.pokemontcg.io/v1/cards?page=${randomPage}&pageSize=3`);
 
 	dispatcher.dispatch({
 		type: actionTypes.LOAD_CARDS,
@@ -13,7 +16,7 @@ export async function loadCards() {
 
 export async function loadRandomCards() {
 
-	let randomPage = Math.floor(Math.random()*260)
+	let randomPage = Math.floor(Math.random()*250)
 
 	const cards = await axios(`https://api.pokemontcg.io/v1/cards?page=${randomPage}&pageSize=50`);
 
@@ -51,7 +54,7 @@ export async function loadList(cardName) {
 }
 
 export async function loadCollection() {
-
+	debugger;
 	let cardCollection = [];
 	let cardCollectionRequest;
 
