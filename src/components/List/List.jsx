@@ -2,26 +2,29 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import cardsStore from '../../stores/store';
 import './List.css';
-import { loadCollection, loadList } from '../../actions/action-creators';
+import { loadList, loadCards } from '../../actions/action-creators';
 
-function List() {
+function List(params) {
 	const [cards, setCards] = useState(null);
+	const [cardName] = useState(params.location.search.split('=')[1])
 
 	useEffect(() => {
-		debugger;
+
 		cardsStore.addEventListener(onChange);
 
-		if (!cards) {
-			loadCollection();
+		if (cardName && !cards) {
+			handleChange(loadList, cardName)
+		} else if (!cards) {
+			loadCards();
 		}
 
 		return () => {
 			cardsStore.removeEventListener(onChange);
 		};
-	}, [cards]);
+	}, [cards, cardName]);
 
-	function handleChange(event, setValue) {
-		setValue(event.target.value);
+	function handleChange(setValue, ...event) {
+		setValue(event);
 	}
 
 	function onChange() {
@@ -37,11 +40,11 @@ function List() {
 					name="searchBar"
 					id="searchBar"
 					placeholder="search for a card"
-					onChange={(event) => handleChange(event, loadList)}
+					onChange={(event) => handleChange(loadList, event.target.value)}
 				/>
 			</div>
 			<ul className="card-gallery">
-				{cards?.map((card) => (
+				{cards?.cards.map((card) => (
 					<li>
 						<Link to={`/detail/${card.id}`}>
 							<img src={card.imageUrl} alt={card.id} />

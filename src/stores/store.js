@@ -13,6 +13,10 @@ class CardsStore extends EventEmitter {
 		return cards;
 	}
 
+	getDecks() {
+		return _decks;
+	}
+
 	setCards() {
 		return (cards = []);
 	}

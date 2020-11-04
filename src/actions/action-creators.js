@@ -43,7 +43,7 @@ export async function loadList(cardName) {
 
 	dispatcher.dispatch({
 		type: actionTypes.loadList,
-		payload: cardList.data.cards
+		payload: cardList.data
 	});
 }
 
