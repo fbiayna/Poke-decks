@@ -5,7 +5,7 @@ import './Detail.css';
 import { loadCard } from '../../actions/action-creators';
 
 function Detail(props) {
-	debugger
+	
 	const [cardId] = useState(props.match.params.cardid);
 	const [card, setCard] = useState([]);
 
@@ -14,6 +14,7 @@ function Detail(props) {
 	}
 
 	useEffect(() => {
+		document.body.scrollTop = document.documentElement.scrollTop = 0;
 		cardsStore.addEventListener(handleChange);
 
 		if (Array.isArray(card)) {
