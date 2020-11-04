@@ -1,0 +1,12 @@
+.loading-gif {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+
+.loading-gif__image {
+    width: auto;
+    height: auto;
+}
