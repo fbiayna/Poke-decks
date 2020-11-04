@@ -129,7 +129,7 @@ describe('dispatcher.register functions', () => {
 		// arrange
 		const cards = [{ id: 12, card: 60 }];
 		dispatcher.dispatch({
-			type: actionTypes.loadCollection,
+			type: actionTypes.LOAD_COLLECTION,
 			payload: cards
 		});
 		// act
