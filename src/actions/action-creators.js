@@ -6,7 +6,7 @@ export async function loadCards() {
 	const cards = await axios('https://api.pokemontcg.io/v1/cards?page=1&pageSize=500');
 
 	dispatcher.dispatch({
-		type: actionTypes.loadCards,
+		type: actionTypes.LOAD_CARDS,
 		payload: cards.data
 	});
 }
@@ -15,7 +15,7 @@ export async function loadRandomCards() {
 	const cards = await axios('https://api.pokemontcg.io/v1/cards?page=1&pageSize=1000');
 
 	dispatcher.dispatch({
-		type: actionTypes.loadRandomCards,
+		type: actionTypes.LOAD_RANDOM_CARDS,
 		payload: cards.data
 	});
 }
@@ -24,7 +24,7 @@ export async function loadCard(cardId) {
 	const card = await axios(`https://api.pokemontcg.io/v1/cards/${cardId}`);
 
 	dispatcher.dispatch({
-		type: actionTypes.loadCard,
+		type: actionTypes.LOAD_CARD,
 		payload: card.data
 	});
 }
@@ -33,7 +33,7 @@ export async function loadDecks() {
 	const decks = await axios('api/decks.json');
 
 	dispatcher.dispatch({
-		type: actionTypes.loadDecks,
+		type: actionTypes.LOAD_DECKS,
 		payload: decks.data
 	});
 }
@@ -42,7 +42,7 @@ export async function loadList(cardName) {
 	const cardList = await axios(`https://api.pokemontcg.io/v1/cards?name=${cardName}`);
 
 	dispatcher.dispatch({
-		type: actionTypes.loadList,
+		type: actionTypes.LOAD_LIST,
 		payload: cardList.data
 	});
 }
@@ -62,7 +62,7 @@ export async function loadCollection() {
 	let totalOfCards = cardCollection.flat();
 
 	dispatcher.dispatch({
-		type: actionTypes.loadCollection,
+		type: actionTypes.LOAD_COLLECTION,
 		payload: totalOfCards
 
 	});

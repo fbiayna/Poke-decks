@@ -58,32 +58,32 @@ const cardsStore = new CardsStore();
 dispatcher.register((action) => {
 	debugger;
 	switch (action.type) {
-		case actionTypes.loadCards:
+		case actionTypes.LOAD_CARDS:
 			cards = action.payload;
 			cardsStore.emitChange();
 			break;
 
-		case actionTypes.loadRandomCards:
+		case actionTypes.LOAD_RANDOM_CARDS:
 			cards = action.payload;
 			cardsStore.emitChange();
 			break;
 
-		case actionTypes.loadCard:
+		case actionTypes.LOAD_CARD:
 			card = action.payload;
 			cardsStore.emitChange();
 			break;
 
-		case actionTypes.loadDecks:
+		case actionTypes.LOAD_DECKS:
 			_decks = action.payload;
 			cardsStore.emitChange();
 			break;
 
-		case actionTypes.loadList:
+		case actionTypes.LOAD_LIST:
 			cards = action.payload;
 			cardsStore.emitChange();
 			break;
 
-		case actionTypes.loadCollection:
+		case actionTypes.LOAD_COLLECTION:
 			cards = action.payload;
 			cardsStore.emitChange();
 			break;
