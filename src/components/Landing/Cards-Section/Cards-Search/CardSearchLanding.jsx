@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import cardsStore from '../../../../stores/store';
 import { loadRandomCards } from '../../../../actions/action-creators';
 import './CardSearchLanding.css';
+import LoadingGif from '../../../LoadingGif/LoadingGif';
 
 function CardSearchLanding() {
 	const [cards, setCards] = useState(null);
@@ -34,18 +35,21 @@ function CardSearchLanding() {
 					</p>
 				</div>
 			</Link>
-			<div className="images__cards">
-				{cards?.map((card, index) => (
-					<Link key={`detail-${card.name}`} to={`/detail/${card.id}`}>
-						<img
-							className="cards__png-info"
-							id={`cards__png-info-${index}`}
-							alt="error"
-							src={card.imageUrl}
-						/>
-					</Link>
-				))}
-			</div>
+			{!cards?.length && <LoadingGif />}
+			{cards?.length && 
+				<div className="images__cards">
+					{cards?.map((card, index) => (
+						<Link key={`detail-${card.name}`} to={`/detail/${card.id}`}>
+							<img
+								className="cards__png-info"
+								id={`cards__png-info-${index}`}
+								alt="error"
+								src={card.imageUrl}
+							/>
+						</Link>
+					))}
+				</div>
+			}
 			<div className="images__button-search">
 				<Link to="/cards">
 					<button id="button-search__cards-home">Find Cards</button>
