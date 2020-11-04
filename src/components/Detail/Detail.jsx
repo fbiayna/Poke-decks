@@ -193,9 +193,19 @@ function Detail(props) {
 							src={card.card?.imageUrlHiRes}
 						></img>
 						<div className="image__button-add">
-							<Link to="/decks">
-								<button id="button-add__card">Add to Deck</button>
-							</Link>
+							<button
+								id="button-add__card"
+								onClick={() => {
+									cardsStore
+										.getDecks()
+										.find((cardDeckId) => cardDeckId === card.card.id)
+										? alert('Ya existe en el Dock!')
+										: cardsStore.getDecks().push(card.card.id);
+									console.log(cardsStore.getDecks());
+								}}
+							>
+								Add to Deck
+							</button>
 						</div>
 					</div>
 				</div>

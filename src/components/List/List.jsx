@@ -15,7 +15,7 @@ function List(params) {
 		if (cardName && !cards) {
 			handleChange(loadList, cardName)
 		} else if (!cards) {
-			handleChange(loadCards);
+			loadCards();
 		}
 
 		return () => {
@@ -45,7 +45,7 @@ function List(params) {
 				/>
 			</div>
 			<ul className="card-gallery">
-				{cards?.map((card) => (
+				{cards?.cards.map((card) => (
 					<li>
 						<Link to={`/detail/${card.id}`}>
 							<img src={card.imageUrl} alt={card.id} />
