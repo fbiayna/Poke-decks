@@ -1,6 +1,6 @@
-import cardsStore from './store';
-import dispatcher from '../dispatcher/dispatcher';
-import actionTypes from '../actions/actionTypes';
+import cardsStore from '../store';
+import dispatcher from '../../dispatcher/dispatcher';
+import actionTypes from '../../actions/actionTypes';
 
 describe('cardsStore functions', () => {
 	test('should get an empty array from getCards', () => {
@@ -63,7 +63,7 @@ describe('dispatcher.register functions', () => {
 	test('should return cards as 1 in loadCards', () => {
 		// arrange
 		dispatcher.dispatch({
-			type: actionTypes.loadCards,
+			type: actionTypes.LOAD_CARDS,
 			payload: 1
 		});
 		// act
@@ -72,23 +72,23 @@ describe('dispatcher.register functions', () => {
 		expect(cards).toBe(1);
 	});
 
-	test('should return a three item array from loadRandomCards', () => {
-		// arrange
-		dispatcher.dispatch({
-			type: actionTypes.loadRandomCards,
-			payload: { cards: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] }
-		});
-		// act
-		const randomCard = cardsStore.getRandomCards();
-		// assert
-		expect(randomCard.length).toBe(3);
-	});
-
+    test('should return a three item array from loadRandomCards', () => {
+        // arrange
+        dispatcher.dispatch({
+            type: actionTypes.LOAD_RANDOM_CARDS,
+            payload: { cards: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] }
+        });
+        // act
+        const randomCard = cardsStore.getRandomCards();
+        // assert
+        expect(randomCard.length).toBe(3);
+    });
+	
 	test('should return an object item in loadCard', () => {
 		//arrange
 		const card = { id: 'ex14-28' };
 		dispatcher.dispatch({
-			type: actionTypes.loadCard,
+			type: actionTypes.LOAD_CARD,
 			payload: card
 		});
 		//act
@@ -101,7 +101,7 @@ describe('dispatcher.register functions', () => {
 		//arrange
 		const decks = [{ id: 'Deck#001' }];
 		dispatcher.dispatch({
-			type: actionTypes.loadDecks,
+			type: actionTypes.LOAD_DECKS,
 			payload: decks
 		});
 		//act
@@ -114,7 +114,7 @@ describe('dispatcher.register functions', () => {
 		//arrange
 		const cardName = [{ name: 'Charizard' }];
 		dispatcher.dispatch({
-			type: actionTypes.loadList,
+			type: actionTypes.LOAD_LIST,
 			payload: cardName
 		});
 		//act
