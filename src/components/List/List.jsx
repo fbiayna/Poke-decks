@@ -11,7 +11,6 @@ function List() {
 		debugger;
 		cardsStore.addEventListener(onChange);
 
-		/* REVISAR */
 		if (!cards) {
 			loadCollection();
 		}
