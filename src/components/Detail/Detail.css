@@ -63,12 +63,15 @@ body {
 }
 
 .pokemon-card__title {
+    display: flex;
+    align-items: center;
     font-weight: 700;
     color: white;
 }
 
 .pokemon-card__text {
     color: rgb(202, 202, 202);
+    font-weight: 900;
 }
 
 .pokemon-card__text:link,
@@ -92,6 +95,13 @@ body {
 #image__poke-card {
     max-width: 300px;
     min-width: 200px;
+    border-radius: 5px;
+    box-shadow: 4px 4px 5px black;
+    transition: transform 0.3s;
+}
+
+#image__poke-card:hover {
+    transform: scale(1.1);
 }
 
 .detail-container__description {
@@ -123,7 +133,7 @@ body {
 }
 
 #button-add__card {
-	margin-top: 20px;
+	margin-top: 40px;
 	margin-bottom: 20px;
 	padding: 10px 20px;
 	font-size: 16px;

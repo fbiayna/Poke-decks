@@ -114,7 +114,9 @@ function Detail(props) {
 							<i className={`energy ${energy}`}></i>
 						))}
 						{` Attack #${index + 1} - ${attack.name}`}
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{attack.damage}
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						{`Damage: ${attack.damage}`}
 					</p>
 					<p className="pokemon-card__text">{attack.text}</p>
 				</div>

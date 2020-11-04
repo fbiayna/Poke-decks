@@ -15,7 +15,6 @@ ReactDOM.render(
 			<Header />
 			<Switch>
 				<Route path="/" exact component={Landing} />
-				{/* <Route path="/cards" exact component={List} /> */}
 				<Route path="/cards" exact component={List} />
 				<Route path="/my-decks" exact component={''} />
 				<Route path="/social" exact component={''} />
