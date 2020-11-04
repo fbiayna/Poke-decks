@@ -40,10 +40,6 @@ class CardsStore extends EventEmitter {
 		return card;
 	}
 
-	getDecks() {
-		return _decks;
-	}
-
 	addEventListener(callback) {
 		this.on(change, callback);
 	}
