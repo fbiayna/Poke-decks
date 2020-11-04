@@ -24,7 +24,6 @@ function List(params) {
 	}, [cards, cardName]);
 
 	function handleChange(setValue, ...event) {
-		debugger
 		setValue(event);
 	}
 
