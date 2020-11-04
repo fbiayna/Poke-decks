@@ -1,6 +1,6 @@
 import { EventEmitter } from 'events';
 import dispatcher from '../dispatcher/dispatcher';
-import actionTypes from '../actions/actiontypes';
+import actionTypes from '../actions/actionTypes';
 
 const change = 'change';
 let cards = [];

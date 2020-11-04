@@ -1,7 +1,7 @@
 import axios from 'axios';
 import dispatcher from '../dispatcher/dispatcher';
 import { loadCards, loadRandomCards, loadCard, loadDecks, loadList } from '../actions/action-creators';
-import actionTypes from './actiontypes';
+import actionTypes from './actionTypes';
 
 jest.mock('axios');
 jest.mock('../dispatcher/dispatcher');
