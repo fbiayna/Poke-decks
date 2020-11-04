@@ -3,10 +3,10 @@ import dispatcher from '../dispatcher/dispatcher';
 import actionTypes from '../actions/actionTypes';
 
 const change = 'change';
-let cards = [];
+let cards = null;
 let card = [];
 let _decks = [];
-let randomAmount = 996;
+let randomAmount = 46;
 
 class CardsStore extends EventEmitter {
 	getCards() {
@@ -34,12 +34,6 @@ class CardsStore extends EventEmitter {
 		return randomAmount;
 	}
 
-	getRandomCards() {
-		let random = Math.ceil(Math.random() * randomAmount);
-		let randomCards = cards.cards?.slice(random, random + 3) || null;
-		return randomCards;
-	}
-
 	getCard() {
 		return card;
 	}
@@ -60,6 +54,7 @@ class CardsStore extends EventEmitter {
 const cardsStore = new CardsStore();
 
 dispatcher.register((action) => {
+	debugger
 	switch (action.type) {
 		case actionTypes.LOAD_CARDS:
 			cards = action.payload;

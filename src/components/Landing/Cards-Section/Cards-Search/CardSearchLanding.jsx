@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import cardsStore from '../../../../stores/store';
-import { loadRandomCards } from '../../../../actions/action-creators';
+import { loadCards } from '../../../../actions/action-creators';
 import './CardSearchLanding.css';
 
 function CardSearchLanding() {
 	const [cards, setCards] = useState(null);
 
 	function handleChange() {
-		setCards(cardsStore.getRandomCards());
+		setCards(cardsStore.getCards());
 	}
 
 	useEffect(() => {
+		debugger
 		cardsStore.addEventListener(handleChange);
 
 		if (!cards) {
-			loadRandomCards();
+			loadCards();
 		}
 
 		return () => {
@@ -35,7 +36,7 @@ function CardSearchLanding() {
 				</div>
 			</Link>
 			<div className="images__cards">
-				{cards?.map((card, index) => (
+				{cards?.cards.map((card, index) => (
 					<Link key={`detail-${card.name}`} to={`/detail/${card.id}`}>
 						<img
 							className="cards__png-info"
