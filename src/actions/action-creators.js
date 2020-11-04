@@ -12,7 +12,10 @@ export async function loadCards() {
 }
 
 export async function loadRandomCards() {
-	const cards = await axios('https://api.pokemontcg.io/v1/cards?page=1&pageSize=1000');
+
+	let randomPage = Math.floor(Math.random()*260)
+
+	const cards = await axios(`https://api.pokemontcg.io/v1/cards?page=${randomPage}&pageSize=50`);
 
 	dispatcher.dispatch({
 		type: actionTypes.LOAD_RANDOM_CARDS,
