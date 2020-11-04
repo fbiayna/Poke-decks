@@ -85,8 +85,8 @@ describe('dispatcher.register functions', () => {
         // assert
         expect(randomCard.length).toBe(3);
     });
-
-	test('should return an object item', () => {
+	
+	test('should return an object item in loadCard', () => {
 		//arrange
 		const card = { id: 'ex14-28' };
 		dispatcher.dispatch({
@@ -99,7 +99,7 @@ describe('dispatcher.register functions', () => {
 		expect(newCard).toEqual(card);
 	});
 
-	test('should return deck info', () => {
+	test('should return deck info in loadDecks', () => {
 		//arrange
 		const decks = [{ id: 'Deck#001' }];
 		dispatcher.dispatch({
@@ -112,7 +112,7 @@ describe('dispatcher.register functions', () => {
 		expect(pokemonDeck).toEqual(decks);
 	});
 
-	test('should return an array item', () => {
+	test('should return an array item in loadList', () => {
 		//arrange
 		const cardName = [{ name: 'Charizard' }];
 		dispatcher.dispatch({
@@ -123,5 +123,18 @@ describe('dispatcher.register functions', () => {
 		const pokemonName = cardsStore.getCards();
 		//assert
 		expect(pokemonName).toEqual(cardName);
+	});
+
+	test('should return an array item in loadCollection', () => {
+		// arrange
+		const cards = [{ id: 12, card: 60 }];
+		dispatcher.dispatch({
+			type: actionTypes.LOAD_COLLECTION,
+			payload: cards
+		});
+		// act
+		const collection = cardsStore.getCards();
+		// assert
+		expect(collection).toEqual(cards);
 	});
 });
