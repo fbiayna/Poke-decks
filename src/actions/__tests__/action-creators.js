@@ -1,10 +1,10 @@
 import axios from 'axios';
-import dispatcher from '../dispatcher/dispatcher';
-import { loadCards, loadRandomCards, loadCard, loadDecks, loadList } from '../actions/action-creators';
-import actionTypes from './actionTypes';
+import { loadCards, loadRandomCards, loadCard, loadDecks, loadList } from '../action-creators';
+import actionTypes from '../actionTypes';
+import dispatcher from '../../dispatcher/dispatcher';
 
 jest.mock('axios');
-jest.mock('../dispatcher/dispatcher');
+jest.mock('../../dispatcher/dispatcher');
 
 describe('action-creators', () => {
     describe('loadCards', () => {
@@ -14,7 +14,7 @@ describe('action-creators', () => {
         });
 
         test('should call dispatch', () => {
-            expect(dispatcher.dispatch.mock.calls[0][0]).toEqual({ type: actionTypes.loadCards, payload: [] });
+            expect(dispatcher.dispatch.mock.calls[0][0]).toEqual({ type: actionTypes.LOAD_CARDS, payload: [] });
         });
         
         test('shold call dispatch just once', () => {
@@ -38,7 +38,7 @@ describe('action-creators', () => {
         });
 
         test('should call dispatch', () => {
-            expect(dispatcher.dispatch.mock.calls[0][0]).toEqual({ type: actionTypes.loadRandomCards, payload: [] });
+            expect(dispatcher.dispatch.mock.calls[0][0]).toEqual({ type: actionTypes.LOAD_RANDOM_CARDS, payload: [] });
         });
 
         test('should call dispatch just once', () => {
@@ -63,7 +63,7 @@ describe('action-creators', () => {
         });
 
         test('should call dispatcher', () => {
-            expect(dispatcher.dispatch.mock.calls[0][0]).toEqual({ type: actionTypes.loadCard, payload: []});
+            expect(dispatcher.dispatch.mock.calls[0][0]).toEqual({ type: actionTypes.LOAD_CARD, payload: []});
         });
 
         test('should call dispatcher just once', () => {
@@ -87,7 +87,7 @@ describe('action-creators', () => {
         });
 
         test('should call dispatcher', () => {
-            expect(dispatcher.dispatch.mock.calls[0][0]).toEqual({ type: actionTypes.loadDecks, payload: [] });
+            expect(dispatcher.dispatch.mock.calls[0][0]).toEqual({ type: actionTypes.LOAD_DECKS, payload: [] });
         });
 
         test('should call dispatcher just once', () => {
@@ -111,7 +111,7 @@ describe('action-creators', () => {
         });
 
         test('should call dispatcher', () => {
-            expect(dispatcher.dispatch.mock.calls[0][0]).toEqual({ type: actionTypes.loadList, payload: [] });
+            expect(dispatcher.dispatch.mock.calls[0][0]).toEqual({ type: actionTypes.LOAD_LIST, payload: [] });
         });
 
         test('should call axios with list api', () => {
