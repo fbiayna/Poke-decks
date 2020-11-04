@@ -1,6 +1,6 @@
-import cardsStore from './store';
-import dispatcher from '../dispatcher/dispatcher';
-import actionTypes from '../actions/actionTypes';
+import cardsStore from '../store';
+import dispatcher from '../../dispatcher/dispatcher';
+import actionTypes from '../../actions/actionTypes';
 
 describe('cardsStore functions', () => {
 
