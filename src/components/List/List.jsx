@@ -35,6 +35,7 @@ function List(params) {
 
 	return (
 		<div className="body-container">
+			<div className="opacity"></div>
 			<div className="search-container">
 				<input
 					type="text"
@@ -48,7 +49,9 @@ function List(params) {
 				{cards?.cards.map((card) => (
 					<li>
 						<Link to={`/detail/${card.id}`}>
-							<img src={card.imageUrl} alt={card.id} />
+							<div class="pokemonCard__container">
+								<img src={card.imageUrl} alt={card.id} className="pokemonCard__image"/>
+							</div>
 						</Link>
 					</li>
 				))}
