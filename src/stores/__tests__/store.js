@@ -8,7 +8,7 @@ describe('cardsStore functions', () => {
         // act
         let cards = cardsStore.getCards();
         //assert
-        expect(cards).toEqual([]);
+        expect(cards).toEqual(null);
     });
     
     test('should return cards as an empty array in setCards', () => {
