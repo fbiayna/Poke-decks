@@ -7,6 +7,7 @@ body {
 .desktop-header {
 	position: fixed;
 	display: flex;
+	justify-content: space-between;
 	align-items: center;
 	top: 0;
 	right: 0;
@@ -32,6 +33,7 @@ body {
 .desktop-header__title {
 	width: 200px;
 	height: auto;
+	justify-self: center;
 	cursor: pointer;
 }
 
@@ -43,7 +45,7 @@ body {
 	font-size: 30px;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1010px) {
 	.desktop-header__title {
 		display: none;
 	}
@@ -89,9 +91,18 @@ body {
 	padding-right: 10px;
 }
 
+.desktop-header__block {
+	display: flex;
+	align-items: center;
+	width: 33%;
+}
+
+.flex-end {
+	justify-content: flex-end;
+}
+
 .desktop-header__options {
 	display: flex;
-	flex: 1;
 }
 
 .desktop-header__menu-bar {
@@ -153,21 +164,40 @@ body {
 }
 
 .desktop-header__login {
-	flex: 1;
 	display: flex;
 	justify-content: flex-end;
-    align-items: center;
+	align-items: center;
+	height: 30px;
+	width: auto;
     margin-right: 30px;
 }
 
-.desktop-header__login__block {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+.desktop-header__login__button {
+	font-size: 15px;
+	font-weight: 900;
+	color: white;
+	border: 2px solid white;
+	padding: 5px 10px;
+	margin: 0 10px;
+	border-radius: 10px;
+	transition: transform 0.3s;
 }
 
-.desktop-header__login__block:hover > span {
-	color: #ffe300;
+.desktop-header__login__button:hover {
+	color: yellow;
+	border: 2px solid yellow;
+	cursor: pointer;
+	transform: scale(1.1);
+}
+
+.logout {
+	margin-left: 0px;
+	margin-right: 40px;
+}
+
+.user-login-email {
+	color: white;
+	font-weight: 900;
 }
 
 .desktop-header__title {
@@ -175,6 +205,13 @@ body {
 	font-weight: 700;
 	font-size: 22px;
 	cursor: pointer;
+	justify-self: center;
+}
+
+.desktop-header__login {
+	width: auto;
+	margin: 0 20px;
+	font-weight: 600;
 }
 
 .desktop-header__login span {
@@ -188,7 +225,6 @@ body {
 .desktop-header__logotgc {
 	display: block;
 	justify-content: flex-end;
-	flex: 0.25;
 	padding-right: 0px;
 }
 

@@ -46,7 +46,15 @@ body {
     justify-content: center;
 }
 
+.detailcard-container__description-button {
+    display: flex;
+    justify-content: center;
+}
+
 .detailcard-container__description {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
     color: white;
     width: 100%;
     padding: 20px 100px 30px 60px;
@@ -139,9 +147,17 @@ body {
     text-align: center;
 }
 
+.pokemon-evolve__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #button-add__card {
-	margin-top: 40px;
-	margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+	margin-top: 15px;
+	margin-bottom: 15px;
 	padding: 10px 20px;
 	font-size: 16px;
 	color: white;
@@ -154,7 +170,45 @@ body {
 	background-color: #1e5799;
 }
 
-#button-add__card:hover {
+#button-back {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100px;
+    margin-top: 40px;
+	margin-bottom: 20px;
+	padding: 10px 20px;
+	font-size: 16px;
+	color: white;
+	font-weight: 700;
+	border: none;
+	border-radius: 5px;
+	outline-style: none;
+	cursor: pointer;
+	outline: none;
+	background-color: #8a2214;
+}
+
+#button-back:hover {
+    background-color: #61180e;
+}
+
+#button-evolve {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    color: white;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    outline-style: none;
+    cursor: pointer;
+    outline: none;
+    background-color: #1e5799;
+}
+
+#button-add__card:hover, #button-evolve:hover {
 	background-color: #133863;
 }
 
