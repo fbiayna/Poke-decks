@@ -12,7 +12,6 @@ function CardSearchLanding() {
 	}
 
 	useEffect(() => {
-		debugger
 		cardsStore.addEventListener(handleChange);
 
 		if (!cards) {

@@ -36,7 +36,6 @@ export async function loadCard(cardId) {
 }
 
 export async function loadDecks() {
-	debugger;
 	const decks = await axios('/api/decks.json');
 
 	dispatcher.dispatch({
@@ -55,7 +54,6 @@ export async function loadList(cardName) {
 }
 
 export async function loadCollection() {
-	debugger;
 	let cardCollection = [];
 	let cardCollectionRequest;
 

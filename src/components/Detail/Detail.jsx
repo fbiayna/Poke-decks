@@ -20,7 +20,6 @@ function Detail(props) {
 		cardsStore.addEventListener(handleChange);
 
 		if (!decks || decks.length < 1) {
-			debugger;
 			loadDecks();
 		}
 

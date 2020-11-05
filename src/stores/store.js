@@ -54,7 +54,6 @@ class CardsStore extends EventEmitter {
 const cardsStore = new CardsStore();
 
 dispatcher.register((action) => {
-	debugger
 	switch (action.type) {
 		case actionTypes.LOAD_CARDS:
 			cards = action.payload;
