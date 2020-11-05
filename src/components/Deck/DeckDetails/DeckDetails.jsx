@@ -1,7 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState}  from 'react';
+import cardsStore from '../../stores/store';
+import { loadDecks } from '../../'
 import './DeckDetails.css';
 
-function DeckDetails(props) {
+function DeckDetails() {
+
+    const [decks, setDecks] = useState(cardsStore.getDecks());
+
+    function handleChange() {
+        setDecks(cardsStore.getDecks());
+    }
+
+    useEffect(() => {
+        cardsStore.addEventListener(handleChange);
+
+        if (!decks.length) {
+            loadDecks();
+        }
+
+        return () => { cardsStore.removeEventListener(handleChange) }
+    }, [decks]);
+
     return (
         <>
             <div className="decks__section__block deck__details">
