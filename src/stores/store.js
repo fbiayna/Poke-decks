@@ -6,7 +6,6 @@ const change = 'change';
 let cards = null;
 let card = [];
 let _decks = [];
-let randomAmount = 46;
 
 class CardsStore extends EventEmitter {
 	getCards() {
@@ -29,11 +28,6 @@ class CardsStore extends EventEmitter {
 		return (cards = { cards: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] });
 	}
 
-	setTestRandomAmount() {
-		randomAmount = 7;
-		return randomAmount;
-	}
-
 	getCard() {
 		return card;
 	}
@@ -54,7 +48,6 @@ class CardsStore extends EventEmitter {
 const cardsStore = new CardsStore();
 
 dispatcher.register((action) => {
-	debugger
 	switch (action.type) {
 		case actionTypes.LOAD_CARDS:
 			cards = action.payload;

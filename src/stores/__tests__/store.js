@@ -8,7 +8,7 @@ describe('cardsStore functions', () => {
         // act
         let cards = cardsStore.getCards();
         //assert
-        expect(cards).toEqual([]);
+        expect(cards).toEqual(null);
     });
     
     test('should return cards as an empty array in setCards', () => {
@@ -22,28 +22,6 @@ describe('cardsStore functions', () => {
         const testCards = cardsStore.setTestCards();
         expect(testCards).toEqual({ cards: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] });
     });
-
-    test('should return number 7 in setTestRandomAmount', () => {
-        const randomAmount = cardsStore.setTestRandomAmount();
-        expect(randomAmount).toBe(7);
-    });
-
-    test('should get null if cards is an empty array in getRandomCards', () => {
-        // act
-        cardsStore.setCards();
-        const randomCards = cardsStore.getRandomCards();
-        // assert
-        expect(randomCards).toBe(null);
-    });
-
-	test('should return a three item array from a 5 item array getRandomCards', () => {
-		// act
-		cardsStore.setTestCards();
-		cardsStore.setTestRandomAmount();
-		const finalCards = cardsStore.getRandomCards();
-		// assert
-		expect(finalCards.length).toBe(3);
-	});
 
     test('should return an empty array from getCard', () => {
         // act
@@ -73,18 +51,6 @@ describe('dispatcher.register functions', () => {
 		// assert
 		expect(cards).toBe(1);
 	});
-
-    test('should return a three item array from loadRandomCards', () => {
-        // arrange
-        dispatcher.dispatch({
-            type: actionTypes.LOAD_RANDOM_CARDS,
-            payload: { cards: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] }
-        });
-        // act
-        const randomCard = cardsStore.getRandomCards();
-        // assert
-        expect(randomCard.length).toBe(3);
-    });
 	
 	test('should return an object item in loadCard', () => {
 		//arrange

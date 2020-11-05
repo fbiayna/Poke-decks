@@ -5,11 +5,11 @@ import CardsSection from './Cards-Section/CardsSection';
 
 function Landing() {
 
-    return <>
+    return <div className="landing-container__all-elements">
         <FirstRow />
         <CardsSection />
         <Social />
-    </>
+    </div>
 }
 
 export default Landing;
