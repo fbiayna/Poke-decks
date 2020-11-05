@@ -2,20 +2,27 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import cardsStore from '../../stores/store';
 import './Detail.css';
-import { loadCard } from '../../actions/action-creators';
+import { loadCard, loadDecks } from '../../actions/action-creators';
 
 function Detail(props) {
 	
 	const [cardId] = useState(props.match.params.cardid);
 	const [card, setCard] = useState([]);
+	const [decks, setDecks] = useState(cardsStore.getDecks());
 
 	function handleChange() {
 		setCard(cardsStore.getCard());
+		setDecks(cardsStore.getDecks());
 	}
 
 	useEffect(() => {
 		document.body.scrollTop = document.documentElement.scrollTop = 0;
 		cardsStore.addEventListener(handleChange);
+
+		if (!decks || decks.length < 1) {
+			debugger;
+			loadDecks();
+		}
 
 		if (Array.isArray(card)) {
 			loadCard(cardId);
@@ -24,7 +31,22 @@ function Detail(props) {
 		return () => {
 			cardsStore.removeEventListener(handleChange);
 		};
-	}, [card, cardId]);
+	}, [card, cardId, decks]);
+
+	function addCardToDeck(card) {
+		if (decks) {
+			if (decks.length > 0) {
+				if (decks[0].totalcards < 60) {
+					decks[0].cards.push(card);
+					decks[0].totalcards++;
+					alert('Added!');
+					console.log(`deck: ${decks}`);
+				} else {
+					alert('Your deck is full, check it and make some space!')
+				}
+			}
+		} else alert('There are no decks... Create one first!');
+	}
 
 	function rules() {
 		if (Array.isArray(card.card?.text)) {
@@ -192,21 +214,14 @@ function Detail(props) {
 				<div className="detailcard-container__image-block">
 					<div className="detailcard-container__image">
 						<img
-							id="image__poke-card"
+							id={card.card?.id}
 							alt="error"
 							src={card.card?.imageUrlHiRes}
 						></img>
 						<div className="image__button-add">
 							<button
 								id="button-add__card"
-								onClick={() => {
-									cardsStore
-										.getDecks()
-										.find((cardDeckId) => cardDeckId === card.card.id)
-										? alert('Ya existe en el Dock!')
-										: cardsStore.getDecks().push(card.card.id);
-									console.log(cardsStore.getDecks());
-								}}
+								onClick={() => addCardToDeck(card)}
 							>
 								Add to Deck
 							</button>
