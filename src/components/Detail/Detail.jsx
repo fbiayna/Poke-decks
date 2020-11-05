@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import cardsStore from '../../stores/store';
 import './Detail.css';
-import { loadCard } from '../../actions/action-creators';
+import { loadCard, loadDecks } from '../../actions/action-creators';
 
 function Detail(props) {
 	
@@ -12,11 +12,16 @@ function Detail(props) {
 
 	function handleChange() {
 		setCard(cardsStore.getCard());
+		setDecks(cardsStore.getDecks());
 	}
 
 	useEffect(() => {
 		document.body.scrollTop = document.documentElement.scrollTop = 0;
 		cardsStore.addEventListener(handleChange);
+
+		if (!decks || decks.length < 1) {
+			loadDecks();
+		}
 
 		if (Array.isArray(card)) {
 			loadCard(cardId);
@@ -25,7 +30,22 @@ function Detail(props) {
 		return () => {
 			cardsStore.removeEventListener(handleChange);
 		};
-	}, [card, cardId]);
+	}, [card, cardId, decks]);
+
+	function addCardToDeck(card) {
+		if (decks) {
+			if (decks.length > 0) {
+				if (decks[0].totalcards < 60) {
+					decks[0].cards.push(card);
+					decks[0].totalcards++;
+					alert('Added!');
+					console.log(`deck: ${decks}`);
+				} else {
+					alert('Your deck is full, check it and make some space!')
+				}
+			}
+		} else alert('There are no decks... Create one first!');
+	}
 
 	function addCardToDeck(card) {
 		if (!decks.length)
@@ -204,11 +224,14 @@ function Detail(props) {
 				<div className="opacity"></div>
 				<div className="detailcard-container__image-block">
 					<div className="detailcard-container__image">
-						<img
-							id="image__poke-card"
-							alt="error"
-							src={card.card?.imageUrlHiRes}
-						></img>
+						<div className="poke-card__wrapper">
+							<img
+								id={card.card?.id}
+								alt="error"
+								src={card.card?.imageUrlHiRes}
+								className="image__poke-card"
+							></img>
+						</div>
 						<div className="image__button-add">
 							<button
 								id="button-add__card"
