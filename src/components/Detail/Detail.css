@@ -132,6 +132,12 @@ body {
     text-align: center;
 }
 
+.pokemon-evolve__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #button-add__card {
 	margin-top: 40px;
 	margin-bottom: 20px;
@@ -147,7 +153,22 @@ body {
 	background-color: #1e5799;
 }
 
-#button-add__card:hover {
+#button-evolve {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    color: white;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    outline-style: none;
+    cursor: pointer;
+    outline: none;
+    background-color: #1e5799;
+}
+
+#button-add__card:hover, #button-evolve:hover {
 	background-color: #133863;
 }
 

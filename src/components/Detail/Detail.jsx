@@ -78,7 +78,7 @@ function Detail(props) {
 		if (card.card?.nationalPokedexNumber !== undefined) {
 			return (
 				<>
-					<p className="pokemon-card__text">
+					<p className="pokemon-card__text pokemon-evolve__container">
 						<span className="pokemon-card__title">Pokédex Number</span> - #
 						{card?.card.nationalPokedexNumber}
 					</p>
@@ -96,14 +96,16 @@ function Detail(props) {
 	function pokemonEvolve() {
 		if (card.card?.evolvesFrom !== undefined) {
 			return (
-				<span>
+				<span className="pokemon-evolve__container">
 					<span className="pokemon-card__title">Evolves from</span>
 					<Link
 						className="pokemon-card__text"
 						id="pokemon_evolve"
 						to={`../cards/?name=${card?.card.evolvesFrom}`}
-					>
-						{` - ${card?.card.evolvesFrom}`}
+					><button
+					id="button-evolve">
+					{card?.card.evolvesFrom}
+				</button>
 					</Link>
 				</span>
 			);
