@@ -1,9 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
 import headerLogo from './image/headerLogo';
+import { signInWithEmail, signInWithGoogle, signOut } from '../../actions/auth-actions';
+import authStore from '../../stores/auth-store';
 
 function Header() {
+
+	const [user, setUser] = useState(authStore.getUser());
+
+	function handleChange() {
+		setUser(authStore.getUser());
+	}
+
+	useEffect(() => {
+		authStore.addEventListener(handleChange);
+
+		return () => authStore.removeEventListener(handleChange);
+	});
+
+	function getSignInButtons() {
+		return (
+			<>
+				<button type="button" onClick={(event) => { event.preventDefault(); signInWithEmail('team-rocket@gmail.com', 'skylab'); }}>Email/Password</button>
+				{' | '}
+				<button type="button" onClick={(event) => { event.preventDefault(); signInWithGoogle(); }}>Google</button>
+			</>
+		);
+	}
+
+	function isSignInVisible() {
+		return user
+			? <button type="button" onClick={(event) => { event.preventDefault(); signOut(); }}>Sign Out</button>
+			: getSignInButtons();
+	}
+
 	return (
 		<>
 			<link
@@ -67,14 +98,14 @@ function Header() {
 							className="desktop-header__title"
 						/>
 					</Link>
-					<div className="desktop-header__login">
-						<div className="desktop-header__login__block">
-							<span id="login__icon" className="material-icons">
-								person_add
-							</span>
-							<span id="login__sign">SIGN IN</span>
-						</div>
-					</div>
+					{isSignInVisible()}
+					{user && 
+						<span>
+							{' | '}
+							{' '}
+							{user.email}
+						</span>
+					}
 					<div className="desktop-header__logotgc">
 						<a href="https://www.pokemon.com/us/pokemon-tcg/">
 							<img
