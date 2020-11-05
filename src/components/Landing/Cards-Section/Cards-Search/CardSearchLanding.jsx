@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import cardsStore from '../../../../stores/store';
 import { loadCards } from '../../../../actions/action-creators';
 import './CardSearchLanding.css';
-import LoadingGif from '../../../LoadingGif/LoadingGif';
 
 function CardSearchLanding() {
 	const [cards, setCards] = useState(null);
@@ -13,7 +12,6 @@ function CardSearchLanding() {
 	}
 
 	useEffect(() => {
-		debugger
 		cardsStore.addEventListener(handleChange);
 
 		if (!cards) {
