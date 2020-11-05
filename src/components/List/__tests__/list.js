@@ -52,4 +52,20 @@ describe('List', () => {
 			document.getElementsByClassName('card-gallery')[0].children.length
 		).toBe(0);
 	});
+
+	test('should be defined', () => {
+		act(() => {
+			const location = {
+				search: 'cardId'
+			};
+			render(
+				<BrowserRouter>
+					<List location={location} />
+				</BrowserRouter>,
+				container
+			);
+		});
+		expect(
+			document.getElementsByClassName('card-gallery')[0]).toBeDefined();
+	});
 });

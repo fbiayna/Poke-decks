@@ -47,4 +47,25 @@ describe('Detail', () => {
 			document.getElementsByClassName('detailcard-container')[0].children.length
 		).toBeGreaterThan(0);
     });
+	test('to be defined', () => {
+        
+		act(() => {
+        
+			const match = {
+				params: {
+					cardId: 'someCardId'
+				}
+            };
+
+			render(
+				<BrowserRouter>
+					<Detail match={match} />
+				</BrowserRouter>,
+				container
+			);
+        });
+        
+		expect(
+			document.getElementsByClassName('detailcard-container')[0]).toBeDefined();
+    });
 });

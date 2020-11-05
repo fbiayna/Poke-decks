@@ -29,4 +29,16 @@ describe('CardsSection', () => {
 		});
 		expect(document.getElementsByClassName('landing__cards-section')[0].children.length).toBeGreaterThan(0);
 	});
+
+	test('should to be defined', () => {
+		act(() => {
+			render(
+				<BrowserRouter>
+					<CardsSection />
+				</BrowserRouter>,
+				container
+			);
+		});
+		expect(document.getElementsByClassName('landing__cards-section')[0]).toBeDefined();
+	});
 });
