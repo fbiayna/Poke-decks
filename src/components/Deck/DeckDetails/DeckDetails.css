@@ -1,0 +1,50 @@
+.decks__section__block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+
+.deck__details {
+    width: 25%;
+}
+
+.deck__add-cards {
+    width: 65%;
+}
+
+.decks__section__block__deck-description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+
+.decks__section__block__deck-statistics {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 65%;
+    height: auto;
+}
+
+.decks__section__block__deck__add-cards__add-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 250px;
+    background-color: blue;
+    cursor: pointer;
+}
+
+.decks__section__block__deck__add-cards__total-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 300px;
+    border: 2px solid black;
+}
