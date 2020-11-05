@@ -212,11 +212,14 @@ function Detail(props) {
 				<div className="opacity"></div>
 				<div className="detailcard-container__image-block">
 					<div className="detailcard-container__image">
-						<img
-							id={card.card?.id}
-							alt="error"
-							src={card.card?.imageUrlHiRes}
-						></img>
+						<div className="poke-card__wrapper">
+							<img
+								id={card.card?.id}
+								alt="error"
+								src={card.card?.imageUrlHiRes}
+								className="image__poke-card"
+							></img>
+						</div>
 						<div className="image__button-add">
 							<button
 								id="button-add__card"
