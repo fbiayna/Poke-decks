@@ -5,7 +5,6 @@ import './Detail.css';
 import { loadCard, loadDecks } from '../../actions/action-creators';
 
 function Detail(props) {
-	
 	const [cardId] = useState(props.match.params.cardid);
 	const [card, setCard] = useState([]);
 	const [decks, setDecks] = useState(cardsStore.getDecks());
@@ -41,22 +40,10 @@ function Detail(props) {
 					alert('Added!');
 					console.log(`deck: ${decks}`);
 				} else {
-					alert('Your deck is full, check it and make some space!')
+					alert('Your deck is full, check it and make some space!');
 				}
 			}
 		} else alert('There are no decks... Create one first!');
-	}
-
-	function addCardToDeck(card) {
-		if (!decks.length)
-		if (decks.length > 0) {
-			if (decks[0].totalcards < 60) {
-				decks[0].cards.push(card);
-				decks[0].totalcards++;
-				alert('Added!');
-				console.log(`deck: ${decks}`);
-			}
-		}
 	}
 
 	function rules() {
@@ -85,10 +72,23 @@ function Detail(props) {
 		if (card.card?.rarity !== undefined) {
 			return (
 				<>
-					<span className="pokemon-card__text">
-						<span className="pokemon-card__title">Rarity</span> -{' '}
+					<p className="pokemon-card__text  pokemon-evolve__container">
+						<span className="pokemon-card__title">Rarity</span>
 						{card.card?.rarity}
-					</span>
+					</p>
+				</>
+			);
+		}
+	}
+
+	function cardSet() {
+		if (card.card?.set !== undefined) {
+			return (
+				<>
+					<p className="pokemon-card__text pokemon-evolve__container">
+						<span className="pokemon-card__title">Set</span>
+						{card?.card.set}
+					</p>
 				</>
 			);
 		}
@@ -99,7 +99,7 @@ function Detail(props) {
 			return (
 				<>
 					<p className="pokemon-card__text pokemon-evolve__container">
-						<span className="pokemon-card__title">Pokédex Number</span> - #
+						<span className="pokemon-card__title">Pokédex Number</span>#
 						{card?.card.nationalPokedexNumber}
 					</p>
 				</>
@@ -116,29 +116,29 @@ function Detail(props) {
 	function pokemonEvolve() {
 		if (card.card?.evolvesFrom !== undefined) {
 			return (
-				<span className="pokemon-evolve__container">
+				<p className="pokemon-evolve__container">
 					<span className="pokemon-card__title">Evolves from</span>
 					<Link
 						className="pokemon-card__text"
 						id="pokemon_evolve"
 						to={`../cards/?name=${card?.card.evolvesFrom}`}
-					><button
-					id="button-evolve">
-					{card?.card.evolvesFrom}
-				</button>
+					>
+						<button id="button-evolve">{card?.card.evolvesFrom}</button>
 					</Link>
-				</span>
+				</p>
 			);
 		}
 	}
 
 	function pokemonType() {
 		if (card.card?.types !== undefined) {
-			return card.card.types.map((type) => (
+			return (
 				<p>
-					<i className={`energy ${type}`}></i>
+					{card.card.types.map((type) => (
+						<i className={`energy ${type}`}></i>
+					))}
 				</p>
-			));
+			);
 		}
 	}
 
@@ -153,7 +153,7 @@ function Detail(props) {
 						{` Attack #${index + 1} - ${attack.name}`}
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						{`Damage: ${attack.damage}`}
+						{attack.damage ? `Damage - ${attack.damage}` : ''}
 					</p>
 					<p className="pokemon-card__text">{attack.text}</p>
 				</div>
@@ -235,11 +235,9 @@ function Detail(props) {
 							></img>
 						</div>
 						<div className="image__button-add">
-							<button
-								id="button-add__card"
-								onClick={() => addCardToDeck(card)}
-							>
-								Add to Deck
+							<button id="button-back" onClick={() => window.history.back()}>
+								<span class="material-icons">arrow_back</span>&nbsp;
+								<span>Back</span>
 							</button>
 						</div>
 					</div>
@@ -257,7 +255,7 @@ function Detail(props) {
 						</div>
 						<div className="description__set">
 							<div className="pokemon__dex">
-								<p>Set - {card.card?.set}</p>
+								{cardSet()}
 								{cardRarity()}
 							</div>
 							<div className="pokemon__dex">
@@ -265,13 +263,19 @@ function Detail(props) {
 								{pokemonEvolve()}
 							</div>
 						</div>
-						<p>{ability()}</p>
-						<p>{rules()}</p>
-						<p>{pokemonAttacks()}</p>
+						{ability()}
+						{rules()}
+						{pokemonAttacks()}
 						<div className="pokemon__other-type pokemon-card__description">
 							{pokemonWeak()}
 							{pokemonResist()}
 							{pokemonRetreat()}
+						</div>
+						<div className="detailcard-container__description-button">
+							<button id="button-add__card" onClick={() => addCardToDeck(card)}>
+								<span class="material-icons">shopping_cart</span>&nbsp;
+								<span>Add to Deck</span>
+							</button>
 						</div>
 					</div>
 				</div>
