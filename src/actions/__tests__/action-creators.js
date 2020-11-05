@@ -23,7 +23,7 @@ describe('action-creators', () => {
 
         test('should call axios with cards API', () => {
             // assert
-            expect(axios.mock.calls[0][0]).toEqual('https://api.pokemontcg.io/v1/cards?page=1&pageSize=500');
+            expect(axios.mock.calls[0][0]).toMatch('https://api.pokemontcg.io/v1/cards?page=');
         });
         
         test('should call axios just once', () => {
@@ -46,7 +46,7 @@ describe('action-creators', () => {
         });
 
         test('should call axios with randomCards API', () => {
-            expect(axios.mock.calls[0][0]).toBe('https://api.pokemontcg.io/v1/cards?page=1&pageSize=50');
+            expect(axios.mock.calls[0][0]).toMatch('https://api.pokemontcg.io/v1/cards?page=');
         });
     
         test('should call axios just once', () => {
