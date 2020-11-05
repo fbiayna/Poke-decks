@@ -92,16 +92,23 @@ body {
     justify-content: space-between;
 }
 
-#image__poke-card {
-    max-width: 300px;
-    min-width: 200px;
-    border-radius: 5px;
-    box-shadow: 4px 4px 5px black;
+.poke-card__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transition: transform 0.3s;
+    box-shadow: 4px 4px 5px black;
+    border-radius: 10px;
 }
 
-#image__poke-card:hover {
+.poke-card__wrapper:hover {
     transform: scale(1.1);
+}
+
+.image__poke-card {
+    max-width: 300px;
+    min-width: 200px;
+    border-radius: 10px;
 }
 
 .detail-container__description {

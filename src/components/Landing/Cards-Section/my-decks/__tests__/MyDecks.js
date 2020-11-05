@@ -1,34 +1,24 @@
 import React from 'react';
-import CardSearchLanding from '../CardSearchLanding';
+import MyDecks from '../MyDecks';
 import { act } from 'react-dom/test-utils';
 import { BrowserRouter } from 'react-router-dom';
 import { render, unmountComponentAtNode } from 'react-dom';
 import store from '../../../../../stores/store';
 
-describe('CardSearchLanding', () => {
+describe('MyDecks', () => {
 	let container = null;
 
 	beforeEach(() => {
 		container = document.createElement('div');
 		document.body.appendChild(container);
-		let cardsMock = [
+		let decks = [
 			{
-				id: 'pl3-93',
-				name: 'Bulbasaur',
-				imageUrl: 'https://images.pokemontcg.io/pl3/93_hires.png'
+				title: 'Deck 1',
+				url: './decks',
+				imagealt: 'https://images.pokemontcg.io/pl3/93_hires.png'
 			},
-			{
-				id: 'pl3-93',
-				name: 'Squirtle',
-				imageUrl: 'https://images.pokemontcg.io/pl3/93_hires.png'
-			},
-			{
-				id: 'pl3-93',
-				name: 'Charmander',
-				imageUrl: 'https://images.pokemontcg.io/pl3/93_hires.png'
-			}
 		];
-		store.setCardsCorrectly(cardsMock);
+		store.setCardsCorrectly(decks);
 	});
 
 	afterEach(() => {
@@ -41,13 +31,13 @@ describe('CardSearchLanding', () => {
 		act(() => {
 			render(
 				<BrowserRouter>
-					<CardSearchLanding />
+					<MyDecks />
 				</BrowserRouter>,
 				container
 			);
 		});
 		expect(container.getElementsByClassName('images__title')[0].innerHTML).toBe(
-			"<h2>SEARCH BY CARDS</h2><p>Do you need information about any card?<br>Find it with Poke-Decks' search tool!</p>"
+			"<h2>MY DECKS</h2><p>It's time to create!<br>Customize decks whatever you want</p>"
 		);
 	});
 
@@ -55,7 +45,7 @@ describe('CardSearchLanding', () => {
 		act(() => {
 			render(
 				<BrowserRouter>
-					<CardSearchLanding />
+					<MyDecks />
 				</BrowserRouter>,
 				container
 			);
@@ -63,14 +53,14 @@ describe('CardSearchLanding', () => {
 
 		expect(
 			document.getElementsByClassName('images__cards')[0].children.length
-		).toBe(0);
+		).toBeGreaterThan(0);
 	});
 
 	test('should have a div with a button', () => {
 		act(() => {
 			render(
 				<BrowserRouter>
-					<CardSearchLanding />
+					<MyDecks />
 				</BrowserRouter>,
 				container
 			);
@@ -78,7 +68,7 @@ describe('CardSearchLanding', () => {
 		expect(
 			container.getElementsByClassName('images__button-search')[0].innerHTML
 		).toBe(
-			'<a href="/cards"><button id="button-search__cards-home">Find Cards</button></a>'
+			'<a href="/my-decks"><button id="button-search__cards-home">Create decks</button></a>'
 		);
 	});
 });

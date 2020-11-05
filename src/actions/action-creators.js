@@ -110,7 +110,6 @@ export async function loadList(cardName) {
 }
 
 export async function loadCollection() {
-	debugger;
 	let cardCollection = [];
 	let cardCollectionRequest;
 

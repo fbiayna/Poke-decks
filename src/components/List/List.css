@@ -2,15 +2,52 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	background-image: url('https://static1.srcdn.com/wordpress/wp-content/uploads/2020/07/pokemon-go-4th-anniversary-promotional-artwork-02.jpg');
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	overflow-y: hidden;
+	position: relative;
+}
+
+.opacity {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.6);
+	position: absolute;
 }
 
 .search-container {
-	margin-top: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 40px;
+	margin-bottom: 20px;
 	width: 80%;
+	z-index: 1;
 }
 
+
 #searchBar {
-	width: 100%;
+	width: 50%;
+	height: 15px;
+	padding: 5px;
+	border-radius: 10px;
+	text-align: center;
+	font-family: 'Lato', sans-serif;
+	background-image: url('https://trello-attachments.s3.amazonaws.com/5f8ca3639574d3550b3ad495/5f9cb0e6b6fed24123256da4/ae62e70c793db11792222c22b27334aa/pokeball.png');
+	background-repeat: no-repeat;
+	background-position: 3px 3px;
+	transition: transform 0.2s;
+}
+
+#searchBar:hover {
+	transform: scale(1.1);
+}
+
+#searchBar:focus {
+	outline: none;
+	transform: scale(1.1);
 }
 
 .card-gallery {
@@ -20,6 +57,7 @@
 	justify-content: space-around;
 	padding-inline-start: 0;
 	padding: 0 20px;
+	z-index: 1;
 }
 
 .card-gallery li {
@@ -27,6 +65,31 @@
 	margin: 10px;
 }
 
-li img {
-	width: 250px;
+.pokemonCard__container {
+	display: flex;
+	box-shadow: 4px 4px 5px black;
+	border-radius: 10px;
+	transition: transform .2s;
+	z-index: 1;
 }
+
+.pokemonCard__container:hover {
+	transform: scale(1.08);
+}
+
+.pokemonCard__image {
+	width: 250px;
+	height: auto;
+	border-radius: 10px;
+}
+
+@media (max-width: 690px){
+	#searchBar {
+		width: 90%;
+	}
+
+	.pokemonCard__image {
+		width: 190px;
+	}
+}
+

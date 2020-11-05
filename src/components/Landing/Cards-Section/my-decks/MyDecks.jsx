@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { loadDecks } from '../../../../actions/action-creators';
 import cardsStore from '../../../../stores/store';
+import LoadingGif from '../../../LoadingGif/LoadingGif';
 import './MyDecks.css';
 
 function MyDecks() {
@@ -34,7 +35,8 @@ function MyDecks() {
 				</div>
 			</Link>
 			<div className="images__cards">
-				{decks.map((deck) => (
+				{!decks.length && <LoadingGif />}
+				{decks.length && decks.map((deck) => (
 					<Link to="/my-decks" key={`deck-${deck.title}`} className="MyDeck-Links">
 						<div className="cardsSection__myDeck__deckBlock">
 							<span className="cardsSection__myDeck__deckBlock__title">
