@@ -13,13 +13,13 @@
 .opacity {
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0, 0, 0, 0.6);
+	background-color: rgba(0, 0, 0, 0.7);
 	position: absolute;
 }
 
 .search-container {
 	display: flex;
-	justify-content: center;
+	justify-content: space-around;
 	align-items: center;
 	margin-top: 40px;
 	margin-bottom: 20px;
@@ -27,17 +27,29 @@
 	z-index: 1;
 }
 
+.search-container > input {
+	flex: 1.5;
+}
+
+.search-container__buttons {
+	display: flex;
+	flex: 1;
+	justify-content: flex-end;
+}
 
 #searchBar {
+	display: flex;
+	align-items: center;
 	width: 50%;
-	height: 15px;
+	height: 30px;
 	padding: 5px;
 	border-radius: 10px;
+	font-size: 18px;
 	text-align: center;
 	font-family: 'Lato', sans-serif;
 	background-image: url('https://trello-attachments.s3.amazonaws.com/5f8ca3639574d3550b3ad495/5f9cb0e6b6fed24123256da4/ae62e70c793db11792222c22b27334aa/pokeball.png');
 	background-repeat: no-repeat;
-	background-position: 3px 3px;
+	background-position: 9px 9px;
 	transition: transform 0.2s;
 }
 
@@ -48,6 +60,47 @@
 #searchBar:focus {
 	outline: none;
 	transform: scale(1.1);
+}
+
+#button-back_search {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+	padding: 10px 20px;
+	font-size: 16px;
+	color: white;
+	font-weight: 700;
+	border: none;
+	border-radius: 5px;
+	outline-style: none;
+	cursor: pointer;
+	outline: none;
+	background-color: #8a2214;
+}
+
+#button-back_search:hover {
+    background-color: #61180e;
+}
+
+#button-go-deck_search {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+	padding: 10px 20px;
+	margin-left: 20px;
+	font-size: 16px;
+	color: white;
+	font-weight: 700;
+	border: none;
+	border-radius: 5px;
+	outline-style: none;
+	cursor: pointer;
+	outline: none;
+	background-color: #0b5f12;
+}
+
+#button-go-deck_search:hover {
+    background-color: #07360b;
 }
 
 .card-gallery {
@@ -90,6 +143,13 @@
 
 	.pokemonCard__image {
 		width: 190px;
+	}
+}
+
+@media (max-width: 480px) {
+
+	.pokemonCard__image {
+		width: 120px;
 	}
 }
 
