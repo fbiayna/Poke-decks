@@ -21,17 +21,18 @@ function Header() {
 
 	function getSignInButtons() {
 		return (
-			<>
-				<button type="button" onClick={(event) => { event.preventDefault(); signInWithEmail('team-rocket@gmail.com', 'skylab'); }}>Email/Password</button>
-				{' | '}
-				<button type="button" onClick={(event) => { event.preventDefault(); signInWithGoogle(); }}>Google</button>
-			</>
+			<div className="desktop-header__login">
+				<div className="desktop-header__login__button" onClick={(event) => { event.preventDefault(); signInWithEmail('team-rocket@gmail.com', 'skylab'); }}>Email/Password</div>
+				<div className="desktop-header__login__button" onClick={(event) => { event.preventDefault(); signInWithGoogle(); }}>Google</div>
+			</div>
 		);
 	}
 
 	function isSignInVisible() {
 		return user
-			? <button type="button" onClick={(event) => { event.preventDefault(); signOut(); }}>Sign Out</button>
+			? <div className="desktop-header__login__button logout" onClick={(event) => { event.preventDefault(); signOut(); }}>
+				<i class="fa fa-power-off"></i>
+			</div>
 			: getSignInButtons();
 	}
 
@@ -46,7 +47,8 @@ function Header() {
 			<nav className="mobile-header">
 				<h2 className="title__body">Deck Masters - Header</h2>
 				<div className="desktop-header">
-					<Link className="header__links" to="/">
+					<div className="desktop-header__block">
+						<Link className="header__links" to="/">
 						<div className="desktop-header__logo">
 							<img
 								id="logo__pokeball"
@@ -60,7 +62,7 @@ function Header() {
 							/>
 						</div>
 					</Link>
-					<div className="desktop-header__options">
+						<div className="desktop-header__options">
 						<div className="desktop-header__menu-bar">
 							<button id="menu-bar__trading" className="menu-bar__dropdown">
 								TRADING CARDS
@@ -91,29 +93,35 @@ function Header() {
 							</div>
 						</div>
 					</div>
-					<Link className="header__links" to="/">
-						<img
-							src={headerLogo.url}
-							alt={headerLogo.title}
-							className="desktop-header__title"
-						/>
-					</Link>
-					{isSignInVisible()}
-					{user && 
-						<span>
-							{' | '}
-							{' '}
-							{user.email}
-						</span>
-					}
-					<div className="desktop-header__logotgc">
-						<a href="https://www.pokemon.com/us/pokemon-tcg/">
+					</div>
+					<div className="desktop-header__options">
+						<Link className="header__links" to="/">
 							<img
-								id="logo__tgc"
-								alt="error"
-								src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Pok%C3%A9mon_Trading_Card_Game_logo.svg/1280px-Pok%C3%A9mon_Trading_Card_Game_logo.svg.png"
+								src={headerLogo.url}
+								alt={headerLogo.title}
+								className="desktop-header__title"
 							/>
-						</a>
+						</Link>
+					</div>
+					<div className="desktop-header__block flex-end">
+						{user && 
+							<div className="desktop-header__login">
+								<span className="user-login-email">
+									{' '}
+									{user.email}
+								</span>
+							</div>
+						}
+						{isSignInVisible()}
+						<div className="desktop-header__logotgc">
+							<a href="https://www.pokemon.com/us/pokemon-tcg/">
+								<img
+									id="logo__tgc"
+									alt="error"
+									src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Pok%C3%A9mon_Trading_Card_Game_logo.svg/1280px-Pok%C3%A9mon_Trading_Card_Game_logo.svg.png"
+								/>
+							</a>
+						</div>
 					</div>
 				</div>
 			</nav>
