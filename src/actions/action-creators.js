@@ -108,22 +108,3 @@ export async function loadList(cardName) {
 		});
 	}
 }
-
-export async function loadCollection() {
-	let cardCollection = [];
-	let cardCollectionRequest;
-
-	for (let index = 1; index < 14; index++) {
-		cardCollectionRequest = await axios(
-			`https://api.pokemontcg.io/v1/cards?page=${index}&pageSize=1000`
-		);
-		cardCollection[index - 1] = cardCollectionRequest.data.cards;
-	}
-
-	let totalOfCards = cardCollection.flat();
-
-	dispatcher.dispatch({
-		type: actionTypes.LOAD_COLLECTION,
-		payload: totalOfCards
-	});
-}
