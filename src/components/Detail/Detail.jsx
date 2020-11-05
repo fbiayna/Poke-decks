@@ -5,6 +5,7 @@ import './Detail.css';
 import { loadCard, loadDecks } from '../../actions/action-creators';
 
 function Detail(props) {
+
 	const [cardId] = useState(props.match.params.cardid);
 	const [card, setCard] = useState([]);
 	const [decks, setDecks] = useState(cardsStore.getDecks());
@@ -273,7 +274,7 @@ function Detail(props) {
 						</div>
 						<div className="detailcard-container__description-button">
 							<button id="button-add__card" onClick={() => addCardToDeck(card)}>
-								<span class="material-icons">shopping_cart</span>&nbsp;
+								<span className="material-icons">shopping_cart</span>&nbsp;
 								<span>Add to Deck</span>
 							</button>
 						</div>
