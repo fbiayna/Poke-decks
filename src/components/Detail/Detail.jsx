@@ -8,6 +8,7 @@ function Detail(props) {
 	
 	const [cardId] = useState(props.match.params.cardid);
 	const [card, setCard] = useState([]);
+	const [decks, setDecks] = useState(cardsStore.getDecks());
 
 	function handleChange() {
 		setCard(cardsStore.getCard());
@@ -25,6 +26,18 @@ function Detail(props) {
 			cardsStore.removeEventListener(handleChange);
 		};
 	}, [card, cardId]);
+
+	function addCardToDeck(card) {
+		if (!decks.length)
+		if (decks.length > 0) {
+			if (decks[0].totalcards < 60) {
+				decks[0].cards.push(card);
+				decks[0].totalcards++;
+				alert('Added!');
+				console.log(`deck: ${decks}`);
+			}
+		}
+	}
 
 	function rules() {
 		if (Array.isArray(card.card?.text)) {
@@ -199,14 +212,7 @@ function Detail(props) {
 						<div className="image__button-add">
 							<button
 								id="button-add__card"
-								onClick={() => {
-									cardsStore
-										.getDecks()
-										.find((cardDeckId) => cardDeckId === card.card.id)
-										? alert('Ya existe en el Dock!')
-										: cardsStore.getDecks().push(card.card.id);
-									console.log(cardsStore.getDecks());
-								}}
+								onClick={() => addCardToDeck(card)}
 							>
 								Add to Deck
 							</button>
