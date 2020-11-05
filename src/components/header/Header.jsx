@@ -97,22 +97,6 @@ function Header() {
 									</Link>
 								</div>
 							</div>
-							<div className="desktop-header__menu-bar">
-								<button className="menu-bar__dropdown menu-bar__social">
-									SOCIAL
-								</button>
-								<div className="dropdown-content">
-									<Link className="header__links" to="/social">
-										<span>TUTORIAL</span>
-									</Link>
-									<Link className="header__links" to="/social">
-										<span>STREAMINGS</span>
-									</Link>
-									<Link className="header__links" to="/social">
-										<span>TOURNAMENTS</span>
-									</Link>
-								</div>
-							</div>
 						</div>
 					</div>
 					<div className="desktop-header__options">
