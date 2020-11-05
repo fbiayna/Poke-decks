@@ -85,7 +85,7 @@ describe('action-creators', () => {
 	describe('loadRandomCards promise rejected', () => {
 		beforeEach(async () => {
 			axios.mockImplementationOnce(() => Promise.reject());
-			axios.mockImplementationOnce(() => Promise.resolve({ cards: [1] }));
+			axios.mockImplementationOnce(() => Promise.resolve({ cards: [{}] }));
 			await loadRandomCards();
 		});
 
@@ -122,17 +122,19 @@ describe('action-creators', () => {
 			expect(axios.mock.calls.length).toBe(1);
 		});
 	});
-	// TO BE REVIEWED
+
 	describe('loadCard promise rejected', () => {
 		const cardId = 'ex14-28';
 		beforeEach(async () => {
 			axios.mockImplementationOnce(() => Promise.reject());
-			axios.mockImplementationOnce(() => Promise.resolve([{ id: 'ex14-28' }]));
+			axios.mockImplementationOnce(() =>
+				Promise.resolve({ cards: [{ id: 'ex14-28' }] })
+			);
 			await loadCard(cardId);
 		});
 
 		test('should call dispatcher on rejected promise', () => {
-			expect(dispatcher.dispatch.mock.calls[0][0].payload.length).toBeDefined();
+			expect(dispatcher.dispatch.mock.calls[0][0].payload.length).toBe(1);
 		});
 	});
 
@@ -154,7 +156,7 @@ describe('action-creators', () => {
 		});
 
 		test('should call axios with loadDecks api', () => {
-			expect(axios.mock.calls[0][0]).toEqual('api/decks.json');
+			expect(axios.mock.calls[0][0]).toEqual('/api/decks.json');
 		});
 
 		test('should call axios just once', () => {
@@ -190,15 +192,17 @@ describe('action-creators', () => {
 	describe('loadList promise rejected', () => {
 		const cardName = 'charizard';
 		beforeEach(async () => {
-			axios.mockImplementationOnce(() => Promise.reject({ data: [] }));
+			axios.mockImplementationOnce(() => Promise.reject());
+			axios.mockImplementationOnce(() =>
+				Promise.resolve({ cards: [{ name: 'Charizard' }] })
+			);
 			await loadList(cardName);
 		});
 
 		test('should call dispatcher on rejected promise', () => {
-			expect(dispatcher.dispatch.mock.calls[0][0]).toEqual({
-				type: actionTypes.LOAD_LIST,
-				payload: []
-			});
+			expect(
+				dispatcher.dispatch.mock.calls[0][0].payload.length
+			).toBeGreaterThan(0);
 		});
 	});
 });

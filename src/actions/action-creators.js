@@ -16,7 +16,7 @@ export async function loadCards() {
 		});
 	} catch (error) {
 		let threeRandomCardsToShow = [];
-		let totalOfCards = await axios('api/pokemon.json');
+		let totalOfCards = await axios('/api/pokemon.json');
 		for (let i = 0; i < 3; i++) {
 			let randomCard = Math.floor(Math.random() * totalOfCards.cards.length);
 			threeRandomCardsToShow.push(totalOfCards.cards[randomCard]);
@@ -43,7 +43,7 @@ export async function loadRandomCards() {
 		});
 	} catch (error) {
 		let fiftyRandomCardsToShow = [];
-		let totalOfCards = await axios('api/pokemon.json');
+		let totalOfCards = await axios('/api/pokemon.json');
 		for (let i = 0; i < 50; i++) {
 			let randomCard = Math.floor(Math.random() * totalOfCards.cards.length);
 			fiftyRandomCardsToShow.push(totalOfCards.cards[randomCard]);
@@ -65,8 +65,10 @@ export async function loadCard(cardId) {
 			payload: card.data
 		});
 	} catch (error) {
-		let totalOfCards = await axios('api/pokemon.json');
-		let cardDetail = totalOfCards.cards.filter((word) => word.id.find(cardId));
+		let totalOfCards = await axios('/api/pokemon.json');
+		let cardDetail = totalOfCards.cards.filter((word) =>
+			word.id.includes(cardId)
+		);
 
 		dispatcher.dispatch({
 			type: actionTypes.LOAD_CARD,
@@ -76,7 +78,7 @@ export async function loadCard(cardId) {
 }
 
 export async function loadDecks() {
-	const decks = await axios('api/decks.json');
+	const decks = await axios('/api/decks.json');
 
 	dispatcher.dispatch({
 		type: actionTypes.LOAD_DECKS,
@@ -95,7 +97,7 @@ export async function loadList(cardName) {
 			payload: cardList.data
 		});
 	} catch (error) {
-		let totalOfCards = await axios('api/pokemon.json');
+		let totalOfCards = await axios('/api/pokemon.json');
 		let cardsByName = totalOfCards.cards.filter((word) =>
 			word.name.toLowerCase().includes(cardName)
 		);
