@@ -44,15 +44,13 @@ describe('action-creators', () => {
 
 	describe('loadCards promise rejected', () => {
 		beforeEach(async () => {
-			axios.mockImplementationOnce(() => Promise.reject({ data: [] }));
+			axios.mockImplementationOnce(() => Promise.reject());
+			axios.mockImplementationOnce(() => Promise.resolve({ cards: [1] }));
 			await loadCards();
 		});
 
 		test('should call dispatch on rejected promise', () => {
-			expect(dispatcher.dispatch.mock.calls[0][0]).toEqual({
-				type: actionTypes.LOAD_CARDS,
-				payload: []
-			});
+			expect(dispatcher.dispatch.mock.calls[0][0].payload.length).toBe(3);
 		});
 	});
 
@@ -84,6 +82,18 @@ describe('action-creators', () => {
 		});
 	});
 
+	describe('loadRandomCards promise rejected', () => {
+		beforeEach(async () => {
+			axios.mockImplementationOnce(() => Promise.reject());
+			axios.mockImplementationOnce(() => Promise.resolve({ cards: [1] }));
+			await loadRandomCards();
+		});
+
+		test('should call dispatch on rejected promise', () => {
+			expect(dispatcher.dispatch.mock.calls[0][0].payload.length).toBe(50);
+		});
+	});
+
 	describe('loadCard', () => {
 		const cardId = 'ex14-28';
 		beforeEach(async () => {
@@ -110,6 +120,19 @@ describe('action-creators', () => {
 
 		test('should call axios just once', () => {
 			expect(axios.mock.calls.length).toBe(1);
+		});
+	});
+	// TO BE REVIEWED
+	describe('loadCard promise rejected', () => {
+		const cardId = 'ex14-28';
+		beforeEach(async () => {
+			axios.mockImplementationOnce(() => Promise.reject());
+			axios.mockImplementationOnce(() => Promise.resolve([{ id: 'ex14-28' }]));
+			await loadCard(cardId);
+		});
+
+		test('should call dispatcher on rejected promise', () => {
+			expect(dispatcher.dispatch.mock.calls[0][0].payload.length).toBeDefined();
 		});
 	});
 

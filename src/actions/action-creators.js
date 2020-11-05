@@ -45,15 +45,13 @@ export async function loadRandomCards() {
 		let fiftyRandomCardsToShow = [];
 		let totalOfCards = await axios('api/pokemon.json');
 		for (let i = 0; i < 50; i++) {
-			let randomCard = Math.floor(
-				Math.random() * totalOfCards.data.cards.length
-			);
-			fiftyRandomCardsToShow.push(totalOfCards.data.cards[randomCard]);
+			let randomCard = Math.floor(Math.random() * totalOfCards.cards.length);
+			fiftyRandomCardsToShow.push(totalOfCards.cards[randomCard]);
 		}
 
 		dispatcher.dispatch({
 			type: actionTypes.LOAD_RANDOM_CARDS,
-			payload: fiftyRandomCardsToShow.data
+			payload: fiftyRandomCardsToShow
 		});
 	}
 }
