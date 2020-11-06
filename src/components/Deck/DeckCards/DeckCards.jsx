@@ -7,7 +7,7 @@ import './DeckCards.css';
 function DeckCards() {
 
     const [decks, setDecks] = useState(cardsStore.getDecks());
-    console.log(decks);
+
     function handleChange() {
         const decks = cardsStore.getDecks();
         setDecks(decks);
