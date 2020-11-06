@@ -45,12 +45,14 @@ describe('action-creators', () => {
 	describe('loadCards promise rejected', () => {
 		beforeEach(async () => {
 			axios.mockImplementationOnce(() => Promise.reject());
-			axios.mockImplementationOnce(() => Promise.resolve({ cards: [1] }));
+			axios.mockImplementationOnce(() =>
+				Promise.resolve({ data: { cards: [1] } })
+			);
 			await loadCards();
 		});
 
 		test('should call dispatch on rejected promise', () => {
-			expect(dispatcher.dispatch.mock.calls[0][0].payload.length).toBe(3);
+			expect(dispatcher.dispatch.mock.calls[0][0].payload.cards.length).toBe(3);
 		});
 	});
 
@@ -85,12 +87,16 @@ describe('action-creators', () => {
 	describe('loadRandomCards promise rejected', () => {
 		beforeEach(async () => {
 			axios.mockImplementationOnce(() => Promise.reject());
-			axios.mockImplementationOnce(() => Promise.resolve({ cards: [{}] }));
+			axios.mockImplementationOnce(() =>
+				Promise.resolve({ data: { cards: [] } })
+			);
 			await loadRandomCards();
 		});
 
 		test('should call dispatch on rejected promise', () => {
-			expect(dispatcher.dispatch.mock.calls[0][0].payload.length).toBe(50);
+			expect(dispatcher.dispatch.mock.calls[0][0].payload.cards.length).toBe(
+				50
+			);
 		});
 	});
 
@@ -128,13 +134,15 @@ describe('action-creators', () => {
 		beforeEach(async () => {
 			axios.mockImplementationOnce(() => Promise.reject());
 			axios.mockImplementationOnce(() =>
-				Promise.resolve({ cards: [{ id: 'ex14-28' }] })
+				Promise.resolve({ data: { cards: [{ id: cardId }] } })
 			);
 			await loadCard(cardId);
 		});
 
 		test('should call dispatcher on rejected promise', () => {
-			expect(dispatcher.dispatch.mock.calls[0][0].payload.length).toBe(1);
+			expect(dispatcher.dispatch.mock.calls[0][0].payload).toEqual({
+				card: { id: 'ex14-28' }
+			});
 		});
 	});
 
@@ -194,15 +202,15 @@ describe('action-creators', () => {
 		beforeEach(async () => {
 			axios.mockImplementationOnce(() => Promise.reject());
 			axios.mockImplementationOnce(() =>
-				Promise.resolve({ cards: [{ name: 'Charizard' }] })
+				Promise.resolve({ data: { cards: [{ name: 'Charizard' }] } })
 			);
 			await loadList(cardName);
 		});
 
 		test('should call dispatcher on rejected promise', () => {
-			expect(
-				dispatcher.dispatch.mock.calls[0][0].payload.length
-			).toBeGreaterThan(0);
+			expect(dispatcher.dispatch.mock.calls[0][0].payload).toEqual({
+				cards: [{ name: 'Charizard' }]
+			});
 		});
 	});
 });
