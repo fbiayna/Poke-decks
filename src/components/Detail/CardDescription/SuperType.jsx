@@ -4,9 +4,9 @@ function SuperType({ types }) {
 	return (
 		<>
 			{types.superType === 'Pokémon' ? (
-				<p>{types.subType}</p>
+				<p id="poke-subtype">{types.subType}</p>
 			) : (
-				<p>{types.superType}</p>
+				<p id="poke-supertype">{types.superType}</p>
 			)}
 		</>
 	);

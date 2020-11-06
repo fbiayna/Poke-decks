@@ -1,10 +1,10 @@
 import React from 'react';
-import Detail from '../Detail';
+import Type from '../Type';
 import { act } from 'react-dom/test-utils';
 import { BrowserRouter } from 'react-router-dom';
 import { render, unmountComponentAtNode } from 'react-dom';
 
-describe('Detail', () => {
+describe('type', () => {
 	let container = null;
 
 	beforeEach(() => {
@@ -18,46 +18,35 @@ describe('Detail', () => {
 		container = null;
 	});
 
-	test('to be defined', () => {
+	test('to be defined - type exists', () => {
 		act(() => {
-			const match = {
-				params: {
-					cardId: 'someCardId'
-				}
-			};
+			const type = ['type']
 
 			render(
 				<BrowserRouter>
-					<Detail match={match} />
+					<Type type={type} />
 				</BrowserRouter>,
 				container
 			);
 		});
 
 		expect(
-			document.getElementsByClassName('detailcard-container')[0]
+			document.getElementById("poke-type")
 		).toBeDefined();
-	});
-
-	test('testing click id-button-back', () => {
+    });
+    
+	test('to be defined - no type', () => {
 		act(() => {
-			const match = {
-				params: {
-					cardId: 'someCardId'
-				}
-			};
-
 			render(
 				<BrowserRouter>
-					<Detail match={match} />
+					<Type />
 				</BrowserRouter>,
 				container
 			);
 		});
 
 		expect(
-			document.find('#button-back').simulate('click')
-		).toBeDefined();
+			document.getElementById("poke-type")
+		).toBe(null);
 	});
-
 });

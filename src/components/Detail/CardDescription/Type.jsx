@@ -6,7 +6,7 @@ function Type({ type }) {
 			{type ? (
 				<p>
 					{type.map((type) => (
-						<i className={`energy ${type}`}></i>
+						<i id="poke-type" className={`energy ${type}`}></i>
 					))}
 				</p>
 			) : null}

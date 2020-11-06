@@ -11,7 +11,7 @@ function Attacks({attacks}) {
 									<i className={`energy ${energy}`}></i>
 								))}
 								&nbsp;{attack.name}
-								{attack.damage ? ` | ${attack.damage}` : ''}
+								{attack.damage ? ` | ${attack.damage}` : null}
 							</p>
 							<p className="pokemon-card__text">{attack.text}</p>
 						</div>
