@@ -109,3 +109,21 @@
     font-weight: 900;
     color: rgb(217, 0, 0);
 }
+
+@media (max-width:780px) {
+    .deck__details {
+        flex-direction: column;
+    }
+
+    .decks__section__block__deck-statistics__text {
+        border-radius: 10px;
+        align-items: center;
+    }
+
+    .decks__section__block__deck-statistics {
+        justify-content: center;
+        width: 100%;
+        margin-top: 20px;
+        border-radius: ;
+    }
+}
