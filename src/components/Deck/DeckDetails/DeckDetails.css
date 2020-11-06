@@ -44,19 +44,6 @@
     border-radius: 10px 0 0 10px;
 }
 
-.decks__section__block__deck__add-cards__add-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 35px;
-    padding: 10px 10px;
-    color: wheat;
-    background-color: blue;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
 .decks__section__block__deck__add-cards__total-cards {
     display: flex;
     justify-content: center;
