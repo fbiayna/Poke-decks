@@ -35,7 +35,7 @@ function Detail(props) {
 		if (decks) {
 			if (decks.length > 0) {
 				if (decks[0].cards.length < 60) {
-					decks[0].cards.push(card);
+					decks[0].cards.push(card.card);
 					alert('Added!');
 				} else {
 					alert('Your deck is full, check it and make some space!');

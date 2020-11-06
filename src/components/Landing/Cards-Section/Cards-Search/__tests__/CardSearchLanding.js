@@ -78,7 +78,7 @@ describe('CardSearchLanding', () => {
 		expect(
 			container.getElementsByClassName('images__button-search')[0].innerHTML
 		).toBe(
-			'<a href="/cards"><button id="button-search__cards-home">Find Cards</button></a>'
+			'<a id=\"images__button-search-button\" href=\"/cards\"><button id=\"button-search__cards-home\"><span class=\"material-icons\">recent_actors</span>&nbsp;<span>Find Cards</span></button></a>'
 		);
 	});
 });

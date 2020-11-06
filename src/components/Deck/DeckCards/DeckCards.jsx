@@ -7,14 +7,14 @@ import './DeckCards.css';
 function DeckCards() {
 
     const [decks, setDecks] = useState(cardsStore.getDecks());
-    console.log(decks);
+
     function handleChange() {
         const decks = cardsStore.getDecks();
         setDecks(decks);
     }
 
     useEffect(() => {
-		document.body.scrollTop = document.documentElement.scrollTop = 0;
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
         cardsStore.addEventListener(handleChange);
 
         if (!decks || !decks.length) {
