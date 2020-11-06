@@ -229,7 +229,7 @@ function Detail(props) {
 						<div className="poke-card__wrapper">
 							<img
 								id={card.card?.id}
-								alt="error"
+								alt="pokemon-card"
 								src={card.card?.imageUrlHiRes}
 								className="image__poke-card"
 							></img>
