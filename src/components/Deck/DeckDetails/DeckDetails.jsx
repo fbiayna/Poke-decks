@@ -61,8 +61,8 @@ function DeckDetails() {
         let totalPokemonTypes = 0;
         if (decks[0]?.cards) {
             decks[0].cards.map((card) => {
-                if (card.subtype === 'Basic') return totalPokemonTypes+=1;
-                return null;
+                if (card.subtype === 'Basic' && card.supertype === 'Pokémon') totalPokemonTypes+=1;
+                return totalPokemonTypes;
             });
         }
 
@@ -70,7 +70,7 @@ function DeckDetails() {
             return (
                 <span className="statistic wrong">You have {totalPokemonTypes} basic pokemons and you must have at least 1</span>
             )
-        } else if (totalPokemonTypes > 1) {
+        } else if (totalPokemonTypes >= 1) {
             return (
                 <span className="statistic ok">You have {totalPokemonTypes} basic pokemons!</span>
             );
