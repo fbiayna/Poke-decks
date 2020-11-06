@@ -5,7 +5,6 @@ import './DeckDetails.css';
 import { Link } from 'react-router-dom';
 
 function DeckDetails() {
-    debugger;
     const [decks, setDecks] = useState(cardsStore.getDecks());
     const [title, setTitle] = useState(decks[0]?.title);
     const [description, setDescription] = useState(decks[0]?.description);
