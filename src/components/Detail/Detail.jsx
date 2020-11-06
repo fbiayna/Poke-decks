@@ -34,9 +34,8 @@ function Detail(props) {
 	function addCardToDeck(card) {
 		if (decks) {
 			if (decks.length > 0) {
-				if (decks[0].totalcards < 60) {
+				if (decks[0].cards.length < 60) {
 					decks[0].cards.push(card);
-					decks[0].totalcards++;
 					alert('Added!');
 				} else {
 					alert('Your deck is full, check it and make some space!');
@@ -279,7 +278,7 @@ function Detail(props) {
 							<Link
 								className="pokemon-card__text"
 								id="pokemon_evolve"
-								to="/my-decks"
+								to="/decks"
 							>
 								<button id="button-go-deck">
 									<span class="material-icons">arrow_forward</span>&nbsp;

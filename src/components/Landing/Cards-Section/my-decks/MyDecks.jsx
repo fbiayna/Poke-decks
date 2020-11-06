@@ -26,7 +26,7 @@ function MyDecks() {
 
 	return (
 		<div id="image__cards-deck" className="deckSection__images">
-			<Link className="title__link" to="/my-decks">
+			<Link className="title__link" to="/decks">
 				<div className="images__title">
 					<h2>MY DECK</h2>
 					<p>
@@ -37,7 +37,7 @@ function MyDecks() {
 			<div className="images__cards">
 				{!decks.length && <LoadingGif />}
 				{decks.length && decks.map((deck) => (
-					<Link to="/my-decks" key={`deck-${deck.title}`} className="MyDeck-Links">
+					<Link to="/decks" key={`deck-${deck.title}`} className="MyDeck-Links">
 						<div className="cardsSection__myDeck__deckBlock">
 							<span className="cardsSection__myDeck__deckBlock__title">
 								{deck.title}
@@ -48,7 +48,7 @@ function MyDecks() {
 				))}
 			</div>
 			<div className="images__button-search">
-			<Link id="images__button-search-button" to="/my-decks">
+			<Link id="images__button-search-button" to="/decks">
 					<button id="button-search__cards-home">
 						<span class="material-icons">style</span>&nbsp;
 						<span>Create a Deck</span>

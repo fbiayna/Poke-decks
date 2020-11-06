@@ -3,7 +3,6 @@ import Detail from '../Detail';
 import { act } from 'react-dom/test-utils';
 import { BrowserRouter } from 'react-router-dom';
 import { render, unmountComponentAtNode } from 'react-dom';
-import store from '../../../stores/store';
 
 describe('Detail', () => {
 	let container = null;
@@ -20,20 +19,18 @@ describe('Detail', () => {
 	});
 
 	test('should have content', () => {
-        
 		act(() => {
-        
 			const match = {
 				params: {
 					cardId: 'someCardId'
 				}
-            };
-            
-            const card = {
-                card: {
-                    text: ['ugygu']
-                }
-            }
+			};
+
+			const card = {
+				card: {
+					text: ['ugygu']
+				}
+			};
 
 			render(
 				<BrowserRouter>
@@ -41,21 +38,19 @@ describe('Detail', () => {
 				</BrowserRouter>,
 				container
 			);
-        });
-        
+		});
+
 		expect(
 			document.getElementsByClassName('detailcard-container')[0].children.length
 		).toBeGreaterThan(0);
-    });
+	});
 	test('to be defined', () => {
-        
 		act(() => {
-        
 			const match = {
 				params: {
 					cardId: 'someCardId'
 				}
-            };
+			};
 
 			render(
 				<BrowserRouter>
@@ -63,9 +58,10 @@ describe('Detail', () => {
 				</BrowserRouter>,
 				container
 			);
-        });
-        
+		});
+
 		expect(
-			document.getElementsByClassName('detailcard-container')[0]).toBeDefined();
-    });
+			document.getElementsByClassName('detailcard-container')[0]
+		).toBeDefined();
+	});
 });
