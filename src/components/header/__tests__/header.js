@@ -64,6 +64,6 @@ describe('Header', () => {
 		});
 		expect(
 			document.getElementsByClassName('header__links')[3].innerHTML
-		).toEqual('<span>TUTORIAL</span>');
+		).toEqual('<img src=\"https://trello-attachments.s3.amazonaws.com/5f8ca3639574d3550b3ad495/5f9cb0e6b6fed24123256da4/5008bece5d858b116da1ee25fae6206e/Poke-Decks.png\" alt=\"header-logo\" class=\"desktop-header__title\">');
 	});
 });

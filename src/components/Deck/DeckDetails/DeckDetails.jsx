@@ -119,7 +119,7 @@ function DeckDetails() {
             <span className="statistic ok">You have {totalTrainers} trainers!</span>
         }
     }
-    console.log(decks)
+
     return (
         <div className='decks__section'>
             <div className="decks__section__block deck__details">

@@ -37,7 +37,7 @@ describe('MyDecks', () => {
 			);
 		});
 		expect(container.getElementsByClassName('images__title')[0].innerHTML).toBe(
-			"<h2>MY DECKS</h2><p>It's time to create!<br>Customize decks whatever you want</p>"
+			"<h2>MY DECK</h2><p>It's time to create!<br>Customize your deck whatever you want</p>"
 		);
 	});
 
@@ -68,7 +68,7 @@ describe('MyDecks', () => {
 		expect(
 			container.getElementsByClassName('images__button-search')[0].innerHTML
 		).toBe(
-			'<a href="/my-decks"><button id="button-search__cards-home">Create decks</button></a>'
+			'<a id=\"images__button-search-button\" href=\"/decks\"><button id=\"button-search__cards-home\"><span class=\"material-icons\">style</span>&nbsp;<span>Create a Deck</span></button></a>'
 		);
 	});
 });

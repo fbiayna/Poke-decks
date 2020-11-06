@@ -40,7 +40,7 @@
     height: 250px;
     padding: 40px;
     color: white;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
     border-radius: 10px 0 0 10px;
 }
 
@@ -51,7 +51,7 @@
     width: 175px;
     height: 30px;
     color: wheat;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
     border: 2px solid black;
     border-radius: 2px;
 }
@@ -61,7 +61,7 @@
     border: none;
     text-align: center;
     color: wheat;
-    background-color: rgba(0, 0, 0, 0.5);   
+    background-color: rgba(0, 0, 0, 0.6);   
 }
 
 #name-title {
