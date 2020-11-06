@@ -1,11 +1,11 @@
 const firebaseConfig = {
-	apiKey: 'AIzaSyBvqQA6zpAw-D9Dn_fhKWXtpaJ9ldw0m4s',
-	authDomain: 'poke-decks-test.firebaseapp.com',
-	databaseURL: 'https://poke-decks-test.firebaseio.com',
-	projectId: 'poke-decks-test',
-	storageBucket: 'poke-decks-test.appspot.com',
-	messagingSenderId: '58407337716',
-	appId: '1:58407337716:web:d3c57ff73f31628ece28a1'
+	apiKey: 'AIzaSyAsVK1o_EwHFRUEFRQPVzJ5OL5bL-lKMcQ',
+	authDomain: 'pokedecks-tcg.firebaseapp.com',
+	databaseURL: 'https://pokedecks-tcg.firebaseio.com',
+	projectId: 'pokedecks-tcg',
+	storageBucket: 'pokedecks-tcg.appspot.com',
+	messagingSenderId: '540373417171',
+	appId: '1:540373417171:web:20066946cebfa8d590a826'
 };
 
 export default firebaseConfig;
