@@ -3,6 +3,31 @@ body {
     margin: 0;
 }
 
+.loading {
+	display: flex;
+	position: relative;
+	justify-content: center;
+	width: 100%;
+	height: auto;
+	background-image: url('https://trello-attachments.s3.amazonaws.com/5f8ca3639574d3550b3ad495/5f9cb0e6b6fed24123256da4/0b8e26d4a2c2c4c7153d8a08020b31c9/New_Project.jpg');
+	background-position: top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-bottom: 2px solid white;
+}
+
+.body-loading-gif {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+}
+
+.body-loading-gif > img {
+    width: 70%;
+    border-radius: 5%;
+}
+
 .detailcard-container {
 	display: flex;
 	position: relative;
