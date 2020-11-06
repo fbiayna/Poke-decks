@@ -5,7 +5,7 @@ import './DeckDetails.css';
 import { Link } from 'react-router-dom';
 
 function DeckDetails() {
-    
+    debugger;
     const [decks, setDecks] = useState(cardsStore.getDecks());
     const [title, setTitle] = useState(decks[0]?.title);
     const [description, setDescription] = useState(decks[0]?.description);
@@ -13,8 +13,8 @@ function DeckDetails() {
     function handleChange() {
         const decks = cardsStore.getDecks();
         setDecks(decks);
-        setTitle(decks[0]?.title);
-        setDescription(decks[0]?.description);
+        setTitle(title);
+        setDescription(description);
     }
 
     useEffect(() => {
@@ -24,13 +24,15 @@ function DeckDetails() {
         if (!decks || !decks.length) {
             loadDecks();
         }
-            
+
         return () => { cardsStore.removeEventListener(handleChange) }
     }, [decks]);
 
-    function onChange(setValue, value) {
-        setValue(value);
+    function onChange(event, setValue, property) {
+        setValue(event.target.value);
+        decks[0][property] = event.target.value;
     }
+
 
     function pokemonStatistics() {
         let totalPokemon = 0;
@@ -124,8 +126,8 @@ function DeckDetails() {
         <div className='decks__section'>
             <div className="decks__section__block deck__details">
                 <div className="decks__section__block__deck-description">
-                    <input type="text" name="deck-title" id="name-title" autocomplete="off" value={title} onChange={(event) => {onChange(setTitle, event.target.value)}}/>
-                    <input type="text" name="deck-description" id="name-description" autocomplete="off" value={description} placeholder="Try to add a cool description to your Deck!" onChange={(event) => { onChange(setDescription, event.target.value) }}/>
+                    <input type="text" name="deck-title" id="name-title" autocomplete="off" value={decks[0]?.title} onChange={(event) => onChange(event, setTitle, 'title')}/>
+                    <input type="text" name="deck-description" id="name-description" autocomplete="off" value={decks[0]?.description} onChange={(event) => onChange(event, setTitle, 'description')} placeholder="Try to add a cool description to your Deck!"/>
                 </div>
                 <div className="decks__section__block__deck-statistics">
                     <div className="decks__section__block__deck-statistics__text">
