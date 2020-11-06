@@ -1,10 +1,10 @@
 import React from 'react';
-import Detail from '../Detail';
+import CardsList from '../CardsList';
 import { act } from 'react-dom/test-utils';
 import { BrowserRouter } from 'react-router-dom';
 import { render, unmountComponentAtNode } from 'react-dom';
 
-describe('Detail', () => {
+describe('cardList', () => {
 	let container = null;
 
 	beforeEach(() => {
@@ -18,24 +18,23 @@ describe('Detail', () => {
 		container = null;
 	});
 
-	test('to be defined', () => {
+	test('to be defined - cardList exists', () => {
 		act(() => {
-			const match = {
-				params: {
-					cardId: 'someCardId'
-				}
-			};
+			const cards = [{
+				id: 'id',
+                imageUrl: 'pokemon.png',
+			}]
 
 			render(
 				<BrowserRouter>
-					<Detail match={match} />
+					<CardsList cards={cards} />
 				</BrowserRouter>,
 				container
 			);
 		});
 
 		expect(
-			document.getElementsByClassName('detailcard-container')[0]
+			document.getElementsByClassName('card-gallery')
 		).toBeDefined();
 	});
 

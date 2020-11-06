@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import cardsStore from '../../stores/store';
 import './List.css';
 import { loadList, loadRandomCards } from '../../actions/action-creators';
+import CardsList from './Cards-List/CardsList';
 
 function List(params) {
 	const [cards, setCards] = useState(null);
@@ -56,21 +57,7 @@ function List(params) {
 					</Link>
 				</div>
 			</div>
-			<ul className="card-gallery">
-				{cards?.cards.map((card) => (
-					<li>
-						<Link to={`/detail/${card.id}`}>
-							<div class="pokemonCard__container">
-								<img
-									src={card.imageUrl}
-									alt={card.id}
-									className="pokemonCard__image"
-								/>
-							</div>
-						</Link>
-					</li>
-				))}
-			</ul>
+			<CardsList cards={cards?.cards} />
 		</div>
 	);
 }
