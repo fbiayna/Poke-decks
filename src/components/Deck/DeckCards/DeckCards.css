@@ -28,3 +28,9 @@
     width: 200px;
     border-radius: 10px;
 }
+
+@media screen and (max-width: 690px) {
+    .deckCard__image {
+		width: 150px;
+	}
+}
