@@ -8,6 +8,7 @@ import reportWebVitals from './reportWebVitals';
 import Footer from './components/Footer/Footer';
 import Detail from './components/Detail/Detail';
 import List from './components/List/List';
+import Deck from './components/Deck/Deck';
 
 ReactDOM.render(
 	<React.StrictMode>
@@ -16,7 +17,7 @@ ReactDOM.render(
 			<Switch>
 				<Route path="/" exact component={Landing} />
 				<Route path="/cards" exact component={List} />
-				<Route path="/decks" exact component={} />
+				<Route path="/decks" exact component={Deck} />
 				<Route path="/social" exact component={''} />
 				<Route path="/detail/:cardid" exact component={Detail} />
 				<Route component={'NotFound'} />
