@@ -15,16 +15,20 @@ export async function loadCards() {
 			payload: cards.data
 		});
 	} catch (error) {
-		let threeRandomCardsToShow = [];
+		let threeRandomCardsToShow = { data: { cards: [] } };
 		let totalOfCards = await axios('/api/pokemon.json');
 		for (let i = 0; i < 3; i++) {
-			let randomCard = Math.floor(Math.random() * totalOfCards.cards.length);
-			threeRandomCardsToShow.push(totalOfCards.cards[randomCard]);
+			let randomCard = Math.floor(
+				Math.random() * totalOfCards.data.cards.length
+			);
+			threeRandomCardsToShow.data.cards.push(
+				totalOfCards.data.cards[randomCard]
+			);
 		}
 
 		dispatcher.dispatch({
 			type: actionTypes.LOAD_CARDS,
-			payload: threeRandomCardsToShow
+			payload: threeRandomCardsToShow.data
 		});
 	}
 }
@@ -42,21 +46,26 @@ export async function loadRandomCards() {
 			payload: cards.data
 		});
 	} catch (error) {
-		let fiftyRandomCardsToShow = [];
+		let fiftyRandomCardsToShow = { data: { cards: [] } };
 		let totalOfCards = await axios('/api/pokemon.json');
 		for (let i = 0; i < 50; i++) {
-			let randomCard = Math.floor(Math.random() * totalOfCards.cards.length);
-			fiftyRandomCardsToShow.push(totalOfCards.cards[randomCard]);
+			let randomCard = Math.floor(
+				Math.random() * totalOfCards.data.cards.length
+			);
+			fiftyRandomCardsToShow.data.cards.push(
+				totalOfCards.data.cards[randomCard]
+			);
 		}
 
 		dispatcher.dispatch({
 			type: actionTypes.LOAD_RANDOM_CARDS,
-			payload: fiftyRandomCardsToShow
+			payload: fiftyRandomCardsToShow.data
 		});
 	}
 }
 
 export async function loadCard(cardId) {
+	debugger;
 	try {
 		const card = await axios(`https://api.pokemontcg.io/v1/cards/${cardId}`);
 
@@ -65,14 +74,17 @@ export async function loadCard(cardId) {
 			payload: card.data
 		});
 	} catch (error) {
+		let cardIdMatch = { data: {} };
 		let totalOfCards = await axios('/api/pokemon.json');
-		let cardDetail = totalOfCards.cards.filter((word) =>
+		debugger;
+		let cardDetail = totalOfCards.data.cards.find((word) =>
 			word.id.includes(cardId)
 		);
+		cardIdMatch.data.card = cardDetail;
 
 		dispatcher.dispatch({
 			type: actionTypes.LOAD_CARD,
-			payload: cardDetail
+			payload: cardIdMatch.data
 		});
 	}
 }
@@ -97,14 +109,17 @@ export async function loadList(cardName) {
 			payload: cardList.data
 		});
 	} catch (error) {
+		let listByName = { data: { cards: [] } };
 		let totalOfCards = await axios('/api/pokemon.json');
-		let cardsByName = totalOfCards.cards.filter((word) =>
-			word.name.toLowerCase().includes(cardName)
-		);
+		let cardsByName = totalOfCards.data.cards.filter((pokemonData) => {
+			let pokemonName = pokemonData.name.toLowerCase();
+			return pokemonName.includes(cardName.toLowerCase());
+		});
+		listByName.data.cards = cardsByName;
 
 		dispatcher.dispatch({
 			type: actionTypes.LOAD_LIST,
-			payload: cardsByName
+			payload: listByName.data
 		});
 	}
 }
