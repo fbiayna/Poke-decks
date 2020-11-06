@@ -48,7 +48,7 @@ body {
 
 .detailcard-container__description-button {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .detailcard-container__description {
@@ -82,6 +82,10 @@ body {
     font-weight: 900;
 }
 
+.pokemon-card__text > span, .pokemon-evolve__container > span {
+    padding-right: 5px;
+}
+
 .pokemon-card__text:link,
 .pokemon-card__text:visited,
 .pokemon-card__text:active {
@@ -93,6 +97,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 100%;
 }
 
 .description__set {
@@ -149,8 +154,9 @@ body {
 
 .pokemon-evolve__container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    text-align: center;
 }
 
 #button-add__card {
@@ -170,11 +176,31 @@ body {
 	background-color: #1e5799;
 }
 
+#button-go-deck {
+    display: flex;
+    align-items: center;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	padding: 10px 20px;
+	font-size: 16px;
+	color: white;
+	font-weight: 700;
+	border: none;
+	border-radius: 5px;
+	outline-style: none;
+	cursor: pointer;
+	outline: none;
+	background-color: #0b5f12;
+}
+
+#button-go-deck:hover {
+    background-color: #07360b;
+}
+
 #button-back {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    width: 100px;
     margin-top: 40px;
 	margin-bottom: 20px;
 	padding: 10px 20px;
@@ -292,4 +318,14 @@ body {
     .detailcard-container__description {
         padding: 10px 20px;
     }
+
+    .pokemon-evolve__container {
+        flex-direction: column;
+    }
+
+    .detailcard-container__description-button {
+        flex-direction: column;
+        align-items: center;
+    }
+
 }

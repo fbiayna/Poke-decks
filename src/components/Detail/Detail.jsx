@@ -5,7 +5,6 @@ import './Detail.css';
 import { loadCard, loadDecks } from '../../actions/action-creators';
 
 function Detail(props) {
-
 	const [cardId] = useState(props.match.params.cardid);
 	const [card, setCard] = useState([]);
 	const [decks, setDecks] = useState(cardsStore.getDecks());
@@ -39,7 +38,6 @@ function Detail(props) {
 					decks[0].cards.push(card);
 					decks[0].totalcards++;
 					alert('Added!');
-					console.log(`deck: ${decks}`);
 				} else {
 					alert('Your deck is full, check it and make some space!');
 				}
@@ -58,11 +56,17 @@ function Detail(props) {
 		}
 	}
 
+	function pokemonSuperType() {
+		return card.card?.supertype === 'Pokémon'
+			? card.card?.subtype
+			: card.card?.supertype;
+	}
+
 	function ability() {
 		if (card.card?.ability !== undefined) {
 			return (
 				<div className="pokemon-card__description">
-					<p className="pokemon-card__title">{`Ability - ${card.card.ability.name}`}</p>
+					<p className="pokemon-card__title">{card.card.ability.name}</p>
 					<p className="pokemon-card__text">{card.card.ability.text}</p>
 				</div>
 			);
@@ -145,16 +149,14 @@ function Detail(props) {
 
 	function pokemonAttacks() {
 		if (card.card?.attacks !== undefined) {
-			return card.card.attacks.map((attack, index) => (
+			return card.card.attacks.map((attack) => (
 				<div className="pokemon-card__description">
 					<p className="pokemon-card__title">
 						{attack.cost.map((energy) => (
 							<i className={`energy ${energy}`}></i>
 						))}
-						{` Attack #${index + 1} - ${attack.name}`}
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						{attack.damage ? `Damage - ${attack.damage}` : ''}
+						&nbsp;{attack.name}
+						{attack.damage ? ` | ${attack.damage}` : ''}
 					</p>
 					<p className="pokemon-card__text">{attack.text}</p>
 				</div>
@@ -230,7 +232,7 @@ function Detail(props) {
 						<div className="poke-card__wrapper">
 							<img
 								id={card.card?.id}
-								alt="error"
+								alt={card.card?.id}
 								src={card.card?.imageUrlHiRes}
 								className="image__poke-card"
 							></img>
@@ -238,7 +240,7 @@ function Detail(props) {
 						<div className="image__button-add">
 							<button id="button-back" onClick={() => window.history.back()}>
 								<span class="material-icons">arrow_back</span>&nbsp;
-								<span>Back</span>
+								<span>Go Back</span>
 							</button>
 						</div>
 					</div>
@@ -247,10 +249,7 @@ function Detail(props) {
 					<div className="detailcard-container__description">
 						<div className="description__title">
 							<h2>{card.card?.name}</h2>
-							<p>
-								{card.card?.supertype}
-								{` - ${card.card?.subtype}`}
-							</p>
+							<p>{pokemonSuperType()}</p>
 							{pokemonHp()}
 							{pokemonType()}
 						</div>
@@ -274,9 +273,19 @@ function Detail(props) {
 						</div>
 						<div className="detailcard-container__description-button">
 							<button id="button-add__card" onClick={() => addCardToDeck(card)}>
-								<span className="material-icons">shopping_cart</span>&nbsp;
+								<span class="material-icons">style</span>&nbsp;
 								<span>Add to Deck</span>
 							</button>
+							<Link
+								className="pokemon-card__text"
+								id="pokemon_evolve"
+								to="/my-decks"
+							>
+								<button id="button-go-deck">
+									<span class="material-icons">arrow_forward</span>&nbsp;
+									<span>Go to Deck</span>
+								</button>
+							</Link>
 						</div>
 					</div>
 				</div>

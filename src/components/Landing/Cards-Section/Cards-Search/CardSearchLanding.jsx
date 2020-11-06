@@ -34,24 +34,24 @@ function CardSearchLanding() {
 					</p>
 				</div>
 			</Link>
-			{/* {!cards?.length && <LoadingGif />}
-			{cards?.length &&  */}
-				<div className="images__cards">
-					{cards?.cards.map((card, index) => (
-						<Link key={`detail-${card.name}`} to={`/detail/${card.id}`}>
-							<img
-								className="cards__png-info"
-								id={`cards__png-info-${index}`}
-								alt="error"
-								src={card.imageUrl}
-							/>
-						</Link>
-					))}
-				</div>
-			{/* } */}
+			<div className="images__cards">
+				{cards?.cards.map((card, index) => (
+					<Link key={`detail-${card.name}`} to={`/detail/${card.id}`}>
+						<img
+							className="cards__png-info"
+							id={`cards__png-info-${index}`}
+							alt="error"
+							src={card.imageUrl}
+						/>
+					</Link>
+				))}
+			</div>
 			<div className="images__button-search">
-				<Link to="/cards">
-					<button id="button-search__cards-home">Find Cards</button>
+				<Link id="images__button-search-button" to="/cards">
+					<button id="button-search__cards-home">
+						<span class="material-icons">recent_actors</span>&nbsp;
+						<span>Find Cards</span>
+					</button>
 				</Link>
 			</div>
 		</div>
