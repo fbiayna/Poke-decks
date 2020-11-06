@@ -11,8 +11,7 @@ function FirstRow() {
 						“ Poke-Decks is a database built around trading card game of
 						Pokemon. You will be able to consult from all Pokemon’s TCG sets to
 						every existing card in the game. In addition, we offer a competitive
-						tool such a deck editor, where it will provide you detailed
-						statistics to become a master Pokemon trainer. ”
+						tool such a deck editor. ”
 					</p>
 				</div>
 			</div>

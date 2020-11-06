@@ -74,11 +74,6 @@ dispatcher.register((action) => {
 			cardsStore.emitChange();
 			break;
 
-		case actionTypes.LOAD_COLLECTION:
-			cards = action.payload;
-			cardsStore.emitChange();
-			break;
-
 		default:
 			break;
 	}

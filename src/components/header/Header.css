@@ -42,7 +42,11 @@ body {
 }
 
 #login__icon {
-	font-size: 30px;
+	font-size: 28px;
+}
+
+.signin_text {
+	display: block;
 }
 
 @media screen and (max-width: 1010px) {
@@ -51,6 +55,12 @@ body {
 	}
 
 	#login__sign {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	.user-login-email{
 		display: none;
 	}
 }
@@ -159,7 +169,7 @@ body {
 }
 
 .menu-bar__dropdown:hover,
-.dropdown-content span:hover:hover {
+.dropdown-content span:hover {
 	color: #ffe300;
 }
 
@@ -169,15 +179,15 @@ body {
 	align-items: center;
 	height: 30px;
 	width: auto;
-    margin-right: 30px;
+    margin-right: 20px;
 }
 
 .desktop-header__login__button {
+	display: flex;
+	align-items: center;
 	font-size: 15px;
 	font-weight: 900;
 	color: white;
-	border: 2px solid white;
-	padding: 5px 10px;
 	margin: 0 10px;
 	border-radius: 10px;
 	transition: transform 0.3s;
@@ -185,9 +195,13 @@ body {
 
 .desktop-header__login__button:hover {
 	color: yellow;
-	border: 2px solid yellow;
 	cursor: pointer;
 	transform: scale(1.1);
+}
+
+#google_icon {
+	width: 40px;
+	margin-right: -3px;
 }
 
 .logout {

@@ -28,9 +28,9 @@ function MyDecks() {
 		<div id="image__cards-deck" className="deckSection__images">
 			<Link className="title__link" to="/decks">
 				<div className="images__title">
-					<h2>MY DECKS</h2>
+					<h2>MY DECK</h2>
 					<p>
-						It's time to create!<br></br>Customize decks whatever you want
+						It's time to create!<br></br>Customize your deck whatever you want
 					</p>
 				</div>
 			</Link>
@@ -48,9 +48,13 @@ function MyDecks() {
 				))}
 			</div>
 			<div className="images__button-search">
-				<Link to="/decks">
-					<button id="button-search__cards-home">Create decks</button>
+			<Link id="images__button-search-button" to="/decks">
+					<button id="button-search__cards-home">
+						<span class="material-icons">style</span>&nbsp;
+						<span>Create a Deck</span>
+					</button>
 				</Link>
+				
 			</div>
 		</div>
 	);

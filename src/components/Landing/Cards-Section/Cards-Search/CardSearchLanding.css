@@ -41,7 +41,7 @@ body {
 
 .title__link:link,
 .title__link:visited,
-.title__link:active {
+.title__link:active, #images__button-search-button:link, #images__button-search-button, #images__button-search-button {
 	outline-style: none;
 	text-decoration: none;
 }
@@ -67,6 +67,8 @@ body {
 }
 
 #button-search__cards-home {
+	display: flex;
+	align-items: center;
 	margin-top: 20px;
 	margin-bottom: 20px;
 	padding: 10px 20px;
