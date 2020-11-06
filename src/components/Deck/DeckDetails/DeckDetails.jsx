@@ -138,9 +138,10 @@ function DeckDetails() {
             </div>
             <div className="decks__section__block deck__add-cards">
                 <Link className="header__links" to="/cards">
-                    <div className="decks__section__block__deck__add-cards__add-button">
-                        <span>ADD CARDS</span>
-                    </div>
+                    <button id="button-search__cards-home">
+						<span class="material-icons">recent_actors</span>&nbsp;
+						<span>Find Cards</span>
+					</button>
                 </Link>
                 <div className="decks__section__block__deck__add-cards__total-cards">
                     {decks[0]?.cards && <span>{decks[0].cards.length}/60 CARDS</span>}
