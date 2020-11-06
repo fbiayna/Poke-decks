@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import cardsStore from '../../stores/store';
+import Ability from './CardDescription/Ability'
+import Attacks from './CardDescription/Attacks'
 import './Detail.css';
 import { loadCard, loadDecks } from '../../actions/action-creators';
 
@@ -59,17 +61,6 @@ function Detail(props) {
 		return card.card?.supertype === 'Pokémon'
 			? card.card?.subtype
 			: card.card?.supertype;
-	}
-
-	function ability() {
-		if (card.card?.ability !== undefined) {
-			return (
-				<div className="pokemon-card__description">
-					<p className="pokemon-card__title">{card.card.ability.name}</p>
-					<p className="pokemon-card__text">{card.card.ability.text}</p>
-				</div>
-			);
-		}
 	}
 
 	function cardRarity() {
@@ -143,23 +134,6 @@ function Detail(props) {
 					))}
 				</p>
 			);
-		}
-	}
-
-	function pokemonAttacks() {
-		if (card.card?.attacks !== undefined) {
-			return card.card.attacks.map((attack) => (
-				<div className="pokemon-card__description">
-					<p className="pokemon-card__title">
-						{attack.cost.map((energy) => (
-							<i className={`energy ${energy}`}></i>
-						))}
-						&nbsp;{attack.name}
-						{attack.damage ? ` | ${attack.damage}` : ''}
-					</p>
-					<p className="pokemon-card__text">{attack.text}</p>
-				</div>
-			));
 		}
 	}
 
@@ -280,9 +254,9 @@ function Detail(props) {
 										{pokemonEvolve()}
 									</div>
 								</div>
-								{ability()}
+								<Ability ability={card.card?.ability}/>
 								{rules()}
-								{pokemonAttacks()}
+								<Attacks attacks={card.card?.attacks}/>
 								<div className="pokemon__other-type pokemon-card__description">
 									{pokemonWeak()}
 									{pokemonResist()}
