@@ -221,7 +221,7 @@ function Detail(props) {
 			);
 		}
 	}
-debugger
+
 	return (
 		<>
 			{!card.card && (
