@@ -1,7 +1,7 @@
-.decks__section {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 80%;
-    height: auto;
+.deck {
+    background-image: url('https://trello-attachments.s3.amazonaws.com/5f8ca3639574d3550b3ad495/5f9cb0e6b6fed24123256da4/3fb37910bfd777a69998161e081781b2/wallpaper-2923079.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+	background-repeat: no-repeat;
+	overflow-y: hidden;
 }
