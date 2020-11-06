@@ -278,7 +278,7 @@ function Detail(props) {
 							<Link
 								className="pokemon-card__text"
 								id="pokemon_evolve"
-								to="/my-decks"
+								to="/decks"
 							>
 								<button id="button-go-deck">
 									<span class="material-icons">arrow_forward</span>&nbsp;
