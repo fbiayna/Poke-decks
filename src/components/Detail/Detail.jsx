@@ -38,7 +38,6 @@ function Detail(props) {
 					decks[0].cards.push(card);
 					decks[0].totalcards++;
 					alert('Added!');
-					console.log(`deck: ${decks}`);
 				} else {
 					alert('Your deck is full, check it and make some space!');
 				}
@@ -233,7 +232,7 @@ function Detail(props) {
 						<div className="poke-card__wrapper">
 							<img
 								id={card.card?.id}
-								alt="error"
+								alt={card.card?.id}
 								src={card.card?.imageUrlHiRes}
 								className="image__poke-card"
 							></img>
@@ -280,7 +279,7 @@ function Detail(props) {
 							<Link
 								className="pokemon-card__text"
 								id="pokemon_evolve"
-								to="/decks"
+								to="/my-decks"
 							>
 								<button id="button-go-deck">
 									<span class="material-icons">arrow_forward</span>&nbsp;

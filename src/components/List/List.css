@@ -136,6 +136,22 @@
 	border-radius: 10px;
 }
 
+@media (max-width: 1000px) {
+	#searchBar {
+		width: 70%;
+	}
+	.search-container {
+		display: flex;
+		flex-direction: column-reverse;
+		justify-content: space-around;
+		align-items: center;
+	}
+
+	.search-container__buttons {
+		margin-bottom: 30px;
+	}
+}
+
 @media (max-width: 690px){
 	#searchBar {
 		width: 90%;
@@ -150,6 +166,17 @@
 
 	.pokemonCard__image {
 		width: 120px;
+	}
+
+	.search-container__buttons {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	#button-go-deck_search {
+		margin-left: 0px;
+		margin-top: 10px;
 	}
 }
 

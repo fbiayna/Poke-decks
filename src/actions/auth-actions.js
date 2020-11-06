@@ -24,7 +24,6 @@ function handleError(type) {
 
 export async function signInWithEmail(email, password) {
 	try {
-		debugger;
 		const { user } = await firebase
 			.auth()
 			.signInWithEmailAndPassword(email, password);

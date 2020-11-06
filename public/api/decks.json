@@ -1,7 +1,7 @@
 [
     {
         "id": 0,
-        "title": "Deck#001", 
+        "title": "#My-deck-name", 
         "totalcards": 0,
         "cards": [],
         "imagealt": "card-pile",

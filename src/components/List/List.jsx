@@ -40,7 +40,7 @@ function List(params) {
 					type="text"
 					name="searchBar"
 					id="searchBar"
-					placeholder="search for a card"
+					placeholder="Gotta search 'em all!"
 					onChange={(event) => handleChange(loadList, event.target.value)}
 				/>
 				<div className="search-container__buttons">
@@ -48,10 +48,12 @@ function List(params) {
 						<span class="material-icons">arrow_back</span>&nbsp;
 						<span>Go Back</span>
 					</button>
-					<button id="button-go-deck_search">
-						<span class="material-icons">arrow_forward</span>&nbsp;
-						<span>Go to Deck</span>
-					</button>
+					<Link className="pokemon-card__text" id="pokemon_evolve" to="/my-decks">
+						<button id="button-go-deck_search">
+							<span class="material-icons">arrow_forward</span>&nbsp;
+							<span>Go to Deck</span>
+						</button>
+					</Link>
 				</div>
 			</div>
 			<ul className="card-gallery">
