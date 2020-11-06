@@ -71,7 +71,7 @@ function Header() {
 								<Link className="header__links" to="/cards">
 									<span>SEARCH CARDS</span>
 								</Link>
-								<Link className="header__links" to="/my-decks">
+								<Link className="header__links" to="/decks">
 									<span>MY DECKS</span>
 								</Link>
 							</div>
