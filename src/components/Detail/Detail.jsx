@@ -221,74 +221,97 @@ function Detail(props) {
 			);
 		}
 	}
-
+debugger
 	return (
 		<>
-			<div className="detailcard-container">
-				<div className="opacity"></div>
-				<div className="detailcard-container__image-block">
-					<div className="detailcard-container__image">
-						<div className="poke-card__wrapper">
+			{!card.card && (
+				<>
+					<div className="loading">
+						<div className="opacity"></div>
+						<div className="body-loading-gif">
 							<img
-								id={card.card?.id}
-								alt={card.card?.id}
-								src={card.card?.imageUrlHiRes}
-								className="image__poke-card"
+								alt="loading"
+								src="https://cdn.dribbble.com/users/621155/screenshots/2835314/simple_pokeball.gif"
 							></img>
 						</div>
-						<div className="image__button-add">
-							<button id="button-back" onClick={() => window.history.back()}>
-								<span class="material-icons">arrow_back</span>&nbsp;
-								<span>Go Back</span>
-							</button>
+					</div>
+				</>
+			)}
+			{card.card?.imageUrlHiRes && (
+				<>
+					<div className="detailcard-container">
+						<div className="opacity"></div>
+						<div className="detailcard-container__image-block">
+							<div className="detailcard-container__image">
+								<div className="poke-card__wrapper">
+									<img
+										id={card.card?.id}
+										alt={card.card?.id}
+										src={card.card?.imageUrlHiRes}
+										className="image__poke-card"
+									></img>
+								</div>
+								<div className="image__button-add">
+									<button
+										id="button-back"
+										onClick={() => window.history.back()}
+									>
+										<span class="material-icons">arrow_back</span>&nbsp;
+										<span>Go Back</span>
+									</button>
+								</div>
+							</div>
+						</div>
+						<div className="detailcard-container__description-block">
+							<div className="detailcard-container__description">
+								<div className="description__title">
+									<h2>{card.card?.name}</h2>
+									<p>{pokemonSuperType()}</p>
+									{pokemonHp()}
+									{pokemonType()}
+								</div>
+								<div className="description__set">
+									<div className="pokemon__dex">
+										{cardSet()}
+										{cardRarity()}
+									</div>
+									<div className="pokemon__dex">
+										{pokedex()}
+										{pokemonEvolve()}
+									</div>
+								</div>
+								{ability()}
+								{rules()}
+								{pokemonAttacks()}
+								<div className="pokemon__other-type pokemon-card__description">
+									{pokemonWeak()}
+									{pokemonResist()}
+									{pokemonRetreat()}
+								</div>
+								<div className="detailcard-container__description-button">
+									<button
+										id="button-add__card"
+										onClick={() => addCardToDeck(card)}
+									>
+										<span class="material-icons">style</span>&nbsp;
+										<span>Add to Deck</span>
+									</button>
+									<Link
+										className="pokemon-card__text"
+										id="pokemon_evolve"
+										to="/decks"
+									>
+										<button id="button-go-deck">
+											<span class="material-icons">arrow_forward</span>&nbsp;
+											<span>Go to Deck</span>
+										</button>
+									</Link>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div className="detailcard-container__description-block">
-					<div className="detailcard-container__description">
-						<div className="description__title">
-							<h2>{card.card?.name}</h2>
-							<p>{pokemonSuperType()}</p>
-							{pokemonHp()}
-							{pokemonType()}
-						</div>
-						<div className="description__set">
-							<div className="pokemon__dex">
-								{cardSet()}
-								{cardRarity()}
-							</div>
-							<div className="pokemon__dex">
-								{pokedex()}
-								{pokemonEvolve()}
-							</div>
-						</div>
-						{ability()}
-						{rules()}
-						{pokemonAttacks()}
-						<div className="pokemon__other-type pokemon-card__description">
-							{pokemonWeak()}
-							{pokemonResist()}
-							{pokemonRetreat()}
-						</div>
-						<div className="detailcard-container__description-button">
-							<button id="button-add__card" onClick={() => addCardToDeck(card)}>
-								<span class="material-icons">style</span>&nbsp;
-								<span>Add to Deck</span>
-							</button>
-							<Link
-								className="pokemon-card__text"
-								id="pokemon_evolve"
-								to="/decks"
-							>
-								<button id="button-go-deck">
-									<span class="material-icons">arrow_forward</span>&nbsp;
-									<span>Go to Deck</span>
-								</button>
-							</Link>
-						</div>
-					</div>
-				</div>
-			</div>
+				</>
+			)}
 		</>
 	);
 }
