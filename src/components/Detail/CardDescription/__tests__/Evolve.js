@@ -1,10 +1,10 @@
 import React from 'react';
-import Detail from '../Detail';
+import Evolve from '../Evolve';
 import { act } from 'react-dom/test-utils';
 import { BrowserRouter } from 'react-router-dom';
 import { render, unmountComponentAtNode } from 'react-dom';
 
-describe('Detail', () => {
+describe('Evolve', () => {
 	let container = null;
 
 	beforeEach(() => {
@@ -18,46 +18,35 @@ describe('Detail', () => {
 		container = null;
 	});
 
-	test('to be defined', () => {
+	test('to be defined - evolve exists', () => {
 		act(() => {
-			const match = {
-				params: {
-					cardId: 'someCardId'
-				}
-			};
+			const evolve = 'evolve'
 
 			render(
 				<BrowserRouter>
-					<Detail match={match} />
+					<Evolve evolve={evolve} />
 				</BrowserRouter>,
 				container
 			);
 		});
 
 		expect(
-			document.getElementsByClassName('detailcard-container')[0]
+			document.getElementsByClassName('pokemon-evolve__container')[0]
 		).toBeDefined();
-	});
-
-	test('testing click id-button-back', () => {
+    });
+    
+	test('to be defined - no ability', () => {
 		act(() => {
-			const match = {
-				params: {
-					cardId: 'someCardId'
-				}
-			};
-
 			render(
 				<BrowserRouter>
-					<Detail match={match} />
+					<Evolve />
 				</BrowserRouter>,
 				container
 			);
 		});
 
 		expect(
-			document.find('#button-back').simulate('click')
-		).toBeDefined();
+			document.getElementsByClassName('pokemon-evolve__container')[0]
+		).toBe(undefined);
 	});
-
 });

@@ -1,10 +1,10 @@
 import React from 'react';
-import Detail from '../Detail';
+import Weaks from '../Weaks';
 import { act } from 'react-dom/test-utils';
 import { BrowserRouter } from 'react-router-dom';
 import { render, unmountComponentAtNode } from 'react-dom';
 
-describe('Detail', () => {
+describe('weaks', () => {
 	let container = null;
 
 	beforeEach(() => {
@@ -18,46 +18,35 @@ describe('Detail', () => {
 		container = null;
 	});
 
-	test('to be defined', () => {
+	test('to be defined - weaks exists', () => {
 		act(() => {
-			const match = {
-				params: {
-					cardId: 'someCardId'
-				}
-			};
+			const weaks = ['weaks']
 
 			render(
 				<BrowserRouter>
-					<Detail match={match} />
+					<Weaks weaks={weaks} />
 				</BrowserRouter>,
 				container
 			);
 		});
 
 		expect(
-			document.getElementsByClassName('detailcard-container')[0]
+			document.getElementsByClassName('pokemon__weakness')[0]
 		).toBeDefined();
-	});
-
-	test('testing click id-button-back', () => {
+    });
+    
+	test('to be defined - no weaks', () => {
 		act(() => {
-			const match = {
-				params: {
-					cardId: 'someCardId'
-				}
-			};
-
 			render(
 				<BrowserRouter>
-					<Detail match={match} />
+					<Weaks />
 				</BrowserRouter>,
 				container
 			);
 		});
 
 		expect(
-			document.find('#button-back').simulate('click')
-		).toBeDefined();
+			document.getElementsByClassName('pokemon__weakness')[0]
+		).toBe(undefined);
 	});
-
 });

@@ -1,0 +1,13 @@
+			{!card.card && (
+				<>
+					<div className="loading">
+						<div className="opacity"></div>
+						<div className="body-loading-gif">
+							<img
+								alt="loading"
+								src="https://cdn.dribbble.com/users/621155/screenshots/2835314/simple_pokeball.gif"
+							></img>
+						</div>
+					</div>
+				</>
+			)}

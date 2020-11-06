@@ -1,10 +1,10 @@
 import React from 'react';
-import Detail from '../Detail';
+import Retreats from '../Retreats';
 import { act } from 'react-dom/test-utils';
 import { BrowserRouter } from 'react-router-dom';
 import { render, unmountComponentAtNode } from 'react-dom';
 
-describe('Detail', () => {
+describe('retreats', () => {
 	let container = null;
 
 	beforeEach(() => {
@@ -18,46 +18,37 @@ describe('Detail', () => {
 		container = null;
 	});
 
-	test('to be defined', () => {
+	test('to be defined - retreats exists', () => {
 		act(() => {
-			const match = {
-				params: {
-					cardId: 'someCardId'
-				}
-			};
+			const retreats = [
+                'retreatCost'
+            ]
 
 			render(
 				<BrowserRouter>
-					<Detail match={match} />
+					<Retreats retreats={retreats} />
 				</BrowserRouter>,
 				container
 			);
 		});
 
 		expect(
-			document.getElementsByClassName('detailcard-container')[0]
+			document.getElementsByClassName('pokemon__retreat')[0]
 		).toBeDefined();
-	});
-
-	test('testing click id-button-back', () => {
+    });
+    
+	test('to be defined - no retreats', () => {
 		act(() => {
-			const match = {
-				params: {
-					cardId: 'someCardId'
-				}
-			};
-
 			render(
 				<BrowserRouter>
-					<Detail match={match} />
+					<Retreats />
 				</BrowserRouter>,
 				container
 			);
 		});
 
 		expect(
-			document.find('#button-back').simulate('click')
-		).toBeDefined();
+			document.getElementsByClassName('pokemon__retreat')[0]
+		).toBe(undefined);
 	});
-
 });

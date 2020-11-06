@@ -1,10 +1,10 @@
 import React from 'react';
-import Detail from '../Detail';
+import Rarity from '../Rarity';
 import { act } from 'react-dom/test-utils';
 import { BrowserRouter } from 'react-router-dom';
 import { render, unmountComponentAtNode } from 'react-dom';
 
-describe('Detail', () => {
+describe('rarity', () => {
 	let container = null;
 
 	beforeEach(() => {
@@ -18,46 +18,35 @@ describe('Detail', () => {
 		container = null;
 	});
 
-	test('to be defined', () => {
+	test('to be defined - rarity exists', () => {
 		act(() => {
-			const match = {
-				params: {
-					cardId: 'someCardId'
-				}
-			};
+			const rarity = 'rarity'
 
 			render(
 				<BrowserRouter>
-					<Detail match={match} />
+					<Rarity rarity={rarity} />
 				</BrowserRouter>,
 				container
 			);
 		});
 
 		expect(
-			document.getElementsByClassName('detailcard-container')[0]
+			document.getElementsByClassName('pokemon-card__text')[0]
 		).toBeDefined();
-	});
-
-	test('testing click id-button-back', () => {
+    });
+    
+	test('to be defined - no rarity', () => {
 		act(() => {
-			const match = {
-				params: {
-					cardId: 'someCardId'
-				}
-			};
-
 			render(
 				<BrowserRouter>
-					<Detail match={match} />
+					<Rarity />
 				</BrowserRouter>,
 				container
 			);
 		});
 
 		expect(
-			document.find('#button-back').simulate('click')
-		).toBeDefined();
+			document.getElementsByClassName('pokemon-card__text')[0]
+		).toBe(undefined);
 	});
-
 });

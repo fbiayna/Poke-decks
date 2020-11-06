@@ -1,10 +1,10 @@
 import React from 'react';
-import Detail from '../Detail';
+import Ability from '../Ability';
 import { act } from 'react-dom/test-utils';
 import { BrowserRouter } from 'react-router-dom';
 import { render, unmountComponentAtNode } from 'react-dom';
 
-describe('Detail', () => {
+describe('Ability', () => {
 	let container = null;
 
 	beforeEach(() => {
@@ -18,46 +18,38 @@ describe('Detail', () => {
 		container = null;
 	});
 
-	test('to be defined', () => {
+	test('to be defined - ability exists', () => {
 		act(() => {
-			const match = {
-				params: {
-					cardId: 'someCardId'
-				}
+			const ability = {
+                name: 'ability',
+                text: 'ability'
 			};
 
 			render(
 				<BrowserRouter>
-					<Detail match={match} />
+					<Ability ability={ability} />
 				</BrowserRouter>,
 				container
 			);
 		});
 
 		expect(
-			document.getElementsByClassName('detailcard-container')[0]
+			document.getElementsByClassName('pokemon-card__description')[0]
 		).toBeDefined();
-	});
-
-	test('testing click id-button-back', () => {
+    });
+    
+	test('to be defined - no ability', () => {
 		act(() => {
-			const match = {
-				params: {
-					cardId: 'someCardId'
-				}
-			};
-
 			render(
 				<BrowserRouter>
-					<Detail match={match} />
+					<Ability />
 				</BrowserRouter>,
 				container
 			);
 		});
 
 		expect(
-			document.find('#button-back').simulate('click')
-		).toBeDefined();
+			document.getElementsByClassName('pokemon-card__description')[0]
+		).toBe(undefined);
 	});
-
 });
