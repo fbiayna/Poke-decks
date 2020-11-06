@@ -6,6 +6,9 @@
         "imagealt": "card-pile",
         "url": "https://trello-attachments.s3.amazonaws.com/5f8ca3639574d3550b3ad495/5f9cb0e6b6fed24123256da4/0b8025e8ab38f7b89454be9b91dd114a/91yL1H9fBdL.svg",
         "cards": [
+            {"id":"xy1-42","name":"Pikachu","nationalPokedexNumber":25,"imageUrl":"https://images.pokemontcg.io/xy1/42.png","imageUrlHiRes":"https://images.pokemontcg.io/xy1/42_hires.png","types":["Lightning"],"supertype":"Pokémon","subtype":"Basic","hp":"60","retreatCost":["Colorless"],"convertedRetreatCost":1,"number":"42","artist":"MAHOU","rarity":"Common","series":"XY","set":"XY","setCode":"xy1","attacks":[{"cost":["Colorless"],"name":"Nuzzle","text":"Flip a coin. If heads, your opponent's Active Pokémon is now Paralyzed.","damage":"","convertedEnergyCost":1},{"cost":["Colorless","Colorless"],"name":"Quick Attack","text":"Flip a coin. If heads, this attack does 10 more damage.","damage":"20+","convertedEnergyCost":2}],"resistances":[{"type":"Metal","value":"-20"}],"weaknesses":[{"type":"Fighting","value":"×2"}]},
+            {"id":"xy0-35","name":"Poké Ball","imageUrl":"https://images.pokemontcg.io/xy0/35.png","imageUrlHiRes":"https://images.pokemontcg.io/xy0/35_hires.png","supertype":"Trainer","subtype":"Item","number":"35","artist":"5ban Graphics","rarity":"","series":"XY","set":"Kalos Starter Set","setCode":"xy0","text":["Flip a coin. If heads, search your deck for a Pokémon, reveal it, and put it into your hand. Shuffle your deck afterward."]},
+            {"id":"bw1-108","name":"Lightning Energy","imageUrl":"https://images.pokemontcg.io/bw1/108.png","imageUrlHiRes":"https://images.pokemontcg.io/bw1/108_hires.png","supertype":"Energy","subtype":"Basic","number":"108","artist":"","rarity":"Common","series":"Black & White","set":"Black & White","setCode":"bw1"}
         ]
     }
 ]
