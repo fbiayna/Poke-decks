@@ -65,7 +65,6 @@ export async function loadRandomCards() {
 }
 
 export async function loadCard(cardId) {
-	debugger;
 	try {
 		const card = await axios(`https://api.pokemontcg.io/v1/cards/${cardId}`);
 
@@ -76,7 +75,6 @@ export async function loadCard(cardId) {
 	} catch (error) {
 		let cardIdMatch = { data: {} };
 		let totalOfCards = await axios('/api/pokemon.json');
-		debugger;
 		let cardDetail = totalOfCards.data.cards.find((word) =>
 			word.id.includes(cardId)
 		);
