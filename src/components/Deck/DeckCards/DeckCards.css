@@ -1,0 +1,29 @@
+.decks__card-section {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    padding: 100px 0;
+}
+
+.deckCard__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 12px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 5px black;
+    transition: transform 0.3s;
+}
+
+.deckCard__container:hover {
+    transform: scale(1.1);
+}
+
+.deckCard__image {
+    width: 200px;
+    border-radius: 10px;
+}
