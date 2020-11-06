@@ -48,7 +48,7 @@ function List(params) {
 						<span class="material-icons">arrow_back</span>&nbsp;
 						<span>Go Back</span>
 					</button>
-					<Link className="pokemon-card__text" id="pokemon_evolve" to="/my-decks">
+					<Link className="pokemon-card__text" id="pokemon_evolve" to="/decks">
 						<button id="button-go-deck_search">
 							<span class="material-icons">arrow_forward</span>&nbsp;
 							<span>Go to Deck</span>
