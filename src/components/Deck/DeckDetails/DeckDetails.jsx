@@ -45,6 +45,7 @@ function DeckDetails() {
 						name="deck-title"
 						id="name-title"
 						autocomplete="off"
+						placeholder="Your decks name!"
 						value={decks[0]?.title}
 						onChange={(event) => onChange(event, setTitle, 'title')}
 					/>
