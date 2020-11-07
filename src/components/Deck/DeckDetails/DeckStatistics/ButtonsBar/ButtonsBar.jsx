@@ -1,13 +1,35 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { loadDecks } from '../../../../../actions/action-creators'
+import cardsStore from '../../../../../stores/store';
 import AddCards from './AddCards/AddCards';
+import TotalCards from './TotalCards/TotalCards';
 
-function ButtonsBar({cards}) {
+function ButtonsBar() {
+
+    const [decks, setDecks] = useState(cardsStore.getDecks());
+
+	function handleChange() {
+		const decks = cardsStore.getDecks();
+		setDecks(decks);
+	}
+
+	useEffect(() => {
+		document.body.scrollTop = document.documentElement.scrollTop = 0;
+		cardsStore.addEventListener(handleChange);
+
+		if (!decks || !decks.length) {
+			loadDecks();
+		}
+
+		return () => {
+			cardsStore.removeEventListener(handleChange);
+		};
+	}, [decks]);
+    
     return (
         <div className="decks__section__block deck__add-cards">
         <AddCards />
-        <div className="decks__section__block__deck__add-cards__total-cards">
-                {cards? <span id="length-true">{cards.length}/60 CARDS</span>:<span id="length-false" >0/60 CARDS</span>}
-        </div>
+        <TotalCards cards={decks[0]?.cards}/>
     </div>
 
     )

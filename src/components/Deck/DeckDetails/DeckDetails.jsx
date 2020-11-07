@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import cardsStore from '../../../stores/store';
-import { loadDecks } from '../../../actions/action-creators';
+import React from 'react';
 import DeckDescription from './DeckDescription/DeckDescription';
 import DeckStatistics from './DeckStatistics/DeckStatistics';
 import ButtonsBar from './DeckStatistics/ButtonsBar/ButtonsBar';
