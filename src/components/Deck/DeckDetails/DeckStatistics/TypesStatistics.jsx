@@ -8,12 +8,12 @@ function TypeStatistics({ cards }) {
 	return (
 		<>
 			{totalTypes < 1 ? (
-				<span className="statistic wrong">
+				<span id="stat-warning" className="statistic wrong">
 					You have {totalTypes} basic pokemons and you must have at least 1
 				</span>
 			) : null}
 			{totalTypes >= 1 ? (
-				<span className="statistic ok">
+				<span id="stat-ok" className="statistic ok">
 					You have {totalTypes} basic pokemons!
 				</span>
 			) : null}

@@ -7,17 +7,17 @@ function Statistics({ cards }) {
 	return (
 		<>
 			{totalPokemon < 20 ? (
-				<span className="statistic warning">
+				<span id="stat-warning" className="statistic warning">
 					You have {totalPokemon} pokemons and we recommend to have at least 20
 				</span>
 			) : null}
 			{totalPokemon > 38 ? (
-				<span className="statistic warning">
+				<span id="stat-toomuch" className="statistic warning">
 					You have {totalPokemon} pokemons and we recommend to have maximum 38
 				</span>
 			) : null}
 			{totalPokemon >= 20 && totalPokemon <= 38 ? (
-				<span className="statistic ok">You have {totalPokemon} pokemons!</span>
+				<span id="stat-ok" className="statistic ok">You have {totalPokemon} pokemons!</span>
 			) : null}
 		</>
 	);
