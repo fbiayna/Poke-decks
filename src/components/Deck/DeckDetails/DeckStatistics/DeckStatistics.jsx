@@ -3,8 +3,9 @@ import { loadDecks } from '../../../../actions/action-creators';
 import cardsStore from '../../../../stores/store';
 import Statistics from './Statistics/Statistics';
 import TypeStatistics from './Statistics/TypesStatistics';
-import TrainerStatistics from './Statistics/TrainerStatistics';
+import EvolutionStatistics from './Statistics/EvolutionStatistics';
 import EnergyStatistics from './Statistics/EnergyStatistics';
+import TrainerStatistics from './Statistics/TrainerStatistics';
 
 function DeckStatistics() {
 	const [decks, setDecks] = useState(cardsStore.getDecks());
@@ -31,7 +32,8 @@ function DeckStatistics() {
         <div className="decks__section__block__deck-statistics">
             <div className="decks__section__block__deck-statistics__text">
                 <Statistics decks={decks}/>
-                <TypeStatistics decks={decks}/>
+				<TypeStatistics decks={decks} />
+				<EvolutionStatistics />
                 <EnergyStatistics decks={decks}/>
                 <TrainerStatistics decks={decks}/>
             </div>
