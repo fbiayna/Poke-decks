@@ -24,6 +24,22 @@ function DeckCards() {
         return () => { cardsStore.removeEventListener(handleChange) }
     }, [decks]);
 
+    function removeCard(decks, deletedCard) {
+        let newDeck = [];
+        let identicalCards = 0;
+        decks[0].cards.map((card) => {
+            if (card.id !== deletedCard.id) {
+                newDeck.push(card);
+            } else {
+                identicalCards++;
+                if (identicalCards > 1) {
+                    newDeck.push(card); 
+                }
+            }
+        });
+        decks[0].cards = newDeck;
+    }
+
     return (
         <div className="decks__card-section">
             {
