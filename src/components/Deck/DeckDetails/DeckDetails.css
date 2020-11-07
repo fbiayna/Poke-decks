@@ -50,11 +50,25 @@
     justify-content: center;
     align-items: center;
     width: 175px;
-    height: 30px;
+    height: 40px;
     color: wheat;
     background-color: rgba(0, 0, 0, 0.6);
     border: 2px solid black;
     border-radius: 2px;
+}
+
+.totalCards-button {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.total-cards__pokedex {
+    width: 35px;
+    height: 35px;
+    margin-left: 10px;
+    background-image: url('https://trello-attachments.s3.amazonaws.com/5f8ca3639574d3550b3ad495/5f9cb0e6b6fed24123256da4/8a6c4e744d9941f8a20f511e0e1d58f5/icons8-pokedex-48_copia.png');
+    background-size: cover;
 }
 
 #name-title,
