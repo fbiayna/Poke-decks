@@ -59,4 +59,28 @@ describe('auth-actions', () => {
 			expect(dispatcher.dispatch.mock.calls.length).toBe(1);
 		});
 	});
+
+	describe('SignOut', () => {
+		const type = actionTypes.AUTH_LOGIN_ERROR;
+		beforeEach(async () => {
+			axios.mockImplementationOnce(() => Promise.resolve({ data: [] }));
+			await signOut();
+		});
+
+		test('should call dispatch', () => {
+			expect(dispatcher.dispatch.mock.calls[0][0]).toEqual({
+				type
+			});
+		});
+
+		test('shold call dispatch just once', () => {
+			expect(dispatcher.dispatch.mock.calls.length).toBe(1);
+		});
+
+	
+	});
+
+
+
+
 });
