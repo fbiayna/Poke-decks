@@ -1,8 +1,8 @@
 import React from 'react';
 import TypesStatistics from './TypesStatistics';
 
-function PokemonStatistics({ decks }) {
-	let totalPokemon = decks[0]?.cards?.filter((card) => card.supertype === 'Pokémon').length;
+function PokemonStatistics({ cards }) {
+	let totalPokemon = cards?.filter((card) => card.supertype === 'Pokémon').length;
 	return (
 			<div className="statistics__category" id="statistic__category__pokemon">
 				<div className="statistics__category__name">
@@ -31,7 +31,7 @@ function PokemonStatistics({ decks }) {
 						<span id="stat-ok" className="statistic ok">You have {totalPokemon} pokemons!</span>
 					</div>
 				) : null}
-				<TypesStatistics decks={decks}/>
+				<TypesStatistics cards={cards}/>
 			</div>
 	);
 }
