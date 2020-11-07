@@ -51,7 +51,7 @@ function DeckDetails() {
 						value={decks[0]?.title}
 						onChange={(event) => onChange(event, setTitle, 'title')}
 					/>
-					<input
+					<textarea
 						type="text"
 						name="deck-description"
 						id="name-description"

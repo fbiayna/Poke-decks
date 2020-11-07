@@ -82,6 +82,7 @@
     font-size: 15px;
     cursor: pointer;
     border-radius: 0 0 10px 10px;
+    resize: none;
 }
 
 #name-title:focus,
