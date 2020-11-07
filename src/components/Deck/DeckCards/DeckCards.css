@@ -29,6 +29,12 @@
     border-radius: 10px;
 }
 
+.deckard__remove-button {
+    width: 30px;
+    height: 20px;
+    background-color: hotpink;
+}
+
 @media screen and (max-width: 690px) {
     .deckCard__image {
 		width: 150px;

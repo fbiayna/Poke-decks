@@ -24,20 +24,19 @@ function DeckCards() {
         return () => { cardsStore.removeEventListener(handleChange) }
     }, [decks]);
 
-    function removeCard(decks, deletedCard) {
+    function removeCard(setValue, deletedCard) {
+        debugger;
         let newDeck = [];
         let identicalCards = 0;
         decks[0].cards.map((card) => {
-            if (card.id !== deletedCard.id) {
+            if (card.id !== deletedCard.id || identicalCards > 0) {
                 newDeck.push(card);
             } else {
                 identicalCards++;
-                if (identicalCards > 1) {
-                    newDeck.push(card); 
-                }
             }
         });
         decks[0].cards = newDeck;
+        setValue(decks);
     }
 
     return (
@@ -45,11 +44,16 @@ function DeckCards() {
             {
                 decks[0]?.cards.map((card) => {
                     return (
-                        <Link to={`/detail/${card.id}`}>
+                        <>
+                            <Link to={`/detail/${card.id}`}>
                                 <div class="deckCard__container">
                                     <img src={card.imageUrlHiRes} alt={card.id} className="deckCard__image"/>
                                 </div>
-                        </Link>
+                            </Link>
+                            <div className="deckard__remove-button" onClick={() => removeCard(setDecks, card)}>
+                                <span>Remove</span>
+                            </div>
+                        </>
                     )
                 })
         }
