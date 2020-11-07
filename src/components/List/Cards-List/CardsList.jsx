@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import LoadingGif from '../../LoadingGif/LoadingGif';
 
 function CardsList({ cards }) {
 	return (
 		<>
 			<ul className="card-gallery">
+				<LoadingGif cardSearchItems={cards} />
 				{cards?.map((card) => (
 					<li>
 						<Link to={`/detail/${card.id}`}>
