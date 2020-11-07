@@ -1,7 +1,7 @@
 import React from 'react';
 
 function TypeStatistics({ decks }) {
-	let totalTypes = decks[0]?.cards.filter(
+	let totalTypes = decks[0]?.cards?.filter(
 		(card) => card.subtype === 'Basic' && card.supertype === 'Pokémon'
 	).length;
 
