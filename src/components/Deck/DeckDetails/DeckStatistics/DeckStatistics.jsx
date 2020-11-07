@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { loadDecks } from '../../../../actions/action-creators';
 import cardsStore from '../../../../stores/store';
-import Statistics from './Statistics/Statistics';
-import TypeStatistics from './Statistics/TypesStatistics';
+import PokemonStatistics from './Statistics/PokemonStatistics';
 import EnergyStatistics from './Statistics/EnergyStatistics';
 import TrainerStatistics from './Statistics/TrainerStatistics';
 
@@ -30,8 +29,7 @@ function DeckStatistics() {
     return (
         <div className="decks__section__block__deck-statistics">
             <div className="decks__section__block__deck-statistics__text">
-                <Statistics decks={decks}/>
-				<TypeStatistics decks={decks} />
+                <PokemonStatistics decks={decks}/>
                 <EnergyStatistics decks={decks}/>
                 <TrainerStatistics decks={decks}/>
             </div>

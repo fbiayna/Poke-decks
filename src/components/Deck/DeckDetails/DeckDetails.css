@@ -55,6 +55,11 @@
     background-color: rgba(0, 0, 0, 0.6);
     border: 2px solid black;
     border-radius: 2px;
+    transition: transform 0.2s;
+}
+
+.decks__section__block__deck__add-cards__total-cards:hover {
+    transform: scale(1.1);
 }
 
 .totalCards-button {
@@ -119,6 +124,8 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    width: 100%;
+    margin: 5px 0;
 }
 
 .statistics__category {
@@ -187,7 +194,6 @@
     transform: rotate(360deg);
 }
 
-
 .warning {
     font-size: 15px;
     font-weight: 900;
@@ -225,8 +231,9 @@
     }
 
     .decks__section__block__deck-statistics__text {
-        border-radius: 10px;
+        width: auto;
         align-items: flex-start;
+        border-radius: 10px;
     }
 
     .decks__section__block__deck-statistics {

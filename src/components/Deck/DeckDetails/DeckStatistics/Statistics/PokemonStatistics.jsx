@@ -1,6 +1,7 @@
 import React from 'react';
+import TypesStatistics from './TypesStatistics';
 
-function Statistics({ decks }) {
+function PokemonStatistics({ decks }) {
 	let totalPokemon = decks[0]?.cards?.filter((card) => card.supertype === 'Pokémon').length;
 	return (
 			<div className="statistics__category" id="statistic__category__pokemon">
@@ -29,9 +30,10 @@ function Statistics({ decks }) {
 						<div className="stateIcon okIcon"></div>
 						<span id="stat-ok" className="statistic ok">You have {totalPokemon} pokemons!</span>
 					</div>
-					) : null}
+				) : null}
+				<TypesStatistics decks={decks}/>
 			</div>
 	);
 }
 
-export default Statistics;
+export default PokemonStatistics;
