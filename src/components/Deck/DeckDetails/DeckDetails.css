@@ -100,6 +100,7 @@
     width: 400px;
     height: 200px;
     font-size: 15px;
+    font-family: 'Lato', sans-serif;
     cursor: pointer;
     border-radius: 0 0 10px 10px;
     resize: none;
