@@ -1,9 +1,7 @@
 import React from 'react';
 
-function Statistics({ cards }) {
-	let totalPokemon = cards?.filter((card) => card.supertype === 'Pokémon')
-		.length;
-
+function Statistics({ decks }) {
+	let totalPokemon = decks[0]?.cards?.filter((card) => card.supertype === 'Pokémon').length;
 	return (
 		<>
 			{totalPokemon < 20 ? (

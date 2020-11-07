@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import cardsStore from '../../../stores/store';
 import { loadDecks } from '../../../actions/action-creators';
+import DeckStatistics from './DeckStatistics/DeckStatistics';
+import ButtonsBar from './DeckStatistics/ButtonsBar/ButtonsBar';
 import './DeckDetails.css';
-import { Link } from 'react-router-dom';
-import TotalCards from './DeckStatistics/TotalCards';
-import Statistics from './DeckStatistics/Statistics';
-import TypeStatistics from './DeckStatistics/TypesStatistics';
-import TrainerStatistics from './DeckStatistics/TrainerStatistics';
-import EnergyStatistics from './DeckStatistics/EnergyStatistics';
+
 
 function DeckDetails() {
 	const [decks, setDecks] = useState(cardsStore.getDecks());
@@ -61,27 +58,11 @@ function DeckDetails() {
 						placeholder="Try to add a cool description to your Deck!"
 					/>
 				</div>
-				<div className="decks__section__block__deck-statistics">
-					<div className="decks__section__block__deck-statistics__text">
-						<Statistics cards={decks[0]?.cards}/>
-                        <TypeStatistics cards={decks[0]?.cards}/>
-						<EnergyStatistics cards={decks[0]?.cards}/>
-						<TrainerStatistics cards={decks[0]?.cards}/>
-					</div>
-				</div>
+				<DeckStatistics />
 			</div>
-			<div className="decks__section__block deck__add-cards">
-				<Link className="header__links" to="/cards">
-					<button id="button-search__cards-home">
-						<span class="material-icons">recent_actors</span>&nbsp;
-						<span>Find Cards</span>
-					</button>
-				</Link>
-				<div className="decks__section__block__deck__add-cards__total-cards">
-					<TotalCards cards={decks[0]?.cards} />
-				</div>
-			</div>
+			<ButtonsBar />
 		</div>
+
 	);
 }
 
