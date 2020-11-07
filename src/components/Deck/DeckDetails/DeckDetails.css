@@ -39,6 +39,7 @@
     width: 75%;
     height: 250px;
     padding: 40px;
+    padding-left: 50px;
     color: white;
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 10px 0 0 10px;
@@ -49,11 +50,30 @@
     justify-content: center;
     align-items: center;
     width: 175px;
-    height: 30px;
+    height: 40px;
     color: wheat;
     background-color: rgba(0, 0, 0, 0.6);
     border: 2px solid black;
     border-radius: 2px;
+    transition: transform 0.2s;
+}
+
+.decks__section__block__deck__add-cards__total-cards:hover {
+    transform: scale(1.1);
+}
+
+.totalCards-button {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.total-cards__pokedex {
+    width: 35px;
+    height: 35px;
+    margin-left: 10px;
+    background-image: url('https://trello-attachments.s3.amazonaws.com/5f8ca3639574d3550b3ad495/5f9cb0e6b6fed24123256da4/8a6c4e744d9941f8a20f511e0e1d58f5/icons8-pokedex-48_copia.png');
+    background-size: cover;
 }
 
 #name-title,
@@ -82,6 +102,7 @@
     font-size: 15px;
     cursor: pointer;
     border-radius: 0 0 10px 10px;
+    resize: none;
 }
 
 #name-title:focus,
@@ -98,6 +119,81 @@
     font-weight: 900;
     color: greenyellow;
 }
+
+.statistics__row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin: 5px 0;
+}
+
+.statistics__category {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    transition: transform 0.3s;
+}
+
+.statistics__category:hover {
+    transform: scale(1.1);
+}
+
+.statistics__category__name {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.statistics__category-title {
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    color: rgb(251, 215, 67);
+    text-shadow: 2px 0 0 rgb(54, 59, 129), -2px 0 0 rgb(54, 59, 129), 0 2px 0 rgb(54, 59, 129), 0 -2px 0 rgb(54, 59, 129), 3px 1px rgb(54, 59, 129), -1px -1px 0 rgb(54, 59, 129), 2px -1px 0 rgb(54, 59, 129), -1px 2px 0 rgb(54, 59, 129);
+}
+
+.statistics__category-icon {
+    width: 35px;
+    height: 35px;
+    margin-left: 10px;
+}
+
+#statistic__category__pokemon .statistics__category-icon {
+    background-image: url('https://trello-attachments.s3.amazonaws.com/5f8ca3639574d3550b3ad495/5f9cb0e6b6fed24123256da4/c89cb02b7961dafbb25e02322ff92f73/icons8-pokemon-48_(1).png');
+    background-size: cover;
+}
+
+#statistic__category__pokemon:hover .statistics__category-icon {
+    background-image: url('https://trello-attachments.s3.amazonaws.com/5f8ca3639574d3550b3ad495/5f9cb0e6b6fed24123256da4/714bb1ee8349b50ec64d4c9d869a83ea/icons8-pokemon-48.png');
+}
+
+#statistic__category__trainers .statistics__category-icon {
+    width: 30px;
+    height: 30px;
+    background-image: url('https://trello-attachments.s3.amazonaws.com/5f8ca3639574d3550b3ad495/5f9cb0e6b6fed24123256da4/d805ad3f9a1a2de332238d9ce5ba7e40/icons8-pokeball-48_copia.png');
+    background-size: cover;
+}
+
+#statistic__category__trainers:hover .statistics__category-icon {
+    background-image: url('https://trello-attachments.s3.amazonaws.com/5f8ca3639574d3550b3ad495/5f9cb0e6b6fed24123256da4/da685c96f920004503680b1fcb63169e/icons8-pokeball-abierto-48.png');
+}
+
+#statistic__category__energies .statistics__category-icon {
+    width: 35px;
+    height: 35px;
+    background-image: url('https://trello-attachments.s3.amazonaws.com/5f8ca3639574d3550b3ad495/5f9cb0e6b6fed24123256da4/5a2ad92343fc7727e831aa312fe61357/icons8-lucha-pokemon-48_copia.png');
+    background-size: cover;
+    transition: transform 0.6s
+}
+
+#statistic__category__energies:hover .statistics__category-icon {
+    transform: rotate(360deg);
+}
+
 .warning {
     font-size: 15px;
     font-weight: 900;
@@ -110,20 +206,39 @@
     color: rgb(217, 0, 0);
 }
 
+.stateIcon {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.warningIcon {
+    background-color: orange;
+}
+
+.okIcon {
+    background-color: greenyellow;
+}
+
+.wrongIcon {
+    background-color: red;
+}
+
 @media (max-width:780px) {
     .deck__details {
         flex-direction: column;
     }
 
     .decks__section__block__deck-statistics__text {
+        width: auto;
+        align-items: flex-start;
         border-radius: 10px;
-        align-items: center;
     }
 
     .decks__section__block__deck-statistics {
         justify-content: center;
         width: 100%;
         margin-top: 20px;
-        border-radius: ;
     }
 }
