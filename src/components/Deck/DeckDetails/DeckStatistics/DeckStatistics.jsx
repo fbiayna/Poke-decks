@@ -3,7 +3,6 @@ import { loadDecks } from '../../../../actions/action-creators';
 import cardsStore from '../../../../stores/store';
 import Statistics from './Statistics/Statistics';
 import TypeStatistics from './Statistics/TypesStatistics';
-import EvolutionStatistics from './Statistics/EvolutionStatistics';
 import EnergyStatistics from './Statistics/EnergyStatistics';
 import TrainerStatistics from './Statistics/TrainerStatistics';
 
@@ -33,7 +32,6 @@ function DeckStatistics() {
             <div className="decks__section__block__deck-statistics__text">
                 <Statistics decks={decks}/>
 				<TypeStatistics decks={decks} />
-				<EvolutionStatistics decks={decks}/>
                 <EnergyStatistics decks={decks}/>
                 <TrainerStatistics decks={decks}/>
             </div>
