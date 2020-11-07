@@ -99,6 +99,13 @@
     font-weight: 900;
     color: greenyellow;
 }
+
+.statistics__row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
 .warning {
     font-size: 15px;
     font-weight: 900;
@@ -109,6 +116,25 @@
     font-size: 15px;
     font-weight: 900;
     color: rgb(217, 0, 0);
+}
+
+.stateIcon {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.warningIcon {
+    background-color: orange;
+}
+
+.okIcon {
+    background-color: greenyellow;
+}
+
+.wrongIcon {
+    background-color: red;
 }
 
 @media (max-width:780px) {
@@ -125,6 +151,5 @@
         justify-content: center;
         width: 100%;
         margin-top: 20px;
-        border-radius: ;
     }
 }

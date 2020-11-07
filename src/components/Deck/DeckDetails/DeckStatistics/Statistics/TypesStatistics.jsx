@@ -8,14 +8,20 @@ function TypeStatistics({ decks }) {
 	return (
 		<>
 			{totalTypes < 1 ? (
-				<span id="stat-warning" className="statistic wrong">
-					You have {totalTypes} basic pokemons and you must have at least 1
-				</span>
+				<div className="statistics__row">
+					<div className="stateIcon wrongIcon"></div>
+					<span id="stat-warning" className="statistic wrong">
+						You have {totalTypes} basic pokemons and you must have at least 1
+					</span>
+				</div>
 			) : null}
 			{totalTypes >= 1 ? (
-				<span id="stat-ok" className="statistic ok">
-					You have {totalTypes} basic pokemons!
-				</span>
+				<div className="statistics__row">
+					<div className="stateIcon okIcon"></div>
+					<span id="stat-ok" className="statistic ok">
+						You have {totalTypes} basic pokemons!
+					</span>
+				</div>
 			) : null}
 		</>
 	);

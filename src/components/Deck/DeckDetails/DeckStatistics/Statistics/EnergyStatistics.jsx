@@ -6,17 +6,26 @@ function EnergyStatistics({ decks }) {
 	return (
 		<>
 			{totalEnergy < 12 ? (
-				<span id="stat-warning" className="statistic warning">
+				<div className="statistics__row">
+					<div className="stateIcon warningIcon"></div>
+					<span id="stat-warning" className="statistic warning">
 					You have {totalEnergy} energies and we recommend to have at least 12
-				</span>
+					</span>
+				</div>
 			) : null}
 			{totalEnergy > 15 ? (
-				<span id="stat-toomuch" className="statistic warning">
-					You have {totalEnergy} energies and we recommend to have maximum 15
-				</span>
+				<div className="statistics__row">
+					<div className="stateIcon warningIcon"></div>
+					<span id="stat-toomuch" className="statistic warning">
+						You have {totalEnergy} energies and we recommend to have maximum 15
+					</span>
+				</div>
 			) : null}
 			{totalEnergy >= 12 && totalEnergy <= 15 ? (
-				<span id="stat-ok" className="statistic ok">You have {totalEnergy} energies!</span>
+				<div className="statistics__row">
+					<div className="stateIcon OkIcon"></div>
+					<span id="stat-ok" className="statistic ok">You have {totalEnergy} energies!</span>
+				</div>
 			) : null}
 		</>
 	);
