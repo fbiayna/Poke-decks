@@ -16,6 +16,7 @@ import Type from './CardDescription/Type';
 import Weaks from './CardDescription/Weaks';
 import './Detail.css';
 import { loadCard, loadDecks } from '../../actions/action-creators';
+import LoadingGif from '../LoadingGif/LoadingGif';
 
 function Detail(props) {
 	const [cardId] = useState(props.match.params.cardid);
@@ -67,6 +68,7 @@ function Detail(props) {
 					</div>
 				</div>
 				<div className="detailcard-container__description-block">
+					<LoadingGif cardSearchItems={card.card} />
 					<div className="detailcard-container__description">
 						<div className="description__title">
 							<h2>{card.card?.name}</h2>
