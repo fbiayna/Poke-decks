@@ -7,6 +7,7 @@ import {
 	signOut
 } from '../../actions/auth-actions';
 import authStore from '../../stores/auth-store';
+import Username from './User/Username';
 
 function Header() {
 	const [user, setUser] = useState(authStore.getUser());
@@ -92,7 +93,7 @@ function Header() {
 									<Link className="header__links" to="/cards">
 										<span>SEARCH CARDS</span>
 									</Link>
-									<Link className="header__links" to="/my-decks">
+									<Link className="header__links" to="/decks">
 										<span>MY DECKS</span>
 									</Link>
 								</div>
@@ -109,11 +110,7 @@ function Header() {
 						</Link>
 					</div>
 					<div className="desktop-header__block flex-end">
-						{user && (
-							<div className="desktop-header__login">
-								<span className="user-login-email">{user.displayName.split(" ")[0]}</span>
-							</div>
-						)}
+						<Username user={user}/>
 						{isSignInVisible()}
 						<div className="desktop-header__logotgc">
 							<a href="https://www.pokemon.com/us/pokemon-tcg/">

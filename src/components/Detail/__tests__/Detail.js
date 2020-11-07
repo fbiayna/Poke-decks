@@ -39,4 +39,34 @@ describe('Detail', () => {
 		).toBeDefined();
 	});
 
+	test('llama a la función back cuando se hace click', () => {
+		
+		const match = {
+			params: {
+				cardId: 'someCardId'
+			}
+		};
+
+		act(() => {
+			render(
+				<BrowserRouter>
+					<Detail match={match} />
+				</BrowserRouter>,
+				container
+			);
+		});
+
+		const goBack = jest.fn()
+		const button = document.getElementById('button-back');
+
+		act(() => {
+			button.dispatchEvent(
+				new MouseEvent('click', goBack())
+			);
+		});
+
+		expect(goBack).toHaveBeenCalled();
+	});
+
+
 });
