@@ -39,25 +39,4 @@ describe('Detail', () => {
 		).toBeDefined();
 	});
 
-	test('testing click id-button-back', () => {
-		act(() => {
-			const match = {
-				params: {
-					cardId: 'someCardId'
-				}
-			};
-
-			render(
-				<BrowserRouter>
-					<Detail match={match} />
-				</BrowserRouter>,
-				container
-			);
-		});
-
-		expect(
-			document.find('#button-back').simulate('click')
-		).toBeDefined();
-	});
-
 });

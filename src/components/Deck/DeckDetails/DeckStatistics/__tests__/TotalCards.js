@@ -1,10 +1,10 @@
 import React from 'react';
-import DeckDetails from '../../DeckDetails/DeckDetails';
+import TotalCards from '../TotalCards';
 import { act } from 'react-dom/test-utils';
 import { BrowserRouter } from 'react-router-dom';
 import { render, unmountComponentAtNode } from 'react-dom';
 
-describe('DeckDetails', () => {
+describe('TotalCards', () => {
 	let container = null;
 
 	beforeEach(() => {
@@ -18,15 +18,28 @@ describe('DeckDetails', () => {
 		container = null;
 	});
 
-	test('should have the landing compos', () => {
+	test('should have text - warning', () => {
+		act(() => {
+			let cards = [{ supertype: 'Energy' }];
+			render(
+				<BrowserRouter>
+					<TotalCards cards={cards} />
+				</BrowserRouter>,
+				container
+			);
+		});
+		expect(document.getElementById('length-true')).toBeDefined();
+	});
+
+	test('should have text - ok', () => {
 		act(() => {
 			render(
 				<BrowserRouter>
-					<DeckDetails />
+					<TotalCards />
 				</BrowserRouter>,
 				container
-            );
+			);
 		});
-		expect(document.getElementsByClassName('decks__section')[0]).toBeDefined();
+		expect(document.getElementById('length-false')).toBeDefined();
 	});
 });

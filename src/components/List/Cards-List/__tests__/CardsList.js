@@ -1,10 +1,10 @@
 import React from 'react';
-import DeckDetails from '../../DeckDetails/DeckDetails';
+import CardsList from '../CardsList';
 import { act } from 'react-dom/test-utils';
 import { BrowserRouter } from 'react-router-dom';
 import { render, unmountComponentAtNode } from 'react-dom';
 
-describe('DeckDetails', () => {
+describe('cardList', () => {
 	let container = null;
 
 	beforeEach(() => {
@@ -18,15 +18,24 @@ describe('DeckDetails', () => {
 		container = null;
 	});
 
-	test('should have the landing compos', () => {
+	test('to be defined - cardList exists', () => {
 		act(() => {
+			const cards = [{
+				id: 'id',
+                imageUrl: 'pokemon.png',
+			}]
+
 			render(
 				<BrowserRouter>
-					<DeckDetails />
+					<CardsList cards={cards} />
 				</BrowserRouter>,
 				container
-            );
+			);
 		});
-		expect(document.getElementsByClassName('decks__section')[0]).toBeDefined();
+
+		expect(
+			document.getElementsByClassName('card-gallery')
+		).toBeDefined();
 	});
+
 });
