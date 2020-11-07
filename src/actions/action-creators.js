@@ -121,3 +121,10 @@ export async function loadList(cardName) {
 		});
 	}
 }
+
+export function deleteCard(card) {
+	dispatcher.dispatch({
+		type: actionTypes.DELETE_CARD,
+		payload: card
+	});
+}
