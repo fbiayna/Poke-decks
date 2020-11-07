@@ -106,6 +106,38 @@
     align-items: center;
 }
 
+.statistics__category {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.statistics__category__name {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.statistics__category-title {
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.statistics__category-icon {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    background-image: url('https://trello-attachments.s3.amazonaws.com/5f8ca3639574d3550b3ad495/5f9cb0e6b6fed24123256da4/c89cb02b7961dafbb25e02322ff92f73/icons8-pokemon-48_(1).png');
+    background-size: cover;
+}
+
+#statistic__category__pokemon:hover .statistics__category-icon {
+    background-image: url('https://trello-attachments.s3.amazonaws.com/5f8ca3639574d3550b3ad495/5f9cb0e6b6fed24123256da4/714bb1ee8349b50ec64d4c9d869a83ea/icons8-pokemon-48.png');
+}
+
 .warning {
     font-size: 15px;
     font-weight: 900;
