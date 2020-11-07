@@ -33,7 +33,7 @@ function DeckStatistics() {
             <div className="decks__section__block__deck-statistics__text">
                 <Statistics decks={decks}/>
 				<TypeStatistics decks={decks} />
-				<EvolutionStatistics />
+				<EvolutionStatistics decks={decks}/>
                 <EnergyStatistics decks={decks}/>
                 <TrainerStatistics decks={decks}/>
             </div>
