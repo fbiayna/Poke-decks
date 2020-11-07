@@ -18,7 +18,7 @@ import './Detail.css';
 import { loadCard, loadDecks } from '../../actions/action-creators';
 
 function Detail(props) {
-	const [cardId] = useState(props.match.params.cardid);
+	const [cardId] = useState(props.match?.params.cardid);
 	const [card, setCard] = useState([]);
 	const [decks, setDecks] = useState(cardsStore.getDecks());
 
@@ -44,6 +44,22 @@ function Detail(props) {
 		};
 	}, [card, cardId, decks]);
 
+	function goBack() {
+		window.history.back();
+	}
+
+	function addCard(decks, card) {
+		return (
+			<>
+				{decks?.length > 0
+					? decks[0].cards.length < 60
+						? decks[0].cards.push(card.card) && alert('Added!')
+						: alert('Your deck is full, check it and make some space!')
+					: alert('There are no decks... Create one first!')}
+			</>
+		);
+	}
+
 	return (
 		<>
 			<div className="detailcard-container">
@@ -59,7 +75,7 @@ function Detail(props) {
 							></img>
 						</div>
 						<div className="image__button-add">
-							<button id="button-back" onClick={() => window.history.back()}>
+							<button id="button-back" onClick={() => goBack()}>
 								<span class="material-icons">arrow_back</span>&nbsp;
 								<span>Go Back</span>
 							</button>
@@ -100,20 +116,7 @@ function Detail(props) {
 						<div className="detailcard-container__description-button">
 							<button
 								id="button-add__card"
-								onClick={() => {
-									if (decks) {
-										if (decks.length > 0) {
-											if (decks[0].cards.length < 60) {
-												decks[0].cards.push(card.card);
-												alert('Added!');
-											} else {
-												alert(
-													'Your deck is full, check it and make some space!'
-												);
-											}
-										}
-									} else alert('There are no decks... Create one first!');
-								}}
+								onClick={() => addCard(decks, card)}
 							>
 								<span class="material-icons">style</span>&nbsp;
 								<span>Add to Deck</span>
