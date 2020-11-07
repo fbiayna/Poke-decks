@@ -144,7 +144,7 @@
 
     .decks__section__block__deck-statistics__text {
         border-radius: 10px;
-        align-items: center;
+        align-items: flex-start;
     }
 
     .decks__section__block__deck-statistics {
