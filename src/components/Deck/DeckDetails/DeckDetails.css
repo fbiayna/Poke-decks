@@ -39,6 +39,7 @@
     width: 75%;
     height: 250px;
     padding: 40px;
+    padding-left: 50px;
     color: white;
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 10px 0 0 10px;
@@ -111,6 +112,11 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    transition: transform 0.3s;
+}
+
+.statistics__category:hover {
+    transform: scale(1.1);
 }
 
 .statistics__category__name {
@@ -125,11 +131,13 @@
     font-size: 20px;
     margin: 0;
     padding: 0;
+    color: rgb(251, 215, 67);
+    text-shadow: 2px 0 0 rgb(54, 59, 129), -2px 0 0 rgb(54, 59, 129), 0 2px 0 rgb(54, 59, 129), 0 -2px 0 rgb(54, 59, 129), 3px 1px rgb(54, 59, 129), -1px -1px 0 rgb(54, 59, 129), 2px -1px 0 rgb(54, 59, 129), -1px 2px 0 rgb(54, 59, 129);
 }
 
 .statistics__category-icon {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     margin-left: 10px;
 }
 
@@ -143,8 +151,8 @@
 }
 
 #statistic__category__trainers .statistics__category-icon {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     background-image: url('https://trello-attachments.s3.amazonaws.com/5f8ca3639574d3550b3ad495/5f9cb0e6b6fed24123256da4/d805ad3f9a1a2de332238d9ce5ba7e40/icons8-pokeball-48_copia.png');
     background-size: cover;
 }
@@ -152,6 +160,19 @@
 #statistic__category__trainers:hover .statistics__category-icon {
     background-image: url('https://trello-attachments.s3.amazonaws.com/5f8ca3639574d3550b3ad495/5f9cb0e6b6fed24123256da4/da685c96f920004503680b1fcb63169e/icons8-pokeball-abierto-48.png');
 }
+
+#statistic__category__energies .statistics__category-icon {
+    width: 35px;
+    height: 35px;
+    background-image: url('https://trello-attachments.s3.amazonaws.com/5f8ca3639574d3550b3ad495/5f9cb0e6b6fed24123256da4/5a2ad92343fc7727e831aa312fe61357/icons8-lucha-pokemon-48_copia.png');
+    background-size: cover;
+    transition: transform 0.6s
+}
+
+#statistic__category__energies:hover .statistics__category-icon {
+    transform: rotate(360deg);
+}
+
 
 .warning {
     font-size: 15px;
