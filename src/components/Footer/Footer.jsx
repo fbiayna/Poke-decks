@@ -49,7 +49,7 @@ function Footer() {
 
 					<div className="email">
 						<h6 className="footer__about-us--headers">
-							<i class="fa fa-envelope"></i>HAVE ANY QUESTIONS?
+							<i class="fa fa-envelope"></i>CONTACT
 						</h6>
 						<p>info@poke-decks.com</p>
 					</div>
