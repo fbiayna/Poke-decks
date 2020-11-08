@@ -27,7 +27,7 @@ function ButtonsBar() {
 	}, [decks]);
     
     return (
-        <div className="decks__section__block deck__add-cards">
+        <div className="decks__section__block-buttons deck__add-cards">
         <AddCards />
         <TotalCards cards={decks[0]?.cards}/>
     </div>
