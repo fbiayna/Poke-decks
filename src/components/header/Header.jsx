@@ -105,7 +105,7 @@ function Header() {
 							/>
 						</Link>
 					</div>
-					<div className="desktop-header__block">
+					<div className="desktop-header__block flex-end">
 						<Username user={user} />
 						{isSignInVisible()}
 						<div className="desktop-header__logotgc">
