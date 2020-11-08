@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { loadDecks } from '../../../../actions/action-creators';
-import cardsStore from '../../../../stores/store';
+import { loadDecks } from '../../../../../actions/action-creators';
+import cardsStore from '../../../../../stores/store';
 import PokemonStatistics from './Statistics/PokemonStatistics';
 import EnergyStatistics from './Statistics/EnergyStatistics';
 import TrainerStatistics from './Statistics/TrainerStatistics';

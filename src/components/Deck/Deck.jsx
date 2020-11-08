@@ -1,37 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import authStore from '../../stores/auth-store';
-import DeckDetails from './DeckDetails/DeckDetails';
-import DeckCards from './DeckCards/DeckCards';
-import './Deck.css'
-import Login from '../Login/Login';
+import DeckContainer from '../Deck/DeckContainer/DeckContainer';
+import './Deck.css';
 
 function Decks() {
+	const [user, setUser] = useState(authStore.getUser());
 
-    const [user, setUser] = useState(authStore.getUser());
+	function handleChange() {
+		setUser(authStore.getUser());
+	}
 
-    function handleChange() {
-        setUser(authStore.getUser());
-    }
+	useEffect(() => {
+		authStore.addEventListener(handleChange);
 
-    useEffect(() => {
-        authStore.addEventListener(handleChange);
+		return () => authStore.removeEventListener(handleChange);
+	}, [user]);
 
-        return () => authStore.removeEventListener(handleChange);
-    }, [user]);
-
-    return (user ? (
-        <div div className="deck" >
-            <DeckDetails />
-            <DeckCards />
-        </div>
-    ) : (
-            <div div className="deck" >
-                <div className="login__wrapper">
-                    <Login />
-                </div>
-            </div>
-        )
-    );
+	return <DeckContainer user={user} />;
 }
 
 export default Decks;

@@ -1,11 +1,8 @@
 import React from 'react';
-import './NotFound.css'
+import cardsStore from '../../stores/store'
+import './NotFound.css';
 
 function NotFound() {
-
-    function goBack() {
-		window.history.back();
-    }
     
 	return (
 		<>
@@ -20,7 +17,7 @@ function NotFound() {
 						></img>
 					</div>
                     <div className="image__button-add">
-							<button id="button-back" onClick={() => goBack()}>
+							<button id="button-back" onClick={() => cardsStore.goBack()}>
 								<span class="material-icons">arrow_back</span>&nbsp;
 								<span>Go Back</span>
 							</button>

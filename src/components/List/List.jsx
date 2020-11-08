@@ -45,7 +45,7 @@ function List(params) {
 					onChange={(event) => handleChange(loadList, event.target.value)}
 				/>
 				<div className="search-container__buttons">
-					<button id="button-back_search" onClick={() => window.history.back()}>
+					<button id="button-back_search" onClick={() => cardsStore.goBack()}>
 						<span class="material-icons">arrow_back</span>&nbsp;
 						<span>Go Back</span>
 					</button>

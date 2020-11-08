@@ -1,13 +1,10 @@
 import React from 'react';
-import NotFound from '../NotFound';
-import cardsStore from '../../../stores/store'
+import DeckContainer from '../DeckContainer';
 import { act } from 'react-dom/test-utils';
 import { BrowserRouter } from 'react-router-dom';
 import { render, unmountComponentAtNode } from 'react-dom';
 
-jest.mock('../../../stores/store')
-
-describe('NotFound', () => {
+describe('DeckContainer', () => {
 	let container = null;
 
 	beforeEach(() => {
@@ -21,42 +18,37 @@ describe('NotFound', () => {
 		container = null;
 	});
 
-	test('to be defined - NotFound exists', () => {
+	test('to be defined - DeckContainer - user exists', () => {
 		act(() => {
+            const user='Skylab'
 
 			render(
 				<BrowserRouter>
-					<NotFound />
+					<DeckContainer user={user}/>
 				</BrowserRouter>,
 				container
 			);
 		});
 
 		expect(
-			document.getElementsByClassName('landing-not-found')[0]
+			document.getElementById('deck-container')
 		).toBeDefined();
-	});
-	
-	test('llama a la función back cuando se hace click', () => {
-
+    });
+    
+	test('to be defined - DeckContainer - no user', () => {
 		act(() => {
+
 			render(
 				<BrowserRouter>
-					<NotFound />
+					<DeckContainer />
 				</BrowserRouter>,
 				container
 			);
 		});
-		
-		const button = document.getElementById('button-back');
 
-		act(() => {
-			button.dispatchEvent(
-				new MouseEvent('click', { bubbles: true, cancelable: true })
-			);
-		});
-
-		expect(cardsStore.goBack).toHaveBeenCalled();
+		expect(
+			document.getElementById('deck-container')
+		).toBeDefined();
 	});
 
 });

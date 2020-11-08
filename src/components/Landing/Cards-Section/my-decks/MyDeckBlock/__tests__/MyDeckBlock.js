@@ -1,10 +1,10 @@
 import React from 'react';
-import TotalCards from '../ButtonsBar/TotalCards/TotalCards';
+import MyDeckBlock from '../MyDeckBlock';
 import { act } from 'react-dom/test-utils';
 import { BrowserRouter } from 'react-router-dom';
 import { render, unmountComponentAtNode } from 'react-dom';
 
-describe('TotalCards', () => {
+describe('MyDeckBlock', () => {
 	let container = null;
 
 	beforeEach(() => {
@@ -18,28 +18,22 @@ describe('TotalCards', () => {
 		container = null;
 	});
 
-	test('should have text - warning', () => {
+	test('to be defined - MyDeckBlock - user exists', () => {
 		act(() => {
-			let cards = [{ supertype: 'Energy' }];
+            const decks = [{title:"Skylab"}]
+            const user='Skylab'
+
 			render(
 				<BrowserRouter>
-					<TotalCards cards={cards} />
+					<MyDeckBlock props={{decks:decks, user:user}}/>
 				</BrowserRouter>,
 				container
 			);
 		});
-		expect(document.getElementById('length-true')).toBeDefined();
+
+		expect(
+			document.getElementById('image__cards-deck')
+		).toBeDefined();
 	});
 
-	test('should have text - ok', () => {
-		act(() => {
-			render(
-				<BrowserRouter>
-					<TotalCards />
-				</BrowserRouter>,
-				container
-			);
-		});
-		expect(document.getElementById('length-false')).toBeDefined();
-	});
 });
