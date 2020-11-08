@@ -18,6 +18,7 @@ function MyDecks() {
 
 	useEffect(() => {
 		cardsStore.addEventListener(handleChange);
+		authStore.addEventListener(handleChange);
 
 		if (!decks || decks.length < 1) {
 			loadDecks();
@@ -25,6 +26,7 @@ function MyDecks() {
 
 		return () => {
 			cardsStore.removeEventListener(handleChange);
+			authStore.removeEventListener(handleChange);
 		};
 	}, [decks, user]);
 
@@ -60,7 +62,9 @@ function MyDecks() {
 						</div>
 					</div>
 					) : (
-						<Login />
+						<div id="image__cards-deck" className="deckSection__images">
+							<Login />
+						</div>
 					)
 						);
 }
