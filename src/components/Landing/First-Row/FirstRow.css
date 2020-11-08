@@ -43,7 +43,7 @@
 	width: 80%;
 	background-color: rgba(0, 0, 0, 0.7);
 	border-radius: 25px 25px 25px 25px;
-	padding: 0 30px;
+	padding: 35px 30px;
 }
 
 .landing__header--description {
@@ -52,6 +52,7 @@
 	color: white;
 	font-family: 'Lato', sans-serif;
 	line-height: 30px;
+	font-weight: 900;
 }
 
 .landing__header--logo {
