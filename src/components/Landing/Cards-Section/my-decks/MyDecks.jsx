@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { loadDecks } from '../../../../actions/action-creators';
 import authStore from '../../../../stores/auth-store';
 import cardsStore from '../../../../stores/store';
-import LoadingGif from '../../../LoadingGif/LoadingGif';
-import Login from '../../../Login/Login';
 import MyDeckBlock from './MyDeckBlock/MyDeckBlock';
 import './MyDecks.css';
 

@@ -46,7 +46,9 @@ function MyDeckBlock({ props }) {
 				</div>
 			) : (
 				<div id="image__cards-deck" className="deckSection__images">
-					<Login />
+					<div className="login__wrapper-nobackground">
+						<Login />
+					</div>
 				</div>
 			)}
 		</>

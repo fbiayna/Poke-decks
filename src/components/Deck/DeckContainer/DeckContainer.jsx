@@ -14,7 +14,9 @@ function DeckContainer({ user }) {
 				</div>
 			) : (
 				<div id="deck-container" className="deck">
-					<Login />
+					<div className="login__wrapper">
+						<Login />
+					</div>
 				</div>
 			)}
 		</>
