@@ -13,6 +13,7 @@ function CardSearchLanding() {
 	}
 
 	useEffect(() => {
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
 		cardsStore.addEventListener(handleChange);
 
 		if (!cards) {

@@ -16,6 +16,21 @@ class CardsStore extends EventEmitter {
 		return _decks;
 	}
 
+	removeCard(decks, cardId) {
+		debugger;
+		let newDeck = [];
+		let identicalCards = 0;
+		decks[0].cards?.map((card) => {
+			if (card.id !== cardId || identicalCards > 0) {
+				newDeck.push(card);
+			} else {
+				identicalCards++;
+			}
+		});
+		decks[0].cards = newDeck;
+		return decks;
+	}
+
 	setCards() {
 		return (cards = []);
 	}
@@ -66,6 +81,12 @@ dispatcher.register((action) => {
 
 		case actionTypes.LOAD_DECKS:
 			_decks = action.payload;
+			cardsStore.emitChange();
+			break;
+
+		case actionTypes.REMOVE_CARD:
+			debugger;
+			_decks = cardsStore.removeCard(_decks, action.payload);
 			cardsStore.emitChange();
 			break;
 

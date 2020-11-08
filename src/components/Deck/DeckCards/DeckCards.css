@@ -10,7 +10,13 @@
     padding-top: 50px;
 }
 
-.deckCard__container {
+.deckCard__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.deckCard__wrapper__container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,13 +26,35 @@
     transition: transform 0.3s;
 }
 
-.deckCard__container:hover {
+.deckCard__wrapper__container:hover {
     transform: scale(1.1);
 }
 
 .deckCard__image {
     width: 200px;
     border-radius: 10px;
+}
+
+.deckard__wrapper__remove-button {
+    display: flex;
+	align-items: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 10px 20px;
+	font-size: 16px;
+	color: white;
+	font-weight: 700;
+	border: none;
+	border-radius: 5px;
+	outline-style: none;
+	cursor: pointer;
+	outline: none;
+    background-color: rgb(159, 0, 0);
+    transition: background-color 0.15s;
+}
+
+.deckard__wrapper__remove-button:hover {
+    background-color: rgb(207, 0, 0);
 }
 
 @media screen and (max-width: 690px) {
