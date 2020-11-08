@@ -26,7 +26,9 @@ function Decks() {
         </div>
     ) : (
             <div div className="deck" >
-                <Login />
+                <div className="login__wrapper">
+                    <Login />
+                </div>
             </div>
         )
     );

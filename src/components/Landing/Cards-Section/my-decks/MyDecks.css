@@ -16,6 +16,15 @@ body {
 	z-index: 1;
 }
 
+.login__wrapper-nobackground {
+    width: 50%;
+    padding: 50px;
+    margin: 100px auto;
+    border-radius: 20px;
+    color: rgb(251, 215, 67);
+    text-shadow: 2px 0 0 rgb(54, 59, 129), -2px 0 0 rgb(54, 59, 129), 0 2px 0 rgb(54, 59, 129), 0 -2px 0 rgb(54, 59, 129), 3px 1px rgb(54, 59, 129), -1px -1px 0 rgb(54, 59, 129), 2px -1px 0 rgb(54, 59, 129), -1px 2px 0 rgb(54, 59, 129);
+}
+
 .images__title > h2 {
 	text-transform: capitalize;
 	font-size: 25px;
