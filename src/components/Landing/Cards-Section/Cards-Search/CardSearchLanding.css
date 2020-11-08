@@ -31,8 +31,9 @@ body {
 	transition: transform 0.2s;
 }
 
-.images__title > p {
+.images__title__text {
 	color: white;
+	font-weight: 900;
 }
 
 .images__title:hover {
