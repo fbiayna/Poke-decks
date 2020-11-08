@@ -24,7 +24,7 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    transition: transform 0.2s;
+    transition: transform 0.5s;
 }
 
 .login__block__zoom-block:hover {
@@ -43,6 +43,6 @@
     height: 96px;
     background-image: url('https://trello-attachments.s3.amazonaws.com/5f8ca3639574d3550b3ad495/5f9cb0e6b6fed24123256da4/e5d406877369803738ddacdbb58fc17b/icons8-pikachu-pokemon-96.png');
     background-size: cover;
-    transition: transform 0.2s;
+    transition: transform 0.5s;
 
 }
