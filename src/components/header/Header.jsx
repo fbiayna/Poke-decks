@@ -2,10 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
 import headerLogo from './image/headerLogo';
-import {
-	signInWithGoogle,
-	signOut
-} from '../../actions/auth-actions';
+import { signInWithGoogle, signOut } from '../../actions/auth-actions';
 import authStore from '../../stores/auth-store';
 import Username from './User/Username';
 
@@ -64,7 +61,6 @@ function Header() {
 				href="https://fonts.googleapis.com/icon?family=Material+Icons"
 				rel="stylesheet"
 			></link>
-			<div className="test"></div>
 			<h1 className="title__body">Pokémon TCG - Deck Masters</h1>
 			<nav className="mobile-header">
 				<h2 className="title__body">Deck Masters - Header</h2>
@@ -109,8 +105,8 @@ function Header() {
 							/>
 						</Link>
 					</div>
-					<div className="desktop-header__block flex-end">
-						<Username user={user}/>
+					<div className="desktop-header__block">
+						<Username user={user} />
 						{isSignInVisible()}
 						<div className="desktop-header__logotgc">
 							<a href="https://www.pokemon.com/us/pokemon-tcg/">
