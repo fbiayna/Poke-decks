@@ -27,6 +27,10 @@
     transition: transform 0.5s;
 }
 
+.login__block__zoom-block > h1 {
+    text-align: center;
+}
+
 .login__block__zoom-block:hover {
     transform: scale(1.3);
 }
