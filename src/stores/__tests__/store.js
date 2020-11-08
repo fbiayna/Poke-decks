@@ -35,6 +35,137 @@ describe('cardsStore functions', () => {
 		// assert
 		expect(decks).toEqual([]);
 	});
+
+	test('should return back value', () => {
+		// act
+		const back = cardsStore.goBack();
+		// assert
+		expect(back).toBeUndefined();
+	});
+
+	test('should return something - removeCard identical cards', () => {
+		// arrange
+		const decks = [{ cards: [{ id: '1' }, { id: '2' }] }];
+		const cardId = '3'
+		// act
+		const removeCard = cardsStore.removeCard(decks, cardId);
+		// assert
+		expect(removeCard).toBeDefined();
+	});
+
+	test('should return something - removeCard', () => {
+		// arrange
+		const decks = [{ cards: [{ id: '1' }, { id: '2' }] }];
+		const cardId = '1'
+		// act
+		const removeCard = cardsStore.removeCard(decks, cardId);
+		// assert
+		expect(removeCard).toBeDefined();
+	});
+
+	test('should return something - empty decks', () => {
+		// arrange
+		const decks = [];
+		const card = { card: 'Skylab' };
+		// act
+		const back = cardsStore.addCard(decks, card);
+		// assert
+		expect(back).toBeDefined();
+	});
+
+	test('should return something - length < 60', () => {
+		// arrange
+		const decks = [{ cards: [{ id: '1' }, { id: '2' }] }];
+		const card = { card: 'Skylab' };
+		// act
+		const back = cardsStore.addCard(decks, card);
+		// assert
+		expect(back).toBeDefined();
+	});
+
+	test('should return something - length > 60', () => {
+		// arrange
+		const decks = [
+			{
+				cards: [
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+					{ id: 'Skylab' },
+				]
+			}
+		];
+		const card = { card: 'Skylab' };
+		// act
+		const back = cardsStore.addCard(decks, card);
+		// assert
+		expect(back).toBeDefined();
+	});
 });
 
 describe('dispatcher.register functions', () => {
@@ -88,6 +219,19 @@ describe('dispatcher.register functions', () => {
 		expect(pokemonDeck).toEqual(decks);
 	});
 
+	test('should return a card removed', () => {
+		//arrange
+		const decks = [{ id: 'Deck#001' }];
+		dispatcher.dispatch({
+			type: actionTypes.REMOVE_CARD,
+			payload: decks
+		});
+		//act
+		const pokemonDeck = cardsStore.getDecks();
+		//assert
+		expect(pokemonDeck).toEqual([{ cards: [], id: 'Deck#001' }]);
+	});
+
 	test('should return an array item in loadList', () => {
 		//arrange
 		const cardName = [{ name: 'Charizard' }];
@@ -98,7 +242,7 @@ describe('dispatcher.register functions', () => {
 		//act
 		const pokemonName = cardsStore.getCards();
 		//assert
-		expect(pokemonName).toEqual(cardName);
+		expect(pokemonName).toBe(cardName);
 	});
 
 	test('should work default case', () => {

@@ -17,7 +17,6 @@ class CardsStore extends EventEmitter {
 	}
 
 	removeCard(decks, cardId) {
-		debugger;
 		let newDeck = [];
 		let identicalCards = 0;
 		decks[0].cards?.map((card) => {
@@ -45,6 +44,22 @@ class CardsStore extends EventEmitter {
 
 	getCard() {
 		return card;
+	}
+
+	goBack() {
+		return window.history.back();
+	}
+
+	addCard(decks, card) {
+		return (
+			<>
+				{decks?.length > 0
+					? decks[0].cards.length < 60
+						? decks[0].cards.push(card.card) && alert('Added!')
+						: alert('Your deck is full, check it and make some space!')
+					: alert('There are no decks... Create one first!')}
+			</>
+		);
 	}
 
 	addEventListener(callback) {
@@ -85,7 +100,6 @@ dispatcher.register((action) => {
 			break;
 
 		case actionTypes.REMOVE_CARD:
-			debugger;
 			_decks = cardsStore.removeCard(_decks, action.payload);
 			cardsStore.emitChange();
 			break;

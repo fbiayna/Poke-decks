@@ -1,13 +1,13 @@
 import React from 'react';
-import NotFound from '../NotFound';
-import cardsStore from '../../../stores/store'
+import DeckCardsContainer from '../DeckCardsContainer';
+import * as actions from '../../../../../../actions/action-creators'
 import { act } from 'react-dom/test-utils';
 import { BrowserRouter } from 'react-router-dom';
 import { render, unmountComponentAtNode } from 'react-dom';
 
-jest.mock('../../../stores/store')
+jest.mock('../../../../../../actions/action-creators');
 
-describe('NotFound', () => {
+describe('DeckCardsContainer', () => {
 	let container = null;
 
 	beforeEach(() => {
@@ -21,34 +21,38 @@ describe('NotFound', () => {
 		container = null;
 	});
 
-	test('to be defined - NotFound exists', () => {
+	test('to be defined', () => {
 		act(() => {
+
+            const decks=[{cards:[{id:"1",imageUrlHires:"Skylab.png"}]}]
 
 			render(
 				<BrowserRouter>
-					<NotFound />
+					<DeckCardsContainer decks={decks}/>
 				</BrowserRouter>,
 				container
 			);
 		});
 
 		expect(
-			document.getElementsByClassName('landing-not-found')[0]
+			document.getElementsByClassName('decks__card-section')[0]
 		).toBeDefined();
 	});
-	
-	test('llama a la función back cuando se hace click', () => {
+
+	test('llama a la función removeCard cuando se hace click', () => {
+
+        const decks=[{cards:[{id:"1",imageUrlHires:"Skylab.png"}]}]
 
 		act(() => {
 			render(
 				<BrowserRouter>
-					<NotFound />
+					<DeckCardsContainer decks={decks}/>
 				</BrowserRouter>,
 				container
 			);
 		});
 		
-		const button = document.getElementById('button-back');
+		const button = document.getElementById('remove-button');
 
 		act(() => {
 			button.dispatchEvent(
@@ -56,7 +60,7 @@ describe('NotFound', () => {
 			);
 		});
 
-		expect(cardsStore.goBack).toHaveBeenCalled();
+		expect(actions.removeCard).toHaveBeenCalled();
 	});
 
 });

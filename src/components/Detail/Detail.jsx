@@ -45,22 +45,6 @@ function Detail(props) {
 		};
 	}, [card, cardId, decks]);
 
-	function goBack() {
-		window.history.back();
-	}
-
-	function addCard(decks, card) {
-		return (
-			<>
-				{decks?.length > 0
-					? decks[0].cards.length < 60
-						? decks[0].cards.push(card.card) && alert('Added!')
-						: alert('Your deck is full, check it and make some space!')
-					: alert('There are no decks... Create one first!')}
-			</>
-		);
-	}
-
 	return (
 		<>
 			<div className="detailcard-container">
@@ -76,7 +60,7 @@ function Detail(props) {
 							></img>
 						</div>
 						<div className="image__button-add">
-							<button id="button-back" onClick={() => goBack()}>
+							<button id="button-back" onClick={() => cardsStore.goBack()}>
 								<span class="material-icons">arrow_back</span>&nbsp;
 								<span>Go Back</span>
 							</button>
@@ -118,7 +102,7 @@ function Detail(props) {
 						<div className="detailcard-container__description-button">
 							<button
 								id="button-add__card"
-								onClick={() => addCard(decks, card)}
+								onClick={() => cardsStore.addCard(decks, card)}
 							>
 								<span class="material-icons">style</span>&nbsp;
 								<span>Add to Deck</span>
@@ -140,5 +124,5 @@ function Detail(props) {
 		</>
 	);
 }
-
+  
 export default Detail;

@@ -1,8 +1,11 @@
 import React from 'react';
 import Detail from '../Detail';
+import cardsStore from '../../../stores/store'
 import { act } from 'react-dom/test-utils';
 import { BrowserRouter } from 'react-router-dom';
 import { render, unmountComponentAtNode } from 'react-dom';
+
+jest.mock('../../../stores/store');
 
 describe('Detail', () => {
 	let container = null;
@@ -55,17 +58,44 @@ describe('Detail', () => {
 				container
 			);
 		});
-
-		const goBack = jest.fn()
+		
 		const button = document.getElementById('button-back');
 
 		act(() => {
 			button.dispatchEvent(
-				new MouseEvent('click', goBack())
+				new MouseEvent('click', { bubbles: true, cancelable: true })
 			);
 		});
 
-		expect(goBack).toHaveBeenCalled();
+		expect(cardsStore.goBack).toHaveBeenCalled();
+	});
+
+	test('llama a la función add card cuando se hace click', () => {
+		
+		const match = {
+			params: {
+				cardId: 'someCardId'
+			}
+		};
+
+		act(() => {
+			render(
+				<BrowserRouter>
+					<Detail match={match} />
+				</BrowserRouter>,
+				container
+			);
+		});
+		
+		const button = document.getElementById('button-add__card');
+
+		act(() => {
+			button.dispatchEvent(
+				new MouseEvent('click', { bubbles: true, cancelable: true })
+			);
+		});
+
+		expect(cardsStore.addCard).toHaveBeenCalled();
 	});
 
 

@@ -1,24 +1,15 @@
 import React from 'react';
-import MyDecks from '../MyDecks';
+import TotalCards from '../../ButtonsBar/TotalCards/TotalCards';
 import { act } from 'react-dom/test-utils';
 import { BrowserRouter } from 'react-router-dom';
 import { render, unmountComponentAtNode } from 'react-dom';
-import store from '../../../../../stores/store';
 
-describe('MyDecks', () => {
+describe('TotalCards', () => {
 	let container = null;
 
 	beforeEach(() => {
 		container = document.createElement('div');
 		document.body.appendChild(container);
-		let decks = [
-			{
-				title: 'Deck 1',
-				url: './decks',
-				imagealt: 'https://images.pokemontcg.io/pl3/93_hires.png'
-			},
-		];
-		store.setCardsCorrectly(decks);
 	});
 
 	afterEach(() => {
@@ -27,16 +18,28 @@ describe('MyDecks', () => {
 		container = null;
 	});
 
-	test('should have a title', () => {
+	test('should have text - warning', () => {
 		act(() => {
+			let cards = [{ supertype: 'Energy' }];
 			render(
 				<BrowserRouter>
-					<MyDecks />
+					<TotalCards cards={cards} />
 				</BrowserRouter>,
 				container
 			);
 		});
-		expect(document.getElementById('image__cards-deck')).toBeDefined();
+		expect(document.getElementById('length-true')).toBeDefined();
 	});
 
+	test('should have text - ok', () => {
+		act(() => {
+			render(
+				<BrowserRouter>
+					<TotalCards />
+				</BrowserRouter>,
+				container
+			);
+		});
+		expect(document.getElementById('length-false')).toBeDefined();
+	});
 });

@@ -1,8 +1,11 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { BrowserRouter } from 'react-router-dom';
+import cardsStore from '../../../stores/store'
 import List from '../List';
 import { render, unmountComponentAtNode } from 'react-dom';
+
+jest.mock('../../../stores/store')
 
 describe('List', () => {
 	let container;
@@ -86,4 +89,32 @@ describe('List', () => {
 			'<button id="button-back_search"><span class="material-icons">arrow_back</span>&nbsp;<span>Go Back</span></button><a class="pokemon-card__text" id="pokemon_evolve" href="/decks"><button id="button-go-deck_search"><span class="material-icons">arrow_forward</span>&nbsp;<span>Go to Deck</span></button></a>'
 		);
 	});
+
+	test('llama a la función back cuando se hace click', () => {
+		
+		const location = {
+			search: 'cardId'
+		};
+
+		act(() => {
+			render(
+				<BrowserRouter>
+					<List location={location} />
+				</BrowserRouter>,
+				container
+			);
+		});
+		
+		const button = document.getElementById('button-back_search');
+
+		act(() => {
+			button.dispatchEvent(
+				new MouseEvent('click', { bubbles: true, cancelable: true })
+			);
+		});
+
+		expect(cardsStore.goBack).toHaveBeenCalled();
+	});
+
+
 });

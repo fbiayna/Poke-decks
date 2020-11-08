@@ -4,7 +4,8 @@ import {
 	loadRandomCards,
 	loadCard,
 	loadDecks,
-	loadList
+	loadList,
+	removeCard
 } from '../action-creators';
 import actionTypes from '../actionTypes';
 import dispatcher from '../../dispatcher/dispatcher';
@@ -31,7 +32,6 @@ describe('action-creators', () => {
 		});
 
 		test('should call axios with cards API', () => {
-
 			expect(axios.mock.calls[0][0]).toMatch(
 				'https://api.pokemontcg.io/v1/cards?page='
 			);
@@ -210,6 +210,21 @@ describe('action-creators', () => {
 		test('should call dispatcher on rejected promise', () => {
 			expect(dispatcher.dispatch.mock.calls[0][0].payload).toEqual({
 				cards: [{ name: 'Charizard' }]
+			});
+		});
+	});
+
+	describe('removeCard', () => {
+		const cardId = 'ex14-28';
+
+		beforeEach(() => {
+			removeCard(cardId);
+		});
+
+		test('should call dispatcher', () => {
+			expect(dispatcher.dispatch.mock.calls[0][0]).toEqual({
+				type: actionTypes.REMOVE_CARD,
+				payload: cardId
 			});
 		});
 	});
