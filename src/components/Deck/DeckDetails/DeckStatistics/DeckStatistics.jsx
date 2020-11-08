@@ -29,9 +29,9 @@ function DeckStatistics() {
     return (
         <div className="decks__section__block__deck-statistics">
             <div className="decks__section__block__deck-statistics__text">
-                <PokemonStatistics decks={decks}/>
-                <EnergyStatistics decks={decks}/>
-                <TrainerStatistics decks={decks}/>
+                <PokemonStatistics cards={decks[0]?.cards}/>
+                <EnergyStatistics cards={decks[0]?.cards}/>
+                <TrainerStatistics cards={decks[0]?.cards}/>
             </div>
         </div>
 

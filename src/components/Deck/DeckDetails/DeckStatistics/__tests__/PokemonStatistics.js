@@ -1,10 +1,10 @@
 import React from 'react';
-import Statistics from '../Statistics';
+import PokemonStatistics from '../Statistics/PokemonStatistics';
 import { act } from 'react-dom/test-utils';
 import { BrowserRouter } from 'react-router-dom';
 import { render, unmountComponentAtNode } from 'react-dom';
 
-describe('Statistics', () => {
+describe('PokemonStatistics', () => {
 	let container = null;
 
 	beforeEach(() => {
@@ -23,7 +23,7 @@ describe('Statistics', () => {
 			let cards = [{ supertype: 'Pokémon' }];
 			render(
 				<BrowserRouter>
-					<Statistics cards={cards} />
+					<PokemonStatistics cards={cards} />
 				</BrowserRouter>,
 				container
 			);
@@ -83,7 +83,7 @@ describe('Statistics', () => {
 			];
 			render(
 				<BrowserRouter>
-					<Statistics cards={cards} />
+					<PokemonStatistics cards={cards} />
 				</BrowserRouter>,
 				container
 			);
@@ -120,7 +120,7 @@ describe('Statistics', () => {
 			];
 			render(
 				<BrowserRouter>
-					<Statistics cards={cards} />
+					<PokemonStatistics cards={cards} />
 				</BrowserRouter>,
 				container
 			);

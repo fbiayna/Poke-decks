@@ -63,7 +63,7 @@ describe('CardSearchLanding', () => {
 
 		expect(
 			document.getElementsByClassName('images__cards')[0].children.length
-		).toBe(0);
+		).toBe(1);
 	});
 
 	test('should have a div with a button', () => {

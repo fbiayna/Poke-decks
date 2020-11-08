@@ -1,7 +1,7 @@
 import React from 'react';
 
-function TrainerStatistics({ decks }) {
-	let totalTrainers = decks[0]?.cards?.filter((card) => card.supertype === 'Trainer').length;
+function TrainerStatistics({ cards }) {
+	let totalTrainers = cards?.filter((card) => card.supertype === 'Trainer').length;
 
 	return (
 			<div className="statistics__category" id="statistic__category__trainers">

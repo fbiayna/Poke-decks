@@ -1,5 +1,5 @@
 import React from 'react';
-import TypeStatistics from '../TypesStatistics';
+import TypeStatistics from '../Statistics/TypesStatistics';
 import { act } from 'react-dom/test-utils';
 import { BrowserRouter } from 'react-router-dom';
 import { render, unmountComponentAtNode } from 'react-dom';
