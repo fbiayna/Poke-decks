@@ -30,7 +30,7 @@ function CardSearchLanding() {
 			<Link className="title__link" to="/cards">
 				<div className="images__title">
 					<h2>SEARCH BY CARDS</h2>
-					<p>
+					<p className="images__title__text">
 						Do you need information about any card?<br></br>Find it with
 						Poke-Decks' search tool!
 					</p>
