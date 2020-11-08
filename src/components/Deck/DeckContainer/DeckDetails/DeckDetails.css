@@ -15,6 +15,10 @@
     height: auto;
 }
 
+.deck__details {
+    padding-top: 60px;
+}
+
 .decks__section__block__deck-description {
     display: flex;
     flex-direction: column;

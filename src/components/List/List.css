@@ -8,6 +8,7 @@
 	background-repeat: no-repeat;
 	overflow-y: hidden;
 	position: relative;
+	padding-top: 60px;
 }
 
 .opacity {

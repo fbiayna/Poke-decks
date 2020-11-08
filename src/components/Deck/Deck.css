@@ -15,3 +15,14 @@
     color: rgb(251, 215, 67);
     text-shadow: 2px 0 0 rgb(54, 59, 129), -2px 0 0 rgb(54, 59, 129), 0 2px 0 rgb(54, 59, 129), 0 -2px 0 rgb(54, 59, 129), 3px 1px rgb(54, 59, 129), -1px -1px 0 rgb(54, 59, 129), 2px -1px 0 rgb(54, 59, 129), -1px 2px 0 rgb(54, 59, 129);
 }
+
+@media (max-width: 690px) {
+    .deck {
+        background-image: url('https://trello-attachments.s3.amazonaws.com/5f8ca3639574d3550b3ad495/5f9cb0e6b6fed24123256da4/9ad3cf61c40e71e084af7a990d1918cc/deck-background-mobile.jpg');
+        background-size: cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: center;
+        overflow-y: hidden;
+    }
+}
