@@ -50,7 +50,7 @@ describe('List', () => {
 		});
 		expect(
 			document.getElementsByClassName('card-gallery')[0].children.length
-		).toBe(0);
+		).toBe(1);
 	});
 
 	test('should be defined', () => {

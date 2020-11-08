@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { loadDecks } from '../../../../../actions/action-creators'
-import cardsStore from '../../../../../stores/store';
+import { loadDecks } from '../../../../actions/action-creators';
+import cardsStore from '../../../../stores/store';
 import AddCards from './AddCards/AddCards';
 import TotalCards from './TotalCards/TotalCards';
 

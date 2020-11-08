@@ -121,3 +121,11 @@ export async function loadList(cardName) {
 		});
 	}
 }
+
+export function removeCard(cardId) {
+	debugger;
+	dispatcher.dispatch({
+		type: actionTypes.REMOVE_CARD,
+		payload: cardId
+	});
+}

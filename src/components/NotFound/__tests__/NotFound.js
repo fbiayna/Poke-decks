@@ -1,10 +1,10 @@
 import React from 'react';
-import TotalCards from '../ButtonsBar/TotalCards/TotalCards';
+import NotFound from '../NotFound';
 import { act } from 'react-dom/test-utils';
 import { BrowserRouter } from 'react-router-dom';
 import { render, unmountComponentAtNode } from 'react-dom';
 
-describe('TotalCards', () => {
+describe('NotFound', () => {
 	let container = null;
 
 	beforeEach(() => {
@@ -18,28 +18,20 @@ describe('TotalCards', () => {
 		container = null;
 	});
 
-	test('should have text - warning', () => {
+	test('to be defined - NotFound exists', () => {
 		act(() => {
-			let cards = [{ supertype: 'Energy' }];
-			render(
-				<BrowserRouter>
-					<TotalCards cards={cards} />
-				</BrowserRouter>,
-				container
-			);
-		});
-		expect(document.getElementById('length-true')).toBeDefined();
-	});
 
-	test('should have text - ok', () => {
-		act(() => {
 			render(
 				<BrowserRouter>
-					<TotalCards />
+					<NotFound />
 				</BrowserRouter>,
 				container
 			);
 		});
-		expect(document.getElementById('length-false')).toBeDefined();
-	});
+
+		expect(
+			document.getElementsByClassName('landing-not-found')[0]
+		).toBeDefined();
+    });
+    
 });

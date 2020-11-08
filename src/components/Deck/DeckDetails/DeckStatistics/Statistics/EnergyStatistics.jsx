@@ -1,7 +1,7 @@
 import React from 'react';
 
-function EnergyStatistics({ decks }) {
-	let totalEnergy = decks[0]?.cards?.filter((card) => card.supertype === 'Energy').length;
+function EnergyStatistics({ cards }) {
+	let totalEnergy = cards?.filter((card) => card.supertype === 'Energy').length;
 
 	return (
 		<div className="statistics__category" id="statistic__category__energies">

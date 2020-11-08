@@ -1,5 +1,5 @@
 import React from 'react';
-import TrainerStatistics from '../TrainerStatistics';
+import TrainerStatistics from '../Statistics/TrainerStatistics';
 import { act } from 'react-dom/test-utils';
 import { BrowserRouter } from 'react-router-dom';
 import { render, unmountComponentAtNode } from 'react-dom';
