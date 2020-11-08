@@ -1,5 +1,5 @@
 import React from 'react';
-import EnergyStatistics from '../EnergyStatistics';
+import EnergyStatistics from '../Statistics/EnergyStatistics';
 import { act } from 'react-dom/test-utils';
 import { BrowserRouter } from 'react-router-dom';
 import { render, unmountComponentAtNode } from 'react-dom';

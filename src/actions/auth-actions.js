@@ -3,7 +3,7 @@ import firebase from 'firebase';
 import dispatcher from '../dispatcher/dispatcher';
 import actionTypes from '../actions/actionTypes';
 
-function handleSignIn(user) {
+export function handleSignIn(user) {
 	const customUserData = {
 		displayName: user.displayName,
 		email: user.email,
@@ -16,21 +16,10 @@ function handleSignIn(user) {
 	});
 }
 
-function handleError(type) {
+export function handleError(type) {
 	dispatcher.dispatch({
 		type
 	});
-}
-
-export async function signInWithEmail(email, password) {
-	try {
-		const { user } = await firebase
-			.auth()
-			.signInWithEmailAndPassword(email, password);
-		handleSignIn(user);
-	} catch (error) {
-		handleError(actionTypes.AUTH_LOGIN_ERROR);
-	}
 }
 
 export async function signInWithGoogle() {

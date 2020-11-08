@@ -1,0 +1,77 @@
+.landing-not-found {
+    width: 100%;
+	height: 400px;
+	overflow: hidden;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	border-bottom: 2px solid white;
+}
+
+.landing-not-found__background:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.landing-not-found__background {
+	position: absolute;
+	background-image: url('https://assets.pokemon.com/assets//cms2-es-es/img/trading-card-game/_tiles/tcgo/generic/tcgo-playmat-action-169-es.png');
+	height: 500px;
+	width: 100vw;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	filter: blur(5px);
+	-webkit-filter: blur(5px);
+	transform: scale(1.1);
+	z-index: -999;
+}
+
+.landing-not-found__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+	text-align: center;
+	color: white;
+	font-family: 'Lato', sans-serif;
+    line-height: 30px;
+    background-color: rgba(0, 0, 0, 0.7);
+	border-radius: 25px 25px 25px 25px;
+	padding: 15px 50px;
+}
+
+.landing-not-found__container > h1 {
+    margin-bottom: 35px;
+}
+
+.container__image {
+    width: 200px;
+}
+
+#container__image-img {
+    width: 100%;
+    border-radius: 2px;
+}
+
+@media screen and (max-width: 500px) {
+
+    .landing-not-found__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        color: white;
+        font-family: 'Lato', sans-serif;
+        line-height: 30px;
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 25px 25px 25px 25px;
+        padding: 10px 20px;
+    }
+
+}

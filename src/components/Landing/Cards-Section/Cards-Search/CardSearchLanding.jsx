@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import cardsStore from '../../../../stores/store';
 import { loadCards } from '../../../../actions/action-creators';
 import './CardSearchLanding.css';
+import LoadingGif from '../../../LoadingGif/LoadingGif';
 
 function CardSearchLanding() {
 	const [cards, setCards] = useState(null);
@@ -36,6 +37,7 @@ function CardSearchLanding() {
 				</div>
 			</Link>
 			<div className="images__cards">
+				<LoadingGif cardSearchItems={cards} />
 				{cards?.cards.map((card, index) => (
 					<Link key={`detail-${card.name}`} to={`/detail/${card.id}`}>
 						<img
