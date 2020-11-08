@@ -1,7 +1,6 @@
 import React from 'react';
 import DeckDetails from './DeckDetails/DeckDetails';
 import DeckCards from './DeckCards/DeckCards';
-import '../Deck.css';
 import Login from '../../Login/Login';
 
 function DeckContainer({ user }) {
