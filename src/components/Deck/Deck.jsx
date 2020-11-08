@@ -17,7 +17,7 @@ function Decks() {
         authStore.addEventListener(handleChange);
 
         return () => authStore.removeEventListener(handleChange);
-    });
+    }, [user]);
 
     return (user ? (
         <div div className="deck" >
