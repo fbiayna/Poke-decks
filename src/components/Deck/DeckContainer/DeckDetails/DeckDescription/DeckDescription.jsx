@@ -8,8 +8,7 @@ function DeckDescription() {
 	const [description, setDescription] = useState(decks[0]?.description);
 
 	function handleChange() {
-		const decks = cardsStore.getDecks();
-		setDecks(decks);
+		setDecks(cardsStore.getDecks());
 		setTitle(title);
 		setDescription(description);
 	}

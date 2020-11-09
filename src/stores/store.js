@@ -3,13 +3,13 @@ import dispatcher from '../dispatcher/dispatcher';
 import actionTypes from '../actions/actionTypes';
 
 const change = 'change';
-let cards = null;
-let card = [];
+let _cards = null;
+let _card = [];
 let _decks = [];
 
 class CardsStore extends EventEmitter {
 	getCards() {
-		return cards;
+		return _cards;
 	}
 
 	getDecks() {
@@ -17,6 +17,7 @@ class CardsStore extends EventEmitter {
 	}
 
 	removeCard(decks, cardId) {
+		debugger
 		let newDeck = [];
 		let identicalCards = 0;
 		decks[0].cards?.map((card) => {
@@ -31,19 +32,19 @@ class CardsStore extends EventEmitter {
 	}
 
 	setCards() {
-		return (cards = []);
+		return (_cards = []);
 	}
 
 	setCardsCorrectly(value) {
-		cards = value;
+		_cards = value;
 	}
 
 	setTestCards() {
-		return (cards = { cards: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] });
+		return (_cards = { cards: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] });
 	}
 
 	getCard() {
-		return card;
+		return _card;
 	}
 
 	goBack() {
@@ -80,17 +81,17 @@ const cardsStore = new CardsStore();
 dispatcher.register((action) => {
 	switch (action.type) {
 		case actionTypes.LOAD_CARDS:
-			cards = action.payload;
+			_cards = action.payload;
 			cardsStore.emitChange();
 			break;
 
 		case actionTypes.LOAD_RANDOM_CARDS:
-			cards = action.payload;
+			_cards = action.payload;
 			cardsStore.emitChange();
 			break;
 
 		case actionTypes.LOAD_CARD:
-			card = action.payload;
+			_card = action.payload;
 			cardsStore.emitChange();
 			break;
 
@@ -105,7 +106,7 @@ dispatcher.register((action) => {
 			break;
 
 		case actionTypes.LOAD_LIST:
-			cards = action.payload;
+			_cards = action.payload;
 			cardsStore.emitChange();
 			break;
 

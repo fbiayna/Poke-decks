@@ -120,7 +120,7 @@
 
 #name-title:focus,
 #name-description {
-    outline: none;
+    outline-style: none;
 }
 
 #name-description::placeholder {

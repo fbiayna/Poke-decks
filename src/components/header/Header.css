@@ -30,13 +30,6 @@ body {
 	height: 60px;
 }
 
-.desktop-header__title {
-	width: 200px;
-	height: auto;
-	justify-self: center;
-	cursor: pointer;
-}
-
 .title__body {
 	display: none;
 }
@@ -56,7 +49,7 @@ body {
 }
 
 @media screen and (max-width: 900px) {
-	.user-login-email{
+	.user-login-email {
 		display: none;
 	}
 }
@@ -68,7 +61,6 @@ body {
 }
 
 @media screen and (max-width: 715px) {
-	
 	.desktop-header__title {
 		display: none;
 	}
@@ -129,7 +121,7 @@ body {
 	cursor: pointer;
 	color: white;
 	border: 1px;
-	outline: none;
+	outline-style: none;
 	font-weight: 700;
 	font-size: 14px;
 }
@@ -182,7 +174,8 @@ body {
 	align-items: center;
 	height: 30px;
 	width: auto;
-    margin-right: 20px;
+	margin: 0 20px;
+	font-weight: 600;
 }
 
 .desktop-header__login__button {
@@ -223,12 +216,10 @@ body {
 	font-size: 22px;
 	cursor: pointer;
 	justify-self: center;
-}
-
-.desktop-header__login {
-	width: auto;
-	margin: 0 20px;
-	font-weight: 600;
+	width: 200px;
+	height: auto;
+	justify-self: center;
+	cursor: pointer;
 }
 
 .desktop-header__login span {
