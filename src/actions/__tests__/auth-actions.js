@@ -7,7 +7,6 @@ import {
 	signOut
 } from '../auth-actions';
 import '../firebase/firebaseIndex';
-import firebase from 'firebase';
 import actionTypes from '../actionTypes';
 
 jest.mock('axios');

@@ -9,8 +9,8 @@ function ButtonsBar() {
     const [decks, setDecks] = useState(cardsStore.getDecks());
 
 	function handleChange() {
-		const decks = cardsStore.getDecks();
-		setDecks(decks);
+		let moreDecks = cardsStore.getDecks();
+		setDecks(moreDecks);
 	}
 
 	useEffect(() => {

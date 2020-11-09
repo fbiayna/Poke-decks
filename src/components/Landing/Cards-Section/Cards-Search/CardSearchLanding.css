@@ -43,7 +43,12 @@ body {
 
 .title__link:link,
 .title__link:visited,
-.title__link:active, #images__button-search-button:link, #images__button-search-button, #images__button-search-button {
+.title__link:active {
+	outline-style: none;
+	text-decoration: none;
+}
+
+#images__button-search-button:link {
 	outline-style: none;
 	text-decoration: none;
 }
@@ -81,7 +86,6 @@ body {
 	border-radius: 5px;
 	outline-style: none;
 	cursor: pointer;
-	outline: none;
 	background-color: #1e5799;
 }
 

@@ -48,7 +48,6 @@
 	border-radius: 5px;
 	outline-style: none;
 	cursor: pointer;
-	outline: none;
     background-color: rgb(159, 0, 0);
     transition: background-color 0.15s;
 }

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { loadDecks, removeCard } from '../../../../actions/action-creators';
+import { loadDecks } from '../../../../actions/action-creators';
 import cardsStore from '../../../../stores/store';
 import './DeckCards.css';
 import DeckCardsContainer from './DeckCardsContainer/DeckCardsContainer';
