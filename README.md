@@ -17,6 +17,8 @@ Poke-Decks is a database built around trading card game of Pokemon. You will be 
 - CSS
 - React w/ Flux
 - Jest testing
+- Firebase
+- API
 - Material Design
 
 ## Available Scripts
