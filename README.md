@@ -6,18 +6,18 @@ This is a 7 days Frontend app project made by Alberto Gómez, Iván SanNicolas a
 Poke-Decks is a database built around trading card game of Pokemon. You will be able to consult from all Pokemon’s TCG sets to every existing card in the game. In addition, we offer a competitive tool such a deck editor. 
 
 # Creators
-Ferran Biayna - https://github.com/fbiayna
-Alberto Gómez - https://github.com/algmebe1
-Iván SanNicolás - https://github.com/Ivansannicolas
+- Ferran Biayna - https://github.com/fbiayna
+- Alberto Gómez - https://github.com/algmebe1
+- Iván SanNicolás - https://github.com/Ivansannicolas
 
 # Technologies
 
-Javascript
-HTML
-CSS
-React w/ Flux
-Jest testing
-Material Design
+- Javascript
+- HTML
+- CSS
+- React w/ Flux
+- Jest testing
+- Material Design
 
 ## Available Scripts
 
