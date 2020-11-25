@@ -12,12 +12,12 @@ Iván SanNicolás - https://github.com/Ivansannicolas
 
 # Technologies
 
-- Javascript
-- HTML
-- CSS
-- React w/ Flux
-- Jest testing
-- Material Design
+Javascript
+HTML
+CSS
+React w/ Flux
+Jest testing
+Material Design
 
 ## Available Scripts
 
